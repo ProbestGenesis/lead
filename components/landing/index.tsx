@@ -37,7 +37,7 @@ export default function LandingPage() {
       {/**Landing */}
       <div className="flex flex-col-reverse sm:items-center sm:justify-center">
         <Image src="" alt="" className="absolute inset-0 max-sm:hidden" />
-        <div className="flex h-[90vh] flex-col sm:items-center sm:justify-center container max-x-7xl">
+        <div className="flex h-[90vh] flex-col container max-x-7xl">
           <div className="w-full h-[30%] relative sm:hidden">
             <Image
               src={m_illu1}

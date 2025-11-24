@@ -24,19 +24,19 @@ function Services() {
       {/* Decorative elements */}
       <div className="absolute top-0 right-0 w-1/3 h-full bg-gradient-to-l from-white/50 to-transparent pointer-events-none" />
 
-      <div className="container mx-auto px-4 md:px-6 relative z-10">
-        <div className="text-center mb-16 space-y-4">
+      <div className="container mx-auto  px-4 md:px-6 relative z-10">
+        <div className=" mb-16 space-y-4">
           <h2 className="text-3xl font-bold tracking-tight sm:text-4xl text-gray-900">
             Nos Domaines d'Intervention
           </h2>
-          <div className="h-1 w-20 bg-secondary mx-auto rounded-full" />
-          <p className="text-gray-600 max-w-2xl mx-auto text-lg">
+          <div className="h-1 w-20 bg-secondary  rounded-full" />
+          <p className="text-gray-600 max-w-2xl  text-left text-lg">
             Des solutions complètes adaptées aux particuliers et professionnels,
             réalisées dans le respect strict des normes en vigueur.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 mx-auto md:grid-cols-2 lg:grid-cols-4 gap-8">
           <ServiceCard
             icon={<Lightbulb className="h-8 w-8 text-white" />}
             title="Installation"
@@ -90,7 +90,7 @@ function ServiceCard({
     >
       <CardHeader className="text-center pb-2 relative z-10">
         <div
-          className={`mx-auto w-20 h-20 rounded-2xl flex items-center justify-center mb-4 transition-transform duration-500 group-hover:rotate-6 ${
+          className={` w-20 h-20 rounded-2xl flex items-center justify-center mb-4 transition-transform duration-500 group-hover:rotate-6 ${
             highlight ? 'bg-white/20 text-white' : 'bg-primary text-white'
           }`}
         >
@@ -116,7 +116,7 @@ function ServiceCard({
       {/* Decorative background circle */}
       <div
         className={`absolute -bottom-10 -right-10 w-32 h-32 rounded-full opacity-10 transition-transform duration-500 group-hover:scale-150 ${
-          highlight ? 'bg-black' : 'bg-primary'
+          highlight ? 'bg-blue-600/60' : 'bg-blue-700/80'
         }`}
       />
     </Card>

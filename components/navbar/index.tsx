@@ -17,7 +17,7 @@ function NavBar() {
         <div className="flex items-start space-x-6.5">
           <Logo />
 
-          <ul className="max-sm:hidden flex items-center space-x-1.5">
+          <ul className="max-sm:hidden flex items-center space-x-3">
             {link.map((item, idx) => (
               <li
                 key={idx.toString()}
