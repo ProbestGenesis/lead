@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono, Roboto } from "next/font/google";
+import { Geist, Geist_Mono, Alexandria } from "next/font/google";
 import "./globals.css";
 import NavBar from "@/components/navbar";
+import Footer from "@/components/footer";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -13,9 +14,10 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-const roboto = Roboto({
-  weight: ['400', '600', '900'],
-  subsets: ['cyrillic', "latin"]
+
+const alexendria = Alexandria({
+  weight: ['400', '700'],
+  subsets: ['latin']
 })
 
 export const metadata: Metadata = {
@@ -35,11 +37,11 @@ export default function RootLayout({
       >
         <NavBar />
         
-        <div className={`flex-1  w-full ${roboto.className}`}>
+        <div className={`flex-1  w-full ${alexendria.className}`}>
          {children}
         </div>
 
-
+        <Footer />
       </body>
     </html>
   );

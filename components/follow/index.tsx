@@ -1,7 +1,7 @@
 type Props = {}
 function Following({}: Props) {
   return (
-    <div className="flex flex-col space-y-4 items-center justify-center">
+    <div className="flex flex-col space-y-4 items-center justify-center py-8">
           <h3>Nous suivres sur les différentes platforme</h3>
           
           <ul className="flex flex-row space-x-2"> 

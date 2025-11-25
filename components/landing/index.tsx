@@ -7,6 +7,7 @@ import { Button } from '../ui/button';
 import clsx from 'clsx';
 import { motion } from 'motion/react';
 import { ArrowLeft, ArrowRight, Pause } from 'lucide-react';
+import landingIllu from "@/assets/illu.jpg"
 
 export default function LandingPage() {
   const [landingIdx, setLandingIdx] = useState(1);
@@ -35,9 +36,16 @@ export default function LandingPage() {
   return (
     <>
       {/**Landing */}
-      <div className="flex flex-col-reverse sm:items-center sm:justify-center">
-        <Image src="" alt="" className="absolute inset-0 max-sm:hidden" />
-        <div className="flex h-[90vh] flex-col container max-x-7xl">
+      <div className="flex flex-col-reverse sm:items-center sm:justify-center relative max-h-[90vh]">
+        <Image
+          src={landingIllu}
+          alt=""
+          width={4256}
+          height={2832}
+          className="absolute inset-0 max-sm:hidden  max-h-[90vh]"
+        />
+        <div className="absolute inset-0 bg-black/60  max-h-[90vh]" />
+        <div className="flex h-[90vh] flex-col sm:justify-center container max-x-7xl">
           <div className="w-full h-[30%] relative sm:hidden">
             <Image
               src={m_illu1}
@@ -47,7 +55,7 @@ export default function LandingPage() {
             />
           </div>
 
-          <div className="max-sm:h-[70%] flex flex-col w-full sm:w-2xl py-24 p-4 justify-between sm:space-y-4 relative max-sm:bg-black">
+          <div className="max-sm:h-[70%] flex flex-col w-full sm:w-2xl max-sm:py-24 py-8 p-4 justify-between sm:space-y-4 relative max-sm:bg-black ">
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1, transition: { duration: 0.7 } }}
@@ -63,16 +71,16 @@ export default function LandingPage() {
 
             {/**Title and description */}
             <div className="flex flex-col space-y-4.5">
-              <h2 className="max-sm:text-white  font-bold tracking-widest leading-12 sm:leading-16 antialiased text-4xl sm:text-6xl">
+              <h2 className="text-white  font-bold -tracking-wider leading-12 sm:leading-16 antialiased text-4xl sm:text-7xl">
                 Énergie{' '}
                 <strong className="border relative p-2 me-1 border-transparent   transition-all hover:scale-105 cursor-pointer text-wrap">
-                  <span className="inset-0 absolute bg-linear-to-tr to-blue-950 sm:from-black/25 " />
+                  <span className="inset-0 absolute bg-linear-to-tr to-blue-950 sm:from-black/25 sm:hidden" />
                   Solaire{' '}
                 </strong>
                 pour tous
               </h2>
 
-              <p className="text-gray-600 max-w-2xl mx-auto text-lg">
+              <p className="text-gray-600 sm:text-white max-w-2xl mx-auto text-lg">
                 Lorem ipsum dolor, sit amet consectetur adipisicing elit.
                 Maiores doloribus delectus, magni suscipit dolore placeat quia
                 molestias.
@@ -86,11 +94,14 @@ export default function LandingPage() {
                 <Button
                   variant={'secondary'}
                   size={'lg'}
-                  className="text-black font-bold"
+                  className="rounded-full font-bold"
                 >
                   Acheter
                 </Button>
-                <Button size={'lg'} className="text-white font-bold">
+                <Button
+                  size={'lg'}
+                  className="text-white font-bold rounded-full"
+                >
                   Decouvrir
                 </Button>
               </div>

@@ -13,14 +13,14 @@ import { Button } from '../ui/button';
 function BestProducts() {
   return (
     <section className="relative py-12">
-      <div className="absolute inset-0  bg-linear-to-t from-blue-300/60 to-blue-300/10" />
+      <div className="absolute inset-0  bg-linear-to-t from-pink-300/60 to-pink-300/10" />
       <div className="container mx-auto px-4 md:px-6 relative z-10">
         <div className="flex flex-col gap-8">
           <div className="flex flex-col gap-4">
             <h3 className="text-3xl font-bold tracking-tight sm:text-4xl text-gray-900">
               Avec nous
             </h3>
-            <div className="h-1 w-20 bg-gray-300  rounded-full" />
+            <div className="h-1 w-20 bg-secondary rounded-full" />
           </div>
 
           <p className="text-gray-600 max-w-2xl text-lg">
@@ -58,13 +58,17 @@ function BestProducts() {
           </div>
 
           <div className="flex items-center justify-center max-lg:hidden mt-8">
-            <Card className="shadow-lg max-w-6xl min-h-[60vh] rounded-[25px] hover:shadow-2xl transition-all p-0 border-transparent container relative">
-              <div className="absolute bg-green-300 bottom-10 right-10 w-92 h-32 rounded-full  hover:scale-120 transition-all" />
-              <CardHeader className="">
-                <div className="relative">
-                  <Image src={''} alt="" />
-                </div>
-                <CardTitle>bjj</CardTitle>
+            <Card className="flex flex-row shadow-lg max-w-6xl min-h-[60vh] rounded-[25px] hover:shadow-2xl transition-all p-0 border-transparent container relative">
+              <div className="absolute bg-green-300 bottom-10 lg:-right-30 w-92 h-32 rounded-full  hover:scale-120 transition-all " />
+              <CardHeader className="w-96 flex flex-col space-y-4 mx-12 items-center justify-center">
+                <CardTitle className="text-3xl">
+                  Vous chercherz un kit sur mesure?
+                </CardTitle>
+
+                <CardDescription className="text-md mt-4">
+                  Comparer nos solutions pour choisir celle adaptée à vos
+                  besoins énergétiques.
+                </CardDescription>
               </CardHeader>
             </Card>
           </div>

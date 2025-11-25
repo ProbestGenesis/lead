@@ -38,26 +38,26 @@ function Services() {
 
         <div className="grid grid-cols-1 mx-auto md:grid-cols-2 lg:grid-cols-4 gap-8">
           <ServiceCard
-            icon={<Lightbulb className="h-8 w-8 text-white" />}
+            icon={<Lightbulb className="h-8 w-8 mx-auto text-white" />}
             title="Installation"
             description="Installation électrique complète pour neuf et rénovation. Pose de tableaux, prises, et éclairages LED basse consommation."
             delay={0}
           />
           <ServiceCard
-            icon={<Zap className="h-8 w-8 text-white fill-current" />}
+            icon={<Zap className="h-8 w-8 mx-auto text-white fill-current" />}
             title="Dépannage"
             description="Intervention d'urgence pour pannes de courant, courts-circuits et dysfonctionnements. Diagnostic précis et réparation rapide."
             delay={100}
             highlight
           />
           <ServiceCard
-            icon={<ShieldCheck className="h-8 w-8 text-white" />}
+            icon={<ShieldCheck className="h-8 w-8 mx-auto text-white" />}
             title="Mise aux normes"
             description="Mise en sécurité de votre installation selon la norme NF C 15-100. Diagnostic complet et remplacement de tableaux."
             delay={200}
           />
           <ServiceCard
-            icon={<Home className="h-8 w-8 text-white" />}
+            icon={<Home className="h-8 w-8 mx-auto text-white" />}
             title="Domotique"
             description="Maison connectée : pilotage à distance du chauffage, des volets et de l'éclairage pour plus de confort et d'économies."
             delay={300}
@@ -90,7 +90,7 @@ function ServiceCard({
     >
       <CardHeader className="text-center pb-2 relative z-10">
         <div
-          className={` w-20 h-20 rounded-2xl flex items-center justify-center mb-4 transition-transform duration-500 group-hover:rotate-6 ${
+          className={` w-20 h-20 rounded-2xl mx-auto flex items-center justify-center mb-4 transition-transform duration-500 group-hover:rotate-6 ${
             highlight ? 'bg-white/20 text-white' : 'bg-primary text-white'
           }`}
         >
@@ -106,7 +106,7 @@ function ServiceCard({
       </CardHeader>
       <CardContent className="text-center relative z-10">
         <CardDescription
-          className={`leading-relaxed ${
+          className={`leading-relaxed text-left mx-auto ${
             highlight ? 'text-blue-100' : 'text-gray-600'
           }`}
         >
