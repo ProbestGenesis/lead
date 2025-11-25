@@ -3,7 +3,7 @@ function About() {
   return (
     <div className="bg-yellow-300 py-24 px-4 md:px-6 lg:px-8">
       <div className="container mx-auto flex  justify-center h-full flex-col">
-        <div className="flex flex-row justify-between space-y-4 w-fit items-center">
+        <div className="flex max-sm:flex-col flex-row justify-between space-y-4 w-fit items-center">
           <div className="flex flex-col space-y-4">
             <h2 className="text-3xl font-bold tracking-tight sm:text-4xl text-gray-900">
               Qui somme nous?

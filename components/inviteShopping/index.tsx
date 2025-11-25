@@ -4,7 +4,7 @@ function InviteShopping() {
       <div className="py-24 px-4 md:px-6 lg:px-8 relative">
         <div className="absolute inset-0  bg-linear-to-t from-blue-300/60 to-blue-300/10" />
         <div className="container mx-auto flex  justify-center h-full flex-col">
-          <div className="flex flex-row justify-center space-y-4 w-fit items-center">
+          <div className="flex  max-sm:flex-col flex-row justify-center space-y-4 w-fit items-center">
             <div className="flex flex-col space-y-4">
               <h2 className="text-3xl font-bold tracking-tight sm:text-4xl text-gray-900 max-w-3xl">
                 Visitez notre boutique pour connaitre tout nos produits
