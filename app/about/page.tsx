@@ -97,10 +97,10 @@ export default function AboutPage() {
                   Fondée sur la confiance et l'expertise
                 </h2>
                 <p className="text-gray-600 mb-6 leading-relaxed text-lg">
-                  ÉLECPRO a été créée en 2010 par deux électriciens passionnés
+                  <strong>LEAD CONSULTING</strong> a été créée en 2010 par deux électriciens passionnés
                   ayant plus de 40 ans d'expérience combinée. Partant du constat
                   que l'électricité était souvent négligée par manque de temps
-                  ou de connaissance, ils ont décidé de créer une entreprise
+                  ou de connaissance et par la non présence de l'électricité dans les zones reculées, ils ont décidé de créer une entreprise
                   dédiée à la sécurité et au confort des familles et des
                   entreprises.
                 </p>

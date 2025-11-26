@@ -10,6 +10,9 @@ import {
 } from '@/components/ui/card';
 import { title } from 'process';
 import { Button } from '../ui/button';
+import kitsolar from "@/assets/kitSolar.png"
+import electricAmor from "@/assets/electricAmor.jpeg"
+import bati from "@/assets/cable.png"
 function BestProducts() {
   return (
     <section className="relative py-12">
@@ -28,16 +31,16 @@ function BestProducts() {
           </p>
         </div>
 
-        <div className="flex flex-col gap-4 lg:gap-6 py-12">
-          <div className="flex flex-row gap-4 lg:gap-6 flex-wrap w-full max-sm:flex-col items-center justify-center ">
+        <div className="flex flex-col gap-4 lg:gap-6 py-12 mx-autp">
+          <div className="flex flex-row gap-4 lg:gap-6 flex-wrap w-full items-center justify-center ">
             {bestProducts.map((item, idx) => (
               <Card
-                className="shadow-lg w-full lg:w-sm  min-h-[60vh] rounded-[25px] hover:shadow-2xl transition-all p-0 border-transparent"
+                className="shadow-lg w-full lg:w-sm p-0 pb-8 rounded-[25px] hover:shadow-2xl transition-all  border-transparent"
                 key={idx}
               >
                 <CardHeader className="flex flex-col p-0">
-                  <div className="relative flex-1 min-h-56 w-full">
-                    <Image src={''} alt="" />
+                  <div className="relative flex-1 h-56 w-full">
+                    <Image src={item.imageUrl} alt="" objectFit='cover' className='max-h-[250px] rounded-t-lg' />
                   </div>
                   <div className="flex flex-col p-4 space-y-4">
                     <CardTitle className="text-2xl">{item.title}</CardTitle>
@@ -83,21 +86,21 @@ export const bestProducts = [
     title: 'Mini kit solaire',
     description:
       "Plus d'indépendance énergétique avec notre mini kit solaire tout-en-un.",
-    imageUrl: '/images/energy_saving.jpg',
+    imageUrl: kitsolar,
   },
 
   {
-    title: "Economies d'énergie",
+    title: 'Amoire industrielle',
     description:
-      "Réduisez vos factures d'énergie grâce à nos solutions innovantes et efficaces.",
-    imageUrl: '/images/energy_saving.jpg',
+      'Solutions complètes pour la gestion énergétique industrielle.',
+    imageUrl: electricAmor,
   },
 
   {
-    title: "Economies d'énergie",
+    title: 'Tuyaux et cable',
     description:
-      "Réduisez vos factures d'énergie grâce à nos solutions innovantes et efficaces.",
-    imageUrl: '/images/energy_saving.jpg',
+      'Tuyaux, câbles et accessoires pour installations électriques sécurisées de vos batiments.',
+    imageUrl: bati,
   },
 ];
 export default BestProducts;
