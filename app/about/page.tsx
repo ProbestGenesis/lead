@@ -105,11 +105,11 @@ export default function AboutPage() {
                   entreprises.
                 </p>
                 <p className="text-gray-600 mb-8 leading-relaxed text-lg">
-                  Aujourd'hui, avec une équipe de 12 électriciens certifiés et
-                  une flotte de véhicules modernes, ÉLECPRO intervient chaque
-                  jour pour améliorer la qualité de vie de plus de 500 clients
-                  satisfaits. Notre croissance repose sur un principe simple :
-                  écouter, comprendre et dépasser les attentes.
+                  Aujourd'hui, avec une équipe de plus de 10 techniciens certifiés et
+                  les nouvelles technologies des outils dont on dispose, <strong>LEAD CONSULTING</strong> intervient chaque
+                  jour pour améliorer la qualité de vie avec plus de 500 clients
+                  satisfaits. Notre croissance repose sur un principe simple : 
+                   <strong> écouter, comprendre et dépasser les attentes.</strong>
                 </p>
 
                 <div className="grid sm:grid-cols-2 gap-6 mb-8">

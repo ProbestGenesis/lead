@@ -8,6 +8,7 @@ import BestProducts from '@/components/bestProduct';
 import InviteShopping from '@/components/inviteShopping';
 import NewsLetters from '@/components/newsletter';
 import ProductsCategories from '@/components/inviteShopping/productsCategories';
+import ContactTechnicien from '@/components/technicien';
 
 export default function Home() {
   return (
@@ -18,15 +19,18 @@ export default function Home() {
 
       <Services />
 
-      <InviteShopping />
-
       <ProductsCategories />
       <BestProducts />
 
+      
+
+      <ContactTechnicien />
       <Newly />
+
+
       <NewsLetters />
   
-
+  
       <Following />
     </div>
   );

@@ -1,3 +1,5 @@
+import React from 'react';
+import{ArrowRight} from'lucide-react';
 type Props = {};
 function Newly({}: Props) {
   return (

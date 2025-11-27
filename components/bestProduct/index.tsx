@@ -15,13 +15,13 @@ import electricAmor from "@/assets/electricAmor.jpeg"
 import bati from "@/assets/cable.png"
 function BestProducts() {
   return (
-    <section className="relative py-12">
+    <section className="relative py-24">
       <div className="absolute inset-0  bg-linear-to-t from-pink-300/60 to-pink-300/10" />
       <div className="container mx-auto px-4 md:px-6 relative z-10">
         <div className="flex flex-col gap-8">
           <div className="flex flex-col gap-4">
-            <h3 className="text-3xl font-bold tracking-tight sm:text-4xl text-gray-900">
-              Avec nous
+            <h3 className="text-3xl font-bold tracking-tight sm:text-4xl text-gray-900 border-4 border-yellow-300 w-fit p-2">
+              Demain est solaire
             </h3>
             <div className="h-1 w-20 bg-secondary rounded-full" />
           </div>
@@ -40,7 +40,12 @@ function BestProducts() {
               >
                 <CardHeader className="flex flex-col p-0">
                   <div className="relative flex-1 h-56 w-full">
-                    <Image src={item.imageUrl} alt="" objectFit='cover' className='max-h-[250px] rounded-t-lg' />
+                    <Image
+                      src={item.imageUrl}
+                      alt=""
+                      objectFit="cover"
+                      className="h-[250px] rounded-t-lg"
+                    />
                   </div>
                   <div className="flex flex-col p-4 space-y-4">
                     <CardTitle className="text-2xl">{item.title}</CardTitle>
@@ -65,7 +70,7 @@ function BestProducts() {
               <div className="absolute bg-green-300 bottom-10 lg:-right-30 w-92 h-32 rounded-full  hover:scale-120 transition-all " />
               <CardHeader className="w-96 flex flex-col space-y-4 mx-12 items-center justify-center">
                 <CardTitle className="text-3xl">
-                  Vous chercherz un kit sur mesure?
+                  Vous ne savez pas quel kit choisir ?
                 </CardTitle>
 
                 <CardDescription className="text-md mt-4">
@@ -73,6 +78,15 @@ function BestProducts() {
                   besoins énergétiques.
                 </CardDescription>
               </CardHeader>
+
+              <CardFooter>
+                <Button
+                  size="lg"
+                  className="text-xl font-bold text-white rounded-full"
+                >
+                  Comparer
+                </Button>
+              </CardFooter>
             </Card>
           </div>
         </div>
@@ -90,16 +104,16 @@ export const bestProducts = [
   },
 
   {
-    title: 'Amoire industrielle',
+    title: 'Kit Solaire moyen',
     description:
       'Solutions complètes pour la gestion énergétique industrielle.',
     imageUrl: electricAmor,
   },
 
   {
-    title: 'Tuyaux et cable',
+    title: 'Ultime Kit solaire',
     description:
-      'Tuyaux, câbles et accessoires pour installations électriques sécurisées de vos batiments.',
+      "Maximisez votre autonomie énergétique avec notre kit solaire ultime.",
     imageUrl: bati,
   },
 ];

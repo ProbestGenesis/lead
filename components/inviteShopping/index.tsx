@@ -28,7 +28,7 @@ function InviteShopping() {
           </div>
         </div>
 
-        <div className="absolute bg-pink-300/80 -bottom-20 right-20 w-32 h-92 border-transparent rounded-full  hover:scale-120 transition-all " />
+        <div className="absolute bg-pink-300/80 -bottom-10 -right-10 w-60 h-34 border-transparent rounded-full  hover:scale-120 transition-all " />
       </div>
     );
 }

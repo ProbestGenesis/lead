@@ -31,7 +31,7 @@ function NavBar() {
     }
   })
   return (
-    <nav className=" sticky top-0 z-50 flex  w-full items-center justify-center  py-4 px-2 bg-white/95 backdrop-blur supports-[backdrop-filter]:bg-white/40 ">
+    <nav className=" fixed top-0 z-50 flex  w-full items-center justify-center  py-4 px-2 bg-white/95 backdrop-blur supports-[backdrop-filter]:bg-white/40 ">
       <div className="flex w-full justify-between items-center  max-w-6xl container">
         <div className="flex items-center justify-start space-x-6.5">
           <Logo />

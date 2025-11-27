@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import { Button } from '../ui/button';
 function About() {
   return (
@@ -21,7 +22,7 @@ function About() {
 
           <span className="flexjustify-end mt-6 mx-6">
             <Button size={'lg'} variant={'outline'} className='border-transparent rounded-full'>
-              En savoir plus
+            <Link href={"/about"}>En savoir plus  </Link>  
             </Button>
           </span>
         </div>
