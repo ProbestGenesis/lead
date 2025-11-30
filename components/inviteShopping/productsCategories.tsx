@@ -2,42 +2,12 @@
 
 
 import { useState } from 'react';
-import Image from 'next/image';
-import solarPanel from "@/assets/solarPanel.png"
-import electricBuilding from "@/assets/building.png"
-import smartHouse from "@/assets/smartHouse.png"
-import screwdriver from "@/assets/screwdriver.png"
-import industry from "@/assets/industry.png"
-
+import Image, { StaticImageData } from 'next/image';
+import { categories } from '@/data/categories';
+ 
 function ProductsCategories() {
   const [currentCard, setCurrentCard] = useState<string | null>(null);
-  const categories = [
-    {
-      name: 'Energie solaire',
-      icon: solarPanel,
-    },
-    {
-      name: 'Electricité batiment',
-      icon: electricBuilding,
-    },
 
-    {
-      name: "Electricité industrielle",
-      icon: industry
-    }
-    ,
-
-    {
-      name: 'Domotique',
-      icon: smartHouse,
-    },
-
-    {
-      name: 'Particulier',
-      icon: screwdriver,
-    },
-    
-  ];
   return (
     <section className="py-24 lg:ms-32">
       <div className="container mx-auto  px-4 md:px-6 flex flex-col lg:px-8 space-y-12">
@@ -51,27 +21,35 @@ function ProductsCategories() {
           </p>
         </div>
         <div className=" flex items-center justify-center w-full">
-          <div className="flex flex-row flex-wrap gap-8 md:space-x-16">
-            {categories.map((category, idx) => (
-              <div
-                key={idx}
-                className="flex flex-col  items-center justify-center space-y-4"
-              >
-                <div className="relative w-30 h-30">
-                  <Image
-                    src={category.icon}
-                    alt={`${category.name} icon`}
-                    fill
-                    objectFit="cover"
-                  />
-                </div>
-                <h3 className="text-lg text-blue-500">{category.name}</h3>
-              </div>
-            ))}
-          </div>
+        <CatgeoriesList categories={categories} iconSize='normal' />
         </div>{' '}
       </div>
     </section>
+  );
+}
+
+export const CatgeoriesList = ({ categories, iconSize }: { categories: { name: string; icon: StaticImageData }[] , iconSize: "normal" | "small"}) => {
+  return (
+    <div className="container mx-auto flex flex-row flex-wrap gap-8 md:space-x-16">
+      {categories.map((category, idx) => (
+        <div
+          key={idx}
+          className="flex flex-col  items-center justify-center space-y-4"
+        >
+          <div
+            className={`relative ${iconSize === 'small' ? 'w-12 h-12' : ' w-30 h-30'}`}
+          >
+            <Image
+              src={category.icon}
+              alt={`${category.name} icon`}
+              fill
+              objectFit="cover"
+            />
+          </div>
+          <h3 className="text-lg text-blue-500">{category.name}</h3>
+        </div>
+      ))}
+    </div>
   );
 }
 export default ProductsCategories;

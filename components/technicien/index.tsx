@@ -1,12 +1,58 @@
-import Image from "next/image";
-import { Button } from "../ui/button";
-import Link from "next/link";
-import techncienImage from "@/assets/technicien.jpg"
-import whatsappIcon from "@/assets/whatsapp.png"
+"use client"
+import Image from 'next/image';
+import { Button } from '../ui/button';
+import Link from 'next/link';
+import techncienImage from '@/assets/technicien.jpg';
+import whatsappIcon from '@/assets/whatsapp.png';
+import { zodResolver } from '@hookform/resolvers/zod';
+import { useForm } from 'react-hook-form';
+import { z } from 'zod';
+import {
+  Form,
+  FormControl,
+  FormDescription,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from '@/components/ui/form';
+import { Input } from '../ui/input';
+import { Textarea } from '../ui/textarea';
+
+const formSchema = z.object({
+  lastname: z
+    .string()
+    .min(2, { message: 'Votre nom doit contenir au moins deux caractères' }),
+  firstname: z.string().min(2, {
+    message: 'Votre prénom doit contenir au moins deux caractères',
+  }),
+  email: z.string().nonempty({
+    message: 'Username must be at least 2 characters.',
+  }),
+  message: z.string().min(60, {
+    message: 'Le message doit contenir au moins 60 caractères',
+  })
+});
 function ContactTechnicien() {
+  const form = useForm<z.infer<typeof formSchema>>({
+    resolver: zodResolver(formSchema),
+    defaultValues: {
+      email: '',
+      lastname: "",
+      firstname: "",
+      message: ""
+    },
+  });
+
+  // 2. Define a submit handler.
+  function onSubmit(values: z.infer<typeof formSchema>) {
+    // Do something with the form values.
+    // ✅ This will be type-safe and validated.
+    console.log(values);
+  }
   return (
     <section className="flex-col">
-      <div className="bg-yellow-300 py-8 px-4 md:px-6 lg:px-8">
+      <div  id="technicien" className="bg-yellow-300 py-8 px-4 md:px-6 lg:px-8">
         <div className="container mx-auto flex  justify-center h-full flex-col">
           <div className="flex max-sm:flex-col flex-row justify-between space-y-4 w-fit items-center">
             <div className="flex flex-col space-y-4">
@@ -49,56 +95,138 @@ function ContactTechnicien() {
           />
         </div>
         <div className="col-span-2 h-[80vh] flex flex-col space-y-8 items-center justify-center px-8 text-left">
-       
-            <h3 className="text-3xl font-bold tracking-tight sm:text-4xl text-gray-900">
-              Nous contacter
-            </h3>
-            <span className="flex items-center justify-center space-x-4 mx-auto">
-              <Link
-                href={'https://wa.me/1234567890'}
-                target="_blank"
-                className="flex flex-col items-center"
+          <h3 className="text-3xl font-bold tracking-tight sm:text-4xl text-gray-900">
+            Nous contacter
+          </h3>
+          <span className="flex items-center justify-center space-x-4 mx-auto">
+            <Link
+              href={'https://wa.me/1234567890'}
+              target="_blank"
+              className="flex flex-col items-center"
+            >
+              <Image
+                src={whatsappIcon}
+                alt="whatsapp icon"
+                className="w-12 h-12 mx-auto"
+              />
+
+              <p>Whatsapp</p>
+            </Link>
+
+            <Link
+              href={'https://wa.me/1234567890'}
+              target="_blank"
+              className="flex flex-col items-center"
+            >
+              <Image
+                src={whatsappIcon}
+                alt="whatsapp icon"
+                className="w-12 h-12 mx-auto"
+              />
+
+              <p>Whatsapp</p>
+            </Link>
+            <Link
+              href={'https://wa.me/1234567890'}
+              target="_blank"
+              className="flex flex-col items-center"
+            >
+              <Image
+                src={whatsappIcon}
+                alt="whatsapp icon"
+                className="w-12 h-12 mx-auto"
+              />
+
+              <p>Whatsapp</p>
+            </Link>
+          </span>
+
+          <div className="my-4 flex items-center justify-center space-x-3.5">
+            <span className="flex-1 bg-gray-700 h-1.5  w-32 rounded-full" />
+            <p className="font-bold text-gray-400">OU</p>
+            <span className="flex-1 bg-gray-700 h-1.5  w-32 rounded-full" />
+          </div>
+          <div>
+            <Form {...form}>
+              <form
+                onSubmit={form.handleSubmit(onSubmit)}
+                className="space-y-8"
               >
-                <Image
-                  src={whatsappIcon}
-                  alt="whatsapp icon"
-                  className="w-12 h-12 mx-auto"
+                <div className="flex flex-row space-x-2">
+                  <FormField
+                    control={form.control}
+                    name="lastname"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel>Votre nom </FormLabel>
+                        <FormControl>
+                          <Input {...field} />
+                        </FormControl>
+
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
+
+                  <FormField
+                    control={form.control}
+                    name="firstname"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel>Votre prénom</FormLabel>
+                        <FormControl>
+                          <Input {...field} />
+                        </FormControl>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
+                </div>
+
+                <FormField
+                  control={form.control}
+                  name="email"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>Votre email</FormLabel>
+                      <FormControl>
+                        <Input
+                          placeholder="...@gmail.col"
+                          {...field}
+                          className="w-full"
+                        />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
                 />
 
-                <p>Whatsapp</p>
-              </Link>
-
-              <Link
-                href={'https://wa.me/1234567890'}
-                target="_blank"
-                className="flex flex-col items-center"
-              >
-                <Image
-                  src={whatsappIcon}
-                  alt="whatsapp icon"
-                  className="w-12 h-12 mx-auto"
+                <FormField
+                  control={form.control}
+                  name="message"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>Votre email</FormLabel>
+                      <FormControl>
+                        <Textarea
+                          placeholder="Entrez votre message ici..."
+                          {...field}
+                          className="w-full max-h-32"
+                        />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
                 />
-
-                <p>Whatsapp</p>
-              </Link>
-              <Link
-                href={'https://wa.me/1234567890'}
-                target="_blank"
-                className="flex flex-col items-center"
-              >
-                <Image
-                  src={whatsappIcon}
-                  alt="whatsapp icon"
-                  className="w-12 h-12 mx-auto"
-                />
-
-                <p>Whatsapp</p>
-              </Link>
-            </span>
-          
+               <span className='flex justify-end w-full'>
+                 <Button type="submit" className='rounded-full'>Submit</Button>
+                </span> 
+              </form>
+            </Form>
+          </div>
         </div>
       </div>
     </section>
   );
 }
-export default ContactTechnicien
+export default ContactTechnicien;

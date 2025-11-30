@@ -55,6 +55,7 @@ export default function LandingPage() {
           alt=""
           width={4256}
           height={2832}
+          quality={60}
           className="absolute inset-0 max-sm:hidden  h-[90vh]"
         />
         <div className="absolute inset-0 bg-black/60  max-h-[90vh]" />
@@ -65,7 +66,7 @@ export default function LandingPage() {
               alt="mobile first illustration for landing"
               fill
               objectFit="cover"
-              quality={70}
+              quality={60}
             />
           </div>
 
@@ -149,25 +150,29 @@ export default function LandingPage() {
                     <ArrowLeft color="red" />
                   </Button>
 
-               { pause ? <Button
-                    className="rounded-full"
-                    variant={'ghost'}
-                    size={'icon'}
-                    onClick={() => {
-                      setPause(false);
-                    }}
-                  >
-                    <Play color="red" />
-                  </Button>   :  <Button
-                    className="rounded-full"
-                    variant={'ghost'}
-                    size={'icon'}
-                    onClick={() => {
-                      setPause(true);
-                    }}
-                  >
-                    <Pause color="red" />
-                  </Button>}
+                  {pause ? (
+                    <Button
+                      className="rounded-full"
+                      variant={'ghost'}
+                      size={'icon'}
+                      onClick={() => {
+                        setPause(false);
+                      }}
+                    >
+                      <Play color="red" />
+                    </Button>
+                  ) : (
+                    <Button
+                      className="rounded-full"
+                      variant={'ghost'}
+                      size={'icon'}
+                      onClick={() => {
+                        setPause(true);
+                      }}
+                    >
+                      <Pause color="red" />
+                    </Button>
+                  )}
                 </div>
                 <div className="flex flex-row space-x-0.5  sm:mt-4">
                   <motion.span

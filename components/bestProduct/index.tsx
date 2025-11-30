@@ -13,6 +13,7 @@ import { Button } from '../ui/button';
 import kitsolar from "@/assets/kitSolar.png"
 import electricAmor from "@/assets/electricAmor.jpeg"
 import bati from "@/assets/cable.png"
+import chooseYourKitPicture from "@/assets/Solar.png"
 function BestProducts() {
   return (
     <section className="relative py-24">
@@ -57,7 +58,7 @@ function BestProducts() {
                   <CardFooter className="flex flex-row w-full justify-end">
                     <Button className="text-white px-4 py-2 rounded-full hover:bg-secondary/90 transition">
                       {' '}
-                      Acheter{' '}
+                      En savoir plus{' '}
                     </Button>
                   </CardFooter>
                 </CardHeader>
@@ -67,26 +68,32 @@ function BestProducts() {
 
           <div className="flex items-center justify-center max-lg:hidden mt-8">
             <Card className="flex flex-row shadow-lg max-w-6xl min-h-[60vh] rounded-[25px] hover:shadow-2xl transition-all p-0 border-transparent container relative">
-              <div className="absolute bg-green-300 bottom-10 lg:-right-30 w-92 h-32 rounded-full  hover:scale-120 transition-all " />
-              <CardHeader className="w-96 flex flex-col space-y-4 mx-12 items-center justify-center">
-                <CardTitle className="text-3xl">
-                  Vous ne savez pas quel kit choisir ?
-                </CardTitle>
+              <div className='flex flex-row items-center justify-center'>
+                <div className="absolute bg-green-300 bottom-10 lg:-right-30 w-92 h-32 rounded-full  hover:scale-120 transition-all z-10"/>
+                <CardHeader className="w-96 flex flex-col space-y-4 mx-12 items-center justify-center">
+                  <CardTitle className="text-3xl">
+                    Vous ne savez pas quel kit choisir ?
+                  </CardTitle>
 
-                <CardDescription className="text-md mt-4">
-                  Comparer nos solutions pour choisir celle adaptée à vos
-                  besoins énergétiques.
-                </CardDescription>
-              </CardHeader>
+                  <CardDescription className="text-md mt-4">
+                    Comparer nos solutions pour choisir celle adaptée à vos
+                    besoins énergétiques.
+                  </CardDescription>
+                </CardHeader>
 
-              <CardFooter>
-                <Button
-                  size="lg"
-                  className="text-xl font-bold text-white rounded-full"
-                >
-                  Comparer
-                </Button>
-              </CardFooter>
+                <CardFooter>
+                  <Button
+                    size="lg"
+                    className="text-xl font-bold text-white rounded-full"
+                  >
+                    Comparer
+                  </Button>
+                </CardFooter>
+              </div>
+              
+              <CardContent className='relative z-0 inset-0'>
+               
+              </CardContent>
             </Card>
           </div>
         </div>

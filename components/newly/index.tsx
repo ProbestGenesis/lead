@@ -2,12 +2,65 @@ import React from 'react';
 import{ArrowRight} from'lucide-react';
 type Props = {};
 function Newly({}: Props) {
+   const ArticleCard = ({article}:{article: typeof article[0]}) =>(
+    <div className="bg-white rounded-xl shadow-lg hover:shadow-xl transition duration-300 flex flex-col">
+      {/*Conteneur d'image*/}
+      <div className="h-48 overflow-hidden">
+        <img 
+        src={article.image}
+        alt={article.tiltle}
+        className="w-full h-full object cover rounded-t-xl"
+        onError={(e) => {
+          e.currentTarget.onError = null;
+          e.currentTarget.src = "https://placehold.co/800x450/f5f5f5/333?text=Aritcle+Media";
+        }}
+        />
+        </div>
+
+        <div className="p(5 flex flex-col flex-grow">
+          {/*Date de publication*/}
+          <p className="text-sm font semibold text-gray-500 mb-2">{article.date}</p>
+
+          {/*Titre*/}
+          <h3 className="text-xl font-extrabold text-gray-900 mb-3 leadind-snug fles-grow">
+            {article.title}
+          </h3>
+          {/*Resume*/}
+          <p className="text-gray-600 mb-4 text-sm">{article.summary} </p>
+
+          {/*Bouton*/}
+          <button className="mt-auto py-3 px-4 bg-yellow-400 text-black font-semibold rounded-lg 
+          shadow-md hover:bg-yellow-500 transition duration-200">
+            Lire la suite
+          </button>
+        </div>
+    </div>
+   );
+
   return (
-    <div className="min-h-screen items-center justify-center flex">
-      <div className="mx-auto container">
-        <h1 className="tex-3xl sm:text-4xl font-extrabold text-blue-800 ">
+  
+    <div className="min-h-screen bg-gray-50 p-4 sm:p-10 font-sans">
+      <div className="max-w-6xl mx-auto">
+
+        {/*EN-tete de la section*/}
+        <div className="flex justify-between items-center mb-10">
+        <h1 className="tex-3xl sm:text-4xl font-extrabold text-black ">
           Nouveautés à venir...
         </h1>
+
+        {/*Bouton "voir tout"*/}
+        <button className="flex items-center space-x-2 py-é px-4 border 
+        border-text-gray-300 rounde-full tex-sm font-medium text-gray-700
+        hover:bg-gray-100 transition duration-200">
+          <span>voir tout</span>
+          <ArrowRight className="w-4 h-4"/>
+        </button>
+
+        {/*Grille des articles*/}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+         
+        </div>
+          
         <p className="text-gray-600 mb-8 italic text-lg">
           Tendances et technologies qui transformes la construction, en se en se
           concentrant sur l'énergie solaire, l'électricité intelligente et la
@@ -70,6 +123,7 @@ function Newly({}: Props) {
             </p>
         </section>
       </div>
+   </div>
    </div>
   )
 }
