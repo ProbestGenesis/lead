@@ -19,7 +19,7 @@ import UserData from '@/components/store/contact';
 import BestProducts from '@/components/bestProduct';
 
 function Page() {
-  const [product, setProduct] = useState({})
+  const [product, setProduct] = useState<{name: string, idx: number, description:string, price: number, category: string, type: string}>({})
   return (
     <section className="min-h-screen">
       <div className="container mx-auto h-full">
