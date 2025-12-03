@@ -22,7 +22,7 @@ import {
 import { formatPrice } from '@/lib/formatPrice';
 
 // --- MAPPING POUR LA TRADUCTION DES CLÉS EN FRANÇAIS ---
-const COMPONENT_NAMES_FR = {
+const COMPONENT_NAMES_FR: Record<string, string> = {
   panel: 'Panneau Solaire',
   panels: 'Panneaux Solaires',
   battery: 'Batterie',
@@ -38,13 +38,13 @@ const COMPONENT_NAMES_FR = {
 };
 
 // Fonction pour récupérer le nom français ou la clé par défaut
-const getComponentName = (key) => {
+const getComponentName = (key: string) => {
   return COMPONENT_NAMES_FR[key] || key.charAt(0).toUpperCase() + key.slice(1);
 };
 // --------------------------------------------------------
 
 // Fonction pour déterminer une icône basée sur le nom du composant
-const getComponentIcon = (key) => {
+const getComponentIcon = (key:string) => {
   switch (key) {
     case 'panel':
     case 'panels':

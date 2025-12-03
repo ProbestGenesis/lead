@@ -66,7 +66,7 @@ const JobCard: React.FC<JobCardProps> = ({
         href={offerLink}
         className="inline-flex items-center gap-2 px-5 py-3 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-700 shadow-md hover:shadow-lg transition-all duration-200 group/btn"
       >
-        View Position
+        Voir le Poste
         <ArrowRight className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
       </a>
     </div>
@@ -84,15 +84,15 @@ export default function CareerPage() {
         <header className="py-16 md:py-24">
           <div className="max-w-4xl">
             <p className="text-sm font-bold text-blue-600 uppercase tracking-widest mb-4">
-              CAREERS
+              CARRIÈRES
             </p>
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-black text-gray-900 leading-tight mb-6">
-              Build the Future of Solar
+              Construire l'Avenir de l'Énergie Solaire
             </h1>
             <p className="text-xl text-gray-600 max-w-2xl leading-relaxed font-light">
-              We design and deploy solar solutions that empower communities and
-              businesses worldwide. Join our mission to accelerate the energy transition
-              through innovation, collaboration, and sustainable growth.
+              Nous concevons et déployons des solutions solaires qui autonomisent les communautés et
+              les entreprises du monde entier. Rejoignez notre mission pour accélérer la transition énergétique
+              grâce à l'innovation, la collaboration et une croissance durable.
             </p>
           </div>
         </header>
@@ -101,31 +101,31 @@ export default function CareerPage() {
         <section className="py-20 md:py-24 border-t border-gray-200">
           <div className="mb-16">
             <p className="text-sm font-bold text-blue-600 uppercase tracking-widest mb-3">
-              OUR COMMITMENT
+              NOTRE ENGAGEMENT
             </p>
             <h2 className="text-4xl md:text-5xl font-black text-gray-900">
-              Why Join Our Team
+              Pourquoi Rejoindre Notre Équipe
             </h2>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-10">
             <BenefitCard
               icon={<BookOpen className="w-6 h-6" />}
-              title="Continuous Training"
-              description="We invest in your growth with regular trainings, workshops, and mentoring opportunities."
+              title="Formation Continue"
+              description="Nous investissons dans votre croissance avec des formations régulières, des ateliers et des opportunités de mentorat."
               bgColor="bg-blue-50"
               iconColor="text-blue-600"
             />
             <BenefitCard
               icon={<Clock className="w-6 h-6" />}
-              title="Flexible Hours"
-              description="Balance work and life with flexible schedules and remote working options."
+              title="Horaires Flexibles"
+              description="Équilibrez travail et vie privée avec des horaires flexibles et des options de travail à distance."
               bgColor="bg-green-50"
               iconColor="text-green-600"
             />
             <BenefitCard
               icon={<Users className="w-6 h-6" />}
-              title="Innovation Focus"
-              description="Work on cutting-edge projects that push the boundaries of solar technology."
+              title="Focus sur l'Innovation"
+              description="Travaillez sur des projets de pointe qui repoussent les limites de la technologie solaire."
               bgColor="bg-amber-50"
               iconColor="text-amber-600"
             />
@@ -136,29 +136,29 @@ export default function CareerPage() {
         <section className="py-20 md:py-24 border-t border-gray-200">
           <div className="mb-16">
             <p className="text-sm font-bold text-blue-600 uppercase tracking-widest mb-3">
-              OPPORTUNITIES
+              OPPORTUNITÉS
             </p>
             <h2 className="text-4xl md:text-5xl font-black text-gray-900">
-              Current Openings
+              Postes Disponibles
             </h2>
             <p className="text-gray-600 mt-3 text-lg">
-              Explore roles where you can make a real impact
+              Explorez des rôles où vous pouvez faire une réelle différence
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-10">
             <JobCard
-              title="Community Manager"
-              location="Remote / Togo"
-              type="Full-time"
-              description="Responsible for engaging our online community, growing brand awareness, and managing social content across multiple platforms."
+              title="Gestionnaire Communautaire"
+              location="Télétravail / Togo"
+              type="Temps Plein"
+              description="Responsable de l'engagement de notre communauté en ligne, de la sensibilisation à la marque et de la gestion du contenu social sur plusieurs plateformes."
               offerLink="/offer-cm"
             />
             <JobCard
               title="Commercial"
-              location="Lomé / Field-based"
-              type="Full-time"
-              description="Develop client portfolios, manage key accounts, and drive sales to meet ambitious targets in the field."
+              location="Lomé / Sur le Terrain"
+              type="Temps Plein"
+              description="Développez des portefeuilles de clients, gérez les comptes clés et pilotez les ventes pour atteindre des objectifs ambitieux sur le terrain."
               offerLink="/offer-commercial"
             />
           </div>
@@ -169,18 +169,18 @@ export default function CareerPage() {
           <div className="bg-linear-to-br from-blue-600 to-blue-800 rounded-2xl p-12 md:p-16 shadow-2xl">
             <div className="max-w-2xl mx-auto text-center">
               <h3 className="text-3xl md:text-4xl font-black text-white mb-6">
-                Don't See Your Role?
+                Vous ne trouvez pas votre rôle?
               </h3>
               <p className="text-blue-100 mb-10 leading-relaxed text-lg">
-                We're always on the lookout for talented individuals who share our vision.
-                Send us your profile and we'll keep you in mind for opportunities
-                that match your skills and ambitions.
+                Nous recherchons toujours des individus talentueux qui partagent notre vision.
+                Envoyez-nous votre profil et nous le garderons à l'esprit pour les opportunités
+                qui correspondent à vos compétences et ambitions.
               </p>
               <a
                 href="/contact"
                 className="inline-flex items-center gap-2 px-8 py-4 bg-white text-blue-600 rounded-lg shadow-lg hover:bg-blue-50 font-bold text-lg transition-all duration-200 hover:shadow-xl group/cta"
               >
-                Send Your Profile
+                Envoyez Votre Profil
                 <ArrowRight className="w-5 h-5 group-hover/cta:translate-x-1 transition-transform" />
               </a>
             </div>
