@@ -52,8 +52,11 @@ function ContactTechnicien() {
   }
   return (
     <section className="flex-col">
-      <div  id="technicien" className="bg-yellow-300 py-8 px-4 md:px-6 lg:px-8">
-        <div className="container mx-auto flex  justify-center h-full flex-col">
+      <div
+        id="technicien"
+        className="bg-yellow-300 py-8 max-sm:px-4 md:px-6 lg:px-8"
+      >
+        <div className="container 2xl:px-12 mx-auto flex  justify-center h-full flex-col">
           <div className="flex max-sm:flex-col flex-row justify-between space-y-4 w-fit items-center">
             <div className="flex flex-col space-y-4">
               <h2 className="text-3xl font-bold tracking-tight sm:text-4xl text-gray-900">
@@ -94,7 +97,7 @@ function ContactTechnicien() {
             className="h-[80vh]"
           />
         </div>
-        <div className="col-span-2 h-[80vh] flex flex-col space-y-8 items-center justify-center px-8 text-left">
+        <div className="col-span-2 h-[80vh] flex flex-col space-y-8 items-center justify-center px-8 text-left bg-white">
           <h3 className="text-3xl font-bold tracking-tight sm:text-4xl text-gray-900">
             Nous contacter
           </h3>
@@ -141,7 +144,7 @@ function ContactTechnicien() {
             </Link>
           </span>
 
-          <div className="my-4 flex items-center justify-center space-x-3.5">
+          <div className="my-4 flex items-center justify-center space-x-3.5 ">
             <span className="flex-1 bg-gray-700 h-1.5  w-32 rounded-full" />
             <p className="font-bold text-gray-400">OU</p>
             <span className="flex-1 bg-gray-700 h-1.5  w-32 rounded-full" />
@@ -218,9 +221,11 @@ function ContactTechnicien() {
                     </FormItem>
                   )}
                 />
-               <span className='flex justify-end w-full'>
-                 <Button type="submit" className='rounded-full'>Submit</Button>
-                </span> 
+                <span className="flex justify-end w-full">
+                  <Button type="submit" className="rounded-full">
+                    Submit
+                  </Button>
+                </span>
               </form>
             </Form>
           </div>

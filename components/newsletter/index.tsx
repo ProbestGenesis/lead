@@ -3,7 +3,7 @@ import { Input } from '../ui/input';
 function NewsLetters() {
   return (
     <div className="py-24 bg-green-300 px-4 md:px-6 lg:px-8">
-      <div className="container mx-auto flex  justify-center h-full flex-col">
+      <div className="container mx-auto 2xl:px-12 flex  justify-center h-full flex-col">
         <div className="grid grid-cols-2 items-center gap-8 max-sm:grid-cols-1">
           <div className="flex flex-col  space-y-4 w-fit">
             <div className="flex flex-col space-y-2">
@@ -21,7 +21,7 @@ function NewsLetters() {
               </p>
             </div>
 
-            <span className='w-full flex justify-start'>
+            <span className="w-full flex justify-start">
               <Button size={'lg'} variant={'link'}>
                 VOIR LE BLOG
               </Button>

@@ -20,11 +20,11 @@ import {
 } from '@/components/ui/card';
 function Services() {
   return (
-    <section id="services" className="py-24 bg-light-gray relative">
+    <section id="services" className="py-24 bg-white relative">
       {/* Decorative elements */}
       <div className="absolute top-0 right-0 w-1/3 h-full bg-gradient-to-l from-white/50 to-transparent pointer-events-none" />
 
-      <div className="container mx-auto  px-4 md:px-6 relative z-10">
+      <div className="container mx-auto 2xl:px-12 px-4 md:px-6 relative z-10">
         <div className=" mb-16 space-y-4">
           <h2 className="text-3xl font-bold tracking-tight sm:text-4xl text-gray-900">
             Nos Domaines d'Intervention
@@ -84,7 +84,7 @@ function ServiceCard({
 }) {
   return (
     <Card
-      className={`border-none shadow-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-xl group overflow-hidden ${
+      className={`border-none rounded-none shadow-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-xl group overflow-hidden ${
         highlight ? 'bg-primary text-white' : 'bg-white'
       }`}
     >
@@ -113,12 +113,12 @@ function ServiceCard({
           {description}
         </CardDescription>
       </CardContent>
-      {/* Decorative background circle */}
+      {/* Decorative background circle 
       <div
-        className={`absolute -bottom-10 -right-10 w-32 h-32 rounded-full opacity-10 transition-transform duration-500 group-hover:scale-150 ${
+        className={`absolute bottom-0 right-0 w-32 h-32 rounded-full opacity-10 transition-transform duration-500 group-hover:scale-150 ${
           highlight ? 'bg-blue-600/60' : 'bg-blue-700/80'
         }`}
-      />
+      />*/}
     </Card>
   );
 }

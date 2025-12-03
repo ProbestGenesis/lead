@@ -3,8 +3,8 @@ import { Button } from '@/components/ui/button';
 type Props = {};
 function PublicityBanner({}: Props) {
   return (
-    <div className="h-64 bg-yellow-300  flex items-center justify-center">
-      <div className="container mx-auto">
+    <div className="py-12 px-4 bg-yellow-300  flex items-center justify-center">
+      <div className="container 2xl:px-12 mx-auto">
         <div>
           <div className="flex flex-col space-y-4.5">
             <h3 className="font-bold tracking-tight antialiased text-3xl p-2 border-white w-fit border-2">
@@ -19,7 +19,11 @@ function PublicityBanner({}: Props) {
             </p>
 
             <span className="flex justify-center">
-              <Button size={'lg'} variant={'outline'} className='border-transparent rounded-full'>
+              <Button
+                size={'lg'}
+                variant={'outline'}
+                className="border-transparent rounded-full"
+              >
                 Decouvrir nos offres
               </Button>
             </span>

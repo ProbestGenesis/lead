@@ -25,7 +25,7 @@ export default function Home() {
       
 
       <ContactTechnicien />
-     {/* <Newly />*/}
+     <Newly />
 
 
       <NewsLetters />

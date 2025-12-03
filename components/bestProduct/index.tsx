@@ -10,15 +10,15 @@ import {
 } from '@/components/ui/card';
 import { title } from 'process';
 import { Button } from '../ui/button';
-import kitsolar from "@/assets/kitSolar.png"
-import electricAmor from "@/assets/electricAmor.jpeg"
-import bati from "@/assets/cable.png"
-import chooseYourKitPicture from "@/assets/Solar.png"
+import kitsolar from '@/assets/kitSolar.png';
+import electricAmor from '@/assets/electricAmor.jpeg';
+import bati from '@/assets/cable.png';
+import chooseKitPicture from '@/assets/choose.jpg';
 function BestProducts() {
   return (
     <section className="relative py-24">
-      <div className="absolute inset-0  bg-linear-to-t from-pink-300/60 to-pink-300/10" />
-      <div className="container mx-auto px-4 md:px-6 relative z-10">
+      <div className="absolute inset-0  bg-linear-to-t from-blue-400/60 to-blue-400/10" />
+      <div className="container 2xl:px-12 mx-auto px-4 md:px-6 relative z-10">
         <div className="flex flex-col gap-8">
           <div className="flex flex-col gap-4">
             <h3 className="text-3xl font-bold tracking-tight sm:text-4xl text-gray-900 border-4 border-yellow-300 w-fit p-2">
@@ -33,19 +33,19 @@ function BestProducts() {
         </div>
 
         <div className="flex flex-col gap-4 lg:gap-6 py-12 mx-autp">
-          <div className="flex flex-row gap-4 lg:gap-6 flex-wrap w-full items-center justify-center ">
+          <div className="flex flex-row gap-4 md:gap-6 flex-wrap  w-full items-center  ">
             {bestProducts.map((item, idx) => (
               <Card
-                className="shadow-lg w-full lg:w-sm p-0 pb-8 rounded-[25px] hover:shadow-2xl transition-all  border-transparent"
+                className="shadow-lg max-sm:w-full lg:w-sm md:w-xs  p-0 pb-8 rounded-none hover:shadow-2xl transition-all  border-transparent"
                 key={idx}
               >
-                <CardHeader className="flex flex-col p-0">
+                <CardHeader className="flex flex-col p-0 rounded-none">
                   <div className="relative flex-1 h-56 w-full">
                     <Image
                       src={item.imageUrl}
                       alt=""
                       objectFit="cover"
-                      className="h-[250px] rounded-t-lg"
+                      className="h-[250px] "
                     />
                   </div>
                   <div className="flex flex-col p-4 space-y-4">
@@ -67,34 +67,42 @@ function BestProducts() {
           </div>
 
           <div className="flex items-center justify-center max-lg:hidden mt-8">
-            <Card className="flex flex-row shadow-lg max-w-6xl min-h-[60vh] rounded-[25px] hover:shadow-2xl transition-all p-0 border-transparent container relative">
-              <div className='flex flex-row items-center justify-center'>
-                <div className="absolute bg-green-300 bottom-10 lg:-right-30 w-92 h-32 rounded-full  hover:scale-120 transition-all z-10"/>
-                <CardHeader className="w-96 flex flex-col space-y-4 mx-12 items-center justify-center">
-                  <CardTitle className="text-3xl">
+            <div className="flex flex-row  shadow-lg max-w-6xl h-[60vh] hover:shadow-2xl transition-all p-0 border-transparent container relative">
+              <div className="flex w-[60%] flex-row items-center justify-center bg-white">
+                <div className="absolute   bg-green-300 bottom-5 lg:-left-30 w-82 h-22 rounded-full  hover:scale-120 transition-all " />
+                <div className="w-96 flex flex-col space-y-4 mx-12 items-center justify-center">
+                  <h2 className="text-4xl">
                     Vous ne savez pas quel kit choisir ?
-                  </CardTitle>
+                  </h2>
 
-                  <CardDescription className="text-md mt-4">
+                  <p className="text-md mt-4 text-accent">
                     Comparer nos solutions pour choisir celle adaptée à vos
                     besoins énergétiques.
-                  </CardDescription>
-                </CardHeader>
+                  </p>
+                </div>
 
-                <CardFooter>
+                <div>
                   <Button
-                    size="lg"
-                    className="text-xl font-bold text-white rounded-full"
+                    size={'lg'}
+                    className="text-white px-4 py-2 rounded-full hover:bg-accent/90 transition"
                   >
-                    Comparer
+                    {' '}
+                    Comparer{' '}
                   </Button>
-                </CardFooter>
+                </div>
               </div>
-              
-              <CardContent className='relative z-0 inset-0'>
-               
-              </CardContent>
-            </Card>
+
+              <div className="relative w-[40%]">
+                <Image
+                  src={chooseKitPicture}
+                  alt=""
+                  width={1000}
+                  height={665}
+                  quality={75}
+                  className="h-full w-full  "
+                />
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -120,7 +128,7 @@ export const bestProducts = [
   {
     title: 'Ultime Kit solaire',
     description:
-      "Maximisez votre autonomie énergétique avec notre kit solaire ultime.",
+      'Maximisez votre autonomie énergétique avec notre kit solaire ultime.',
     imageUrl: bati,
   },
 ];
