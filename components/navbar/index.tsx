@@ -2,10 +2,11 @@
 
 import Link from 'next/link';
 import Logo from '../ui/logo';
-import { ShoppingCart } from 'lucide-react';
+import { ShoppingCart, Tally4 } from 'lucide-react';
 import { usePathname, useParams } from 'next/navigation';
 import { useEffect, useState } from 'react';
-
+import { Drawer, DrawerContent, DrawerDescription, DrawerClose, DrawerHeader, DrawerFooter, DrawerTitle, DrawerTrigger } from '../ui/drawer';
+import { Button } from '../ui/button';
 const link = ['Accueil', 'A propos', 'Contact'];
  
 function NavBar() {
@@ -32,6 +33,16 @@ function NavBar() {
           </div>
 
           <LeftLinks />
+
+          <Drawer direction="top" >
+            <DrawerTrigger>
+              <Button variant={'ghost'} size={'icon-lg'} className='sm:hidden'>
+                <Tally4 strokeWidth={2.5} color="black" />
+              </Button>
+            </DrawerTrigger>
+
+            <DrawerContent></DrawerContent>
+          </Drawer>
         </div>
       </nav>
     );
@@ -77,7 +88,31 @@ function NavBar() {
           </ul>
         </div>
 
-          <LeftLinks />
+        <LeftLinks />
+
+        <Drawer direction="top">
+          <DrawerTrigger>
+            <Button variant={'ghost'} size={'lg'} className="sm:hidden">
+              <Tally4 strokeWidth={2.5} color="black" size={48} />
+            </Button>
+          </DrawerTrigger>
+
+          <DrawerContent className="rounded-none">
+            <DrawerHeader>
+              <DrawerTitle>Navigation</DrawerTitle>
+            </DrawerHeader>
+
+            <div>
+              <ul className="flex flex-col space-y-4 p-2">
+                {link.map((item, idx) => (
+                  <Link href={href[idx]} key={idx.toString()}>
+                      {item}
+                  </Link>
+                ))}{' '}
+              </ul>
+            </div>
+          </DrawerContent>
+        </Drawer>
       </div>
     </nav>
   );

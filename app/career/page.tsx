@@ -6,7 +6,10 @@ import {
   MapPin,
   ArrowRight,
   Briefcase,
+  Link2Icon,
 } from 'lucide-react';
+import { Button } from '@/components/ui/button';
+import Link from 'next/link';
 
 interface BenefitProps {
   icon: React.ReactNode;
@@ -23,7 +26,7 @@ const BenefitCard: React.FC<BenefitProps> = ({
   bgColor,
   iconColor,
 }) => (
-  <div className="bg-white p-8 rounded-xl shadow-md hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 border border-gray-100">
+  <div className="bg-white p-8 rounded-none shadow-md hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 border border-gray-100">
     <div
       className={`w-14 h-14 rounded-lg ${bgColor} flex items-center justify-center mb-6`}
     >
@@ -49,16 +52,17 @@ const JobCard: React.FC<JobCardProps> = ({
   description,
   offerLink,
 }) => (
-  <article className="bg-white p-8 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 flex flex-col border border-gray-100 group">
+  <article className="bg-white p-8 rounded-none shadow-md hover:shadow-xl transition-all duration-300 flex flex-col border border-gray-100 group">
     <div className="flex items-start justify-between mb-4">
       <div className="flex-1">
-        <h3 className="text-2xl font-bold text-gray-900 group-hover:text-blue-600 transition-colors">
+        <h3 className="text-2xl text-wrap max-sm:w-42 font-bold text-gray-900 group-hover:text-blue-600 transition-colors">
           {title}
         </h3>
         <p className="text-sm text-gray-500 flex items-center gap-2 mt-3">
           <MapPin className="w-4 h-4 flex-shrink-0 text-blue-600" /> {location}
         </p>
       </div>
+
       <span className="inline-block px-3 py-1 bg-blue-50 text-blue-700 text-xs font-semibold rounded-full whitespace-nowrap ml-4">
         {type}
       </span>
@@ -68,14 +72,17 @@ const JobCard: React.FC<JobCardProps> = ({
       {description}
     </p>
 
-    <div className="mt-6 pt-6 border-t border-gray-100">
-      <a
+    <div className="mt-6 pt-6 border-t border-gray-100 flex justify-end">
+      <Link
         href={offerLink}
-        className="inline-flex items-center gap-2 px-5 py-3 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-700 shadow-md hover:shadow-lg transition-all duration-200 group/btn"
+        className=""
       >
-        Voir le Poste
+        <Button size={"lg"} className="flex flex-row space-w-4 text-white hover:bg-blue-600">
+          Voir le Poste
         <ArrowRight className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
-      </a>
+        </Button>
+        
+      </Link>
     </div>
   </article>
 );
@@ -95,7 +102,7 @@ const InternshipCard: React.FC<InternshipCardProps> = ({
   description,
   offerLink,
 }) => (
-  <article className="bg-white p-8 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 flex flex-col border border-gray-100 group">
+  <article className="bg-white p-8 rounded-none shadow-md hover:shadow-xl transition-all duration-300 flex flex-col border border-gray-100 group">
     <div className="flex items-start justify-between mb-4">
       <div className="flex-1">
         <h3 className="text-2xl font-bold text-gray-900 group-hover:text-green-600 transition-colors">
@@ -103,12 +110,10 @@ const InternshipCard: React.FC<InternshipCardProps> = ({
         </h3>
         <div className="flex flex-wrap gap-3 mt-3">
           <p className="text-sm text-gray-500 flex items-center gap-2">
-            <Briefcase className="w-4 h-4 shrink-0 text-green-600" />{' '}
-            {field}
+            <Briefcase className="w-4 h-4 shrink-0 text-green-600" /> {field}
           </p>
           <p className="text-sm text-gray-500 flex items-center gap-2">
-            <Clock className="w-4 h-4 shrink-0 text-green-600" />{' '}
-            {duration}
+            <Clock className="w-4 h-4 shrink-0 text-green-600" /> {duration}
           </p>
         </div>
       </div>
@@ -121,14 +126,16 @@ const InternshipCard: React.FC<InternshipCardProps> = ({
       {description}
     </p>
 
-    <div className="mt-6 pt-6 border-t border-gray-100">
-      <a
-        href={offerLink}
-        className="inline-flex items-center gap-2 px-5 py-3 bg-green-600 text-white rounded-lg font-semibold hover:bg-green-700 shadow-md hover:shadow-lg transition-all duration-200 group/btn"
-      >
-        Postuler Maintenant
-        <ArrowRight className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
-      </a>
+    <div className="mt-6 pt-6 border-t border-gray-100 flex justify-end">
+      <Link href={offerLink}>
+        <Button
+          size={'lg'}
+          className="flex flex-row space-w-4 text-white hover:bg-green-600"
+        >
+          Postuler Maintenant
+          <ArrowRight className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
+        </Button>
+      </Link>
     </div>
   </article>
 );
