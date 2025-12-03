@@ -18,6 +18,7 @@ import {
   CardHeader,
   CardTitle,
 } from '@/components/ui/card';
+import Link from 'next/link';
 function Services() {
   return (
     <section id="services" className="py-24 bg-white relative">
@@ -83,43 +84,47 @@ function ServiceCard({
   delay?: number;
 }) {
   return (
-    <Card
-      className={`border-none rounded-none shadow-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-xl group overflow-hidden ${
-        highlight ? 'bg-primary text-white' : 'bg-white'
-      }`}
-    >
-      <CardHeader className="text-center pb-2 relative z-10">
-        <div
-          className={` w-20 h-20 rounded-2xl mx-auto flex items-center justify-center mb-4 transition-transform duration-500 group-hover:rotate-6 ${
-            highlight ? 'bg-white/20 text-white' : 'bg-primary text-white'
-          }`}
-        >
-          {icon}
-        </div>
-        <CardTitle
-          className={`text-xl font-bold transition-colors ${
-            highlight ? 'text-white' : 'text-gray-900 group-hover:text-primary'
-          }`}
-        >
-          {title}
-        </CardTitle>
-      </CardHeader>
-      <CardContent className="text-center relative z-10">
-        <CardDescription
-          className={`leading-relaxed text-left mx-auto ${
-            highlight ? 'text-blue-100' : 'text-gray-600'
-          }`}
-        >
-          {description}
-        </CardDescription>
-      </CardContent>
-      {/* Decorative background circle 
+    <Link href="#contact">
+      <Card
+        className={`border-none rounded-none shadow-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-xl group overflow-hidden ${
+          highlight ? 'bg-primary text-white' : 'bg-white'
+        }`}
+      >
+        <CardHeader className="text-center pb-2 relative z-10">
+          <div
+            className={` w-20 h-20 rounded-2xl mx-auto flex items-center justify-center mb-4 transition-transform duration-500 group-hover:rotate-6 ${
+              highlight ? 'bg-white/20 text-white' : 'bg-primary text-white'
+            }`}
+          >
+            {icon}
+          </div>
+          <CardTitle
+            className={`text-xl font-bold transition-colors ${
+              highlight
+                ? 'text-white'
+                : 'text-gray-900 group-hover:text-primary'
+            }`}
+          >
+            {title}
+          </CardTitle>
+        </CardHeader>
+        <CardContent className="text-center relative z-10">
+          <CardDescription
+            className={`leading-relaxed text-left mx-auto ${
+              highlight ? 'text-blue-100' : 'text-gray-600'
+            }`}
+          >
+            {description}
+          </CardDescription>
+        </CardContent>
+        {/* Decorative background circle 
       <div
         className={`absolute bottom-0 right-0 w-32 h-32 rounded-full opacity-10 transition-transform duration-500 group-hover:scale-150 ${
           highlight ? 'bg-blue-600/60' : 'bg-blue-700/80'
         }`}
       />*/}
-    </Card>
+      </Card>
+    </Link>
   );
 }
 

@@ -1,146 +1,195 @@
+import React from 'react';
+import { Users, BookOpen, Clock, MapPin, ArrowRight } from 'lucide-react';
 
-import React from 'react'
-import { Users, BookOpen, Clock, MapPin, Mail } from 'lucide-react'
+interface BenefitProps {
+  icon: React.ReactNode;
+  title: string;
+  description: string;
+  bgColor: string;
+  iconColor: string;
+}
 
-function page() {
+const BenefitCard: React.FC<BenefitProps> = ({
+  icon,
+  title,
+  description,
+  bgColor,
+  iconColor,
+}) => (
+  <div className="bg-white p-8 rounded-xl shadow-md hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 border border-gray-100">
+    <div
+      className={`w-14 h-14 rounded-lg ${bgColor} flex items-center justify-center mb-6`}
+    >
+      <div className={`${iconColor} w-7 h-7`}>{icon}</div>
+    </div>
+    <h3 className="font-bold text-lg mb-3 text-gray-900">{title}</h3>
+    <p className="text-gray-600 text-base leading-relaxed">{description}</p>
+  </div>
+);
+
+interface JobCardProps {
+  title: string;
+  location: string;
+  type: string;
+  description: string;
+  offerLink: string;
+}
+
+const JobCard: React.FC<JobCardProps> = ({
+  title,
+  location,
+  type,
+  description,
+  offerLink,
+}) => (
+  <article className="bg-white p-8 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 flex flex-col border border-gray-100 group">
+    <div className="flex items-start justify-between mb-4">
+      <div className="flex-1">
+        <h3 className="text-2xl font-bold text-gray-900 group-hover:text-blue-600 transition-colors">
+          {title}
+        </h3>
+        <p className="text-sm text-gray-500 flex items-center gap-2 mt-3">
+          <MapPin className="w-4 h-4 flex-shrink-0 text-blue-600" /> {location}
+        </p>
+      </div>
+      <span className="inline-block px-3 py-1 bg-blue-50 text-blue-700 text-xs font-semibold rounded-full whitespace-nowrap ml-4">
+        {type}
+      </span>
+    </div>
+
+    <p className="text-gray-700 grow leading-relaxed text-base">
+      {description}
+    </p>
+
+    <div className="mt-6 pt-6 border-t border-gray-100">
+      <a
+        href={offerLink}
+        className="inline-flex items-center gap-2 px-5 py-3 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-700 shadow-md hover:shadow-lg transition-all duration-200 group/btn"
+      >
+        View Position
+        <ArrowRight className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
+      </a>
+    </div>
+  </article>
+);
+
+export default function CareerPage() {
   return (
-    <div className="min-h-screen bg-gray-50 py-12">
-      <div className="container mx-auto px-6">
-        {/* Header / Intro */}
-        <header className="text-center mb-12">
-          <h1 className="text-4xl md:text-5xl font-extrabold text-gray-900 leading-tight max-w-3xl  text-left">
-            join the The Solar revolution
-          </h1>
-          <p className="mt-4 text-gray-700 max-w-3xl  text-left">
-            We design and deploy solar solutions that empower communities and
-            businesses. Join our mission to accelerate the energy transition
-            through innovation, collaboration and sustainable growth.
-          </p>
+    <div className="min-h-screen bg-linear-to-b from-white via-gray-50 to-gray-100">
+      {/* Navigation accent line */}
+      <div className="h-1 bg-linear-to-r from-blue-600 to-blue-400"></div>
+
+      <div className="container mx-auto px-6 max-w-6xl">
+        {/* Header Section */}
+        <header className="py-16 md:py-24">
+          <div className="max-w-4xl">
+            <p className="text-sm font-bold text-blue-600 uppercase tracking-widest mb-4">
+              CAREERS
+            </p>
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-black text-gray-900 leading-tight mb-6">
+              Build the Future of Solar
+            </h1>
+            <p className="text-xl text-gray-600 max-w-2xl leading-relaxed font-light">
+              We design and deploy solar solutions that empower communities and
+              businesses worldwide. Join our mission to accelerate the energy transition
+              through innovation, collaboration, and sustainable growth.
+            </p>
+          </div>
         </header>
 
         {/* Benefits Section */}
-        <section className="mb-12">
-          <h2 className="text-2xl font-semibold text-gray-900 mb-6">
-            Why work with us
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div className="bg-white  p-6 shadow-sm hover:shadow-md transition">
-              <div className="w-12 h-12 rounded-full bg-blue-50 flex items-center justify-center mb-4">
-                <BookOpen className="w-6 h-6 text-blue-600" />
-              </div>
-              <h3 className="font-semibold text-lg mb-2">
-                Continuous Training
-              </h3>
-              <p className="text-gray-600 text-sm">
-                We invest in your growth with regular trainings, workshops and
-                mentoring.
-              </p>
-            </div>
-
-            <div className="bg-white  p-6 shadow-sm hover:shadow-md transition">
-              <div className="w-12 h-12 rounded-full bg-green-50 flex items-center justify-center mb-4">
-                <Clock className="w-6 h-6 text-green-600" />
-              </div>
-              <h3 className="font-semibold text-lg mb-2">Flexible Hours</h3>
-              <p className="text-gray-600 text-sm">
-                Balance work and life with flexible schedules and remote
-                options.
-              </p>
-            </div>
-
-            <div className="bg-white  p-6 shadow-sm hover:shadow-md transition">
-              <div className="w-12 h-12 rounded-full bg-amber-50 flex items-center justify-center mb-4">
-                <Users className="w-6 h-6 text-amber-600" />
-              </div>
-              <h3 className="font-semibold text-lg mb-2">Innovation Focus</h3>
-              <p className="text-gray-600 text-sm">
-                Work on cutting-edge projects that push the boundaries of solar
-                tech.
-              </p>
-            </div>
+        <section className="py-20 md:py-24 border-t border-gray-200">
+          <div className="mb-16">
+            <p className="text-sm font-bold text-blue-600 uppercase tracking-widest mb-3">
+              OUR COMMITMENT
+            </p>
+            <h2 className="text-4xl md:text-5xl font-black text-gray-900">
+              Why Join Our Team
+            </h2>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-10">
+            <BenefitCard
+              icon={<BookOpen className="w-6 h-6" />}
+              title="Continuous Training"
+              description="We invest in your growth with regular trainings, workshops, and mentoring opportunities."
+              bgColor="bg-blue-50"
+              iconColor="text-blue-600"
+            />
+            <BenefitCard
+              icon={<Clock className="w-6 h-6" />}
+              title="Flexible Hours"
+              description="Balance work and life with flexible schedules and remote working options."
+              bgColor="bg-green-50"
+              iconColor="text-green-600"
+            />
+            <BenefitCard
+              icon={<Users className="w-6 h-6" />}
+              title="Innovation Focus"
+              description="Work on cutting-edge projects that push the boundaries of solar technology."
+              bgColor="bg-amber-50"
+              iconColor="text-amber-600"
+            />
           </div>
         </section>
 
         {/* Job Openings */}
-        <section className="mb-12">
-          <h2 className="text-2xl font-semibold text-gray-900 mb-6">
-            Current Openings
-          </h2>
+        <section className="py-20 md:py-24 border-t border-gray-200">
+          <div className="mb-16">
+            <p className="text-sm font-bold text-blue-600 uppercase tracking-widest mb-3">
+              OPPORTUNITIES
+            </p>
+            <h2 className="text-4xl md:text-5xl font-black text-gray-900">
+              Current Openings
+            </h2>
+            <p className="text-gray-600 mt-3 text-lg">
+              Explore roles where you can make a real impact
+            </p>
+          </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {/* Job Card 1: Community Manager */}
-            <article className="bg-white  p-6 shadow-sm hover:shadow-md transition flex flex-col">
-              <div className="flex items-start justify-between">
-                <div>
-                  <h3 className="text-xl font-bold">Community Manager</h3>
-                  <p className="text-sm text-gray-500 flex items-center gap-2 mt-1">
-                    <MapPin className="w-4 h-4" /> Remote / Togo
-                  </p>
-                </div>
-                <div className="text-sm text-gray-400">Full-time</div>
-              </div>
-
-              <p className="text-gray-700 mt-4 flex-grow">
-                Responsible for engaging our online community, growing brand
-                awareness and managing social content across platforms.
-              </p>
-
-              <div className="mt-6">
-                <a
-                  href="/offer-cm"
-                  className="inline-block px-4 py-2 bg-blue-600 text-white rounded-lg shadow hover:bg-blue-700 transition"
-                >
-                  View Offer
-                </a>
-              </div>
-            </article>
-
-            {/* Job Card 2: Commercial */}
-            <article className="bg-white  p-6 shadow-sm hover:shadow-md transition flex flex-col">
-              <div className="flex items-start justify-between">
-                <div>
-                  <h3 className="text-xl font-bold">Commercial</h3>
-                  <p className="text-sm text-gray-500 flex items-center gap-2 mt-1">
-                    <MapPin className="w-4 h-4" /> Lomé / Field-based
-                  </p>
-                </div>
-                <div className="text-sm text-gray-400">Full-time</div>
-              </div>
-
-              <p className="text-gray-700 mt-4 flex-grow">
-                Develop client portfolios, manage key accounts and drive sales
-                to meet ambitious targets in the field.
-              </p>
-
-              <div className="mt-6">
-                <a
-                  href="/offer-commercial"
-                  className="inline-block px-4 py-2 bg-blue-600 text-white rounded-lg shadow hover:bg-blue-700 transition"
-                >
-                  View Offer
-                </a>
-              </div>
-            </article>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-10">
+            <JobCard
+              title="Community Manager"
+              location="Remote / Togo"
+              type="Full-time"
+              description="Responsible for engaging our online community, growing brand awareness, and managing social content across multiple platforms."
+              offerLink="/offer-cm"
+            />
+            <JobCard
+              title="Commercial"
+              location="Lomé / Field-based"
+              type="Full-time"
+              description="Develop client portfolios, manage key accounts, and drive sales to meet ambitious targets in the field."
+              offerLink="/offer-commercial"
+            />
           </div>
         </section>
 
-        {/* Final CTA: Unsolicited Application */}
-        <section className="mt-8 bg-white p-8  shadow-sm text-center">
-          <h3 className="text-xl font-semibold mb-3">Didn't find your fit?</h3>
-          <p className="text-gray-600 mb-6">
-            Send us an unsolicited application — we keep promising candidates in
-            mind for future roles.
-          </p>
-          <a
-            href="/contact"
-            className="inline-block px-6 py-3 bg-green-600 text-white rounded-lg shadow hover:bg-green-700 transition"
-          >
-            Unsolicited Application
-          </a>
+        {/* CTA Section */}
+        <section className="py-20 md:py-24 border-t border-gray-200">
+          <div className="bg-linear-to-br from-blue-600 to-blue-800 rounded-2xl p-12 md:p-16 shadow-2xl">
+            <div className="max-w-2xl mx-auto text-center">
+              <h3 className="text-3xl md:text-4xl font-black text-white mb-6">
+                Don't See Your Role?
+              </h3>
+              <p className="text-blue-100 mb-10 leading-relaxed text-lg">
+                We're always on the lookout for talented individuals who share our vision.
+                Send us your profile and we'll keep you in mind for opportunities
+                that match your skills and ambitions.
+              </p>
+              <a
+                href="/contact"
+                className="inline-flex items-center gap-2 px-8 py-4 bg-white text-blue-600 rounded-lg shadow-lg hover:bg-blue-50 font-bold text-lg transition-all duration-200 hover:shadow-xl group/cta"
+              >
+                Send Your Profile
+                <ArrowRight className="w-5 h-5 group-hover/cta:translate-x-1 transition-transform" />
+              </a>
+            </div>
+          </div>
         </section>
       </div>
-    </div>
-  );
-}
 
-export default page
+      {/* Footer accent */}
+      <div className="h-1 bg-linear-to-r from-blue-400 to-blue-600 mt-20"></div>
+    </div>
+  )
+}

@@ -84,6 +84,19 @@ function NavBar() {
 }
 
 const LeftLinks = () => {
+  const href = link.map((item) => {
+    switch (item) {
+      case 'carrière':
+        return '/career';
+        break;
+      case 'boutique':
+        return '/store';
+        break;
+      default:
+        return '/';
+        break;
+    }
+  });
   return (
     <div>
       <ul className="max-sm:hidden flex items-center space-x-3">

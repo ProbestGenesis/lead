@@ -14,6 +14,7 @@ import kitsolar from '@/assets/kitSolar.png';
 import electricAmor from '@/assets/electricAmor.jpeg';
 import bati from '@/assets/cable.png';
 import chooseKitPicture from '@/assets/choose.jpg';
+import Link from 'next/link';
 function BestProducts() {
   return (
     <section className="relative py-24">
@@ -33,10 +34,10 @@ function BestProducts() {
         </div>
 
         <div className="flex flex-col gap-4 lg:gap-6 py-12 mx-autp">
-          <div className="flex flex-row gap-4 md:gap-6 flex-wrap  w-full items-center  ">
+          <div className="flex flex-row gap-4 flex-wrap  w-full items-center  ">
             {bestProducts.map((item, idx) => (
               <Card
-                className="shadow-lg max-sm:w-full lg:w-sm md:w-xs  p-0 pb-8 rounded-none hover:shadow-2xl transition-all  border-transparent"
+                className="shadow-lg max-sm:w-full md:w-2xs md:h-[500px]  p-0 pb-8 rounded-none hover:shadow-2xl transition-all  border-transparent"
                 key={idx}
               >
                 <CardHeader className="flex flex-col p-0 rounded-none">
@@ -82,6 +83,7 @@ function BestProducts() {
                 </div>
 
                 <div>
+                  <Link href={`/store/category/solar/kit/compare`}>
                   <Button
                     size={'lg'}
                     className="text-white px-4 py-2 rounded-full hover:bg-accent/90 transition"
@@ -89,6 +91,7 @@ function BestProducts() {
                     {' '}
                     Comparer{' '}
                   </Button>
+                  </Link>  
                 </div>
               </div>
 
@@ -112,23 +115,30 @@ function BestProducts() {
 
 export const bestProducts = [
   {
-    title: 'Mini kit solaire',
+    title: 'kit solaire Mini',
     description:
-      "Plus d'indépendance énergétique avec notre mini kit solaire tout-en-un.",
+      "Obtenez une indépendance énergétique avec notre mini kit solaire tout-en-un, compact et efficace.",
     imageUrl: kitsolar,
   },
 
   {
-    title: 'Kit Solaire moyen',
+    title: 'Kit SolairePro',
     description:
-      'Solutions complètes pour la gestion énergétique industrielle.',
+      "Découvrez nos solutions complètes pour une gestion énergétique industrielle fiable et performante.",
     imageUrl: electricAmor,
   },
 
   {
-    title: 'Ultime Kit solaire',
+    title: 'Kit solaire Pro max',
     description:
-      'Maximisez votre autonomie énergétique avec notre kit solaire ultime.',
+      "Maximisez votre autonomie énergétique grâce à notre kit solaire ultime, puissant et polyvalent.",
+    imageUrl: bati,
+  },
+
+  {
+    title: 'Kit solaire Ultra ',
+    description:
+      "Profitez d'une autonomie énergétique optimale avec notre kit solaire ultra performant et durable.",
     imageUrl: bati,
   },
 ];

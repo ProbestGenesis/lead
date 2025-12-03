@@ -51,7 +51,7 @@ function ContactTechnicien() {
     console.log(values);
   }
   return (
-    <section className="flex-col">
+    <section className="flex-col" id="contact">
       <div
         id="technicien"
         className="bg-yellow-300 py-8 max-sm:px-4 md:px-6 lg:px-8"

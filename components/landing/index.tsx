@@ -8,7 +8,8 @@ import clsx from 'clsx';
 import { motion, AnimatePresence } from 'motion/react';
 import { ArrowLeft, ArrowRight, Pause, Play } from 'lucide-react';
 import landingIllu from '@/assets/illu.jpg';
-
+import landingIllu2 from "@/assets/landing2.jpg"
+import landingIllu3 from '@/assets/landing3.jpg';
 export default function LandingPage() {
   const [landingIdx, setLandingIdx] = useState(1);
   const [pause, setPause] = useState(false);
@@ -17,21 +18,21 @@ export default function LandingPage() {
       title: 'Énergie solaire pour tous',
       description:
         "Le solaire est l'avenir, profitez-en dès aujourd'hui avec nos solutions adaptées à vos besoins.",
-      image: '/images/solar-panels-home.jpg',
+      image: landingIllu,
     },
 
     {
       title: 'Electricité batiment',
       description:
         'Installation professionnelle et respectant les normes de sécurité',
-      image: '/images/solar-installation-team.jpg',
+      image: landingIllu2,
     },
 
     {
       title: 'Controller et Innover avec nous',
       description:
         'Investissez dans une solution énergétique fiable et profitez d’un retour sur investissement rapide grâce aux économies réalisées.',
-      image: '/images/solar-roi-graph.jpg',
+      image: landingIllu3,
     },
   ];
 
@@ -51,7 +52,7 @@ export default function LandingPage() {
       {/**Landing */}
       <div className="flex flex-col-reverse sm:items-center sm:justify-center relative max-h-[90vh]">
         <Image
-          src={landingIllu}
+          src={landingData[landingIdx-1].image}
           alt=""
           width={4256}
           height={2832}
@@ -91,7 +92,7 @@ export default function LandingPage() {
                 animate={{
                   opacity: 1,
                   transition: {
-                    duration: 0.3,
+                    duration: 0.1,
                   },
                 }}
                 exit={{ opacity: 0, transition: { duration: 0.3 } }}
