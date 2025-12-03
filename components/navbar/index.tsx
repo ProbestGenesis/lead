@@ -3,14 +3,13 @@
 import Link from 'next/link';
 import Logo from '../ui/logo';
 import { ShoppingCart } from 'lucide-react';
-import { usePathname, useSearchParams, useParams } from 'next/navigation';
+import { usePathname, useParams } from 'next/navigation';
 import { useEffect, useState } from 'react';
 
 const link = ['Accueil', 'A propos', 'Contact'];
  
 function NavBar() {
   const pathname = usePathname()
-  const searchParams = useSearchParams()
   const { category } = useParams();
   console.log('category', category)
   
