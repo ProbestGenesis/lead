@@ -80,7 +80,7 @@ function Page() {
                   ) : (
                     <CardFooter className="flex w-full justify-end max-sm:px-0.5 max-sm:py-0">
                       <Drawer direction="right">
-                        <DrawerTrigger className="">
+                        <DrawerTrigger className="" asChild>
                           <Button
                             size={'sm'}
                             className="rounded-full "

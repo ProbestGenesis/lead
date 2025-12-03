@@ -49,7 +49,12 @@ function NavBar() {
       case 'Contact':
         return '/contact';
         break;
-
+      case 'Career':
+        return '/carrière'
+        break;
+      case 'Store':
+        return '/boutique'
+        break;
       default:
         return '/';
         break;
@@ -84,11 +89,15 @@ const LeftLinks = () => {
     <div>
       <ul className="max-sm:hidden flex items-center space-x-3">
         <li className="mx-4 transition-all decoration-2 hover:underline hover:font-bold hover:underline-offset-4 decoration-blue-700 cursor-pointer">
-          Carrière
+        <Link href="career">
+        Carrière
+          </Link> 
         </li>
 
         <li className="mx-4 transition-all decoration-2 hover:underline hover:font-bold hover:underline-offset-4 decoration-blue-700 cursor-pointer">
-          Boutique
+          <Link href="store">
+           Boutique
+          </Link>
         </li>
       </ul>
     </div>

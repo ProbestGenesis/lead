@@ -29,6 +29,6 @@
     ".next/types/**/*.ts",
     ".next/dev/types/**/*.ts",
     "**/*.mts"
-, "app/store/category/[category]/kit/[kitId]/page.mdx"  ],
+, "app/store/category/[category]/kit/[kitId]/page.tsx"  ],
   "exclude": ["node_modules"]
 }

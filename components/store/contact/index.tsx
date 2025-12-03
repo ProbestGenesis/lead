@@ -74,10 +74,14 @@ function UserData() {
               )}
             />
           </div>
-            <p className="text-muted"> *Votre localisation approximative nous sera envoyé, vueillez autoriser la localisation </p>
+          <p className="text-muted">
+            {' '}
+            *Votre localisation approximative nous sera envoyé, vueillez
+            autoriser la localisation{' '}
+          </p>
           <span className="flex justify-end w-full">
             <Button type="submit" className="rounded-full">
-              Submit
+             Acheter
             </Button>
           </span>
         </form>
