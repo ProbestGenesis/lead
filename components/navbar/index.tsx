@@ -7,6 +7,7 @@ import { usePathname, useParams } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import { Drawer, DrawerContent, DrawerDescription, DrawerClose, DrawerHeader, DrawerFooter, DrawerTitle, DrawerTrigger } from '../ui/drawer';
 import { Button } from '../ui/button';
+import clsx from 'clsx';
 const link = ['Accueil', 'A propos', 'Contact'];
  
 function NavBar() {
@@ -34,6 +35,7 @@ function NavBar() {
 
           <LeftLinks />
 
+          <div className="sm:hidden">
           <Drawer direction="top" >
             <DrawerTrigger>
               <Button variant={'ghost'} size={'icon-lg'} className='sm:hidden'>
@@ -43,6 +45,7 @@ function NavBar() {
 
             <DrawerContent></DrawerContent>
           </Drawer>
+          </div> 
         </div>
       </nav>
     );
@@ -80,7 +83,14 @@ function NavBar() {
             {link.map((item, idx) => (
               <Link href={href[idx]} key={idx.toString()}>
                 {' '}
-                <li className="transition-all decoration-2 hover:underline hover:font-bold hover:underline-offset-4 decoration-blue-700 cursor-pointer ">
+                <li
+                  className={clsx(
+                    'transition-all decoration-2 hover:underline hover:font-bold hover:underline-offset-4 decoration-blue-700 cursor-pointer',
+                    {
+                      'underline underline-offset-8': pathname === href[idx],
+                    }
+                  )}
+                >
                   {item}
                 </li>
               </Link>
@@ -90,29 +100,31 @@ function NavBar() {
 
         <LeftLinks />
 
-        <Drawer direction="top">
-          <DrawerTrigger>
-            <Button variant={'ghost'} size={'lg'} className="sm:hidden">
-              <Tally4 strokeWidth={2.5} color="black" size={48} />
-            </Button>
-          </DrawerTrigger>
+        <div className='sm:hidden'>
+          <Drawer direction="top">
+            <DrawerTrigger asChild>
+              <Button variant={'ghost'} size={'lg'} className="sm:hidden">
+                <Tally4 strokeWidth={2.5} color="black" size={48} />
+              </Button>
+            </DrawerTrigger>
 
-          <DrawerContent className="rounded-none">
-            <DrawerHeader>
-              <DrawerTitle>Navigation</DrawerTitle>
-            </DrawerHeader>
+            <DrawerContent className="rounded-none">
+              <DrawerHeader>
+                <DrawerTitle>Navigation</DrawerTitle>
+              </DrawerHeader>
 
-            <div>
-              <ul className="flex flex-col space-y-4 p-2">
-                {link.map((item, idx) => (
-                  <Link href={href[idx]} key={idx.toString()}>
+              <div>
+                <ul className="flex flex-col space-y-4 p-2">
+                  {link.map((item, idx) => (
+                    <Link href={href[idx]} key={idx.toString()}>
                       {item}
-                  </Link>
-                ))}{' '}
-              </ul>
-            </div>
-          </DrawerContent>
-        </Drawer>
+                    </Link>
+                  ))}{' '}
+                </ul>
+              </div>
+            </DrawerContent>
+          </Drawer>
+        </div>
       </div>
     </nav>
   );

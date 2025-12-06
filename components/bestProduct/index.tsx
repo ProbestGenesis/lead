@@ -14,17 +14,19 @@ import kitsolar from '@/assets/kitSolar.png';
 import electricAmor from '@/assets/electricAmor.jpeg';
 import bati from '@/assets/cable.png';
 import chooseKitPicture from '@/assets/choose.jpg';
+import { motion } from 'motion/react';
 import Link from 'next/link';
 function BestProducts() {
+  const bestProductCategory = "solar"
   return (
     <section className="relative py-24">
       <div className="absolute inset-0  bg-linear-to-t from-blue-400/60 to-blue-400/10" />
       <div className="container 2xl:px-12 mx-auto px-4 md:px-6 relative z-10">
         <div className="flex flex-col gap-8">
           <div className="flex flex-col gap-4">
-            <h3 className="text-3xl font-bold tracking-tight sm:text-4xl text-gray-900 border-4 border-yellow-300 w-fit p-2">
+            <motion.h3 initial={{ opacity: 0, x: -10 }} whileInView={{ opacity: 1, x: 0 }}  className="text-3xl font-bold tracking-tight sm:text-4xl text-gray-900 border-4 border-yellow-300 w-fit p-2">
               Demain est solaire
-            </h3>
+            </motion.h3>
             <div className="h-1 w-20 bg-secondary rounded-full" />
           </div>
 
@@ -37,7 +39,7 @@ function BestProducts() {
           <div className="flex flex-row gap-4 flex-wrap  w-full items-center  ">
             {bestProducts.map((item, idx) => (
               <Card
-                className="shadow-lg max-sm:w-full md:w-2xs md:h-[500px]  p-0 pb-8 rounded-none hover:shadow-2xl transition-all  border-transparent"
+                className="shadow-lg max-sm:w-full md:w-2xs md:h-[500px]  p-0 pb-8 rounded-none hover:shadow-2xl hover:scale-110 transition-all  border-transparent"
                 key={idx}
               >
                 <CardHeader className="flex flex-col p-0 rounded-none">
@@ -59,7 +61,14 @@ function BestProducts() {
                   <CardFooter className="flex flex-row w-full justify-end">
                     <Button className="text-white px-4 py-2 rounded-full hover:bg-secondary/90 transition">
                       {' '}
-                      En savoir plus{' '}
+                      <Link
+                        href={`/store/category/${bestProductCategory}/kit/${item.title
+                          .split(' ')
+                          .join('_')
+                          .toLowerCase()}`}
+                      >
+                        En savoir plus{' '}
+                      </Link>
                     </Button>
                   </CardFooter>
                 </CardHeader>
@@ -67,35 +76,35 @@ function BestProducts() {
             ))}
           </div>
 
-          <div className="flex items-center justify-center max-lg:hidden mt-8">
-            <div className="flex flex-row  shadow-lg max-w-6xl h-[60vh] hover:shadow-2xl transition-all p-0 border-transparent container relative">
-              <div className="flex w-[60%] flex-row items-center justify-center bg-white">
-                <div className="absolute   bg-green-300 bottom-5 lg:-left-30 w-82 h-22 rounded-full  hover:scale-120 transition-all " />
-                <div className="w-96 flex flex-col space-y-4 mx-12 items-center justify-center">
-                  <h2 className="text-4xl">
+          <div className="flex items-center justify-center  mt-8">
+            <div className="flex flex-row max-sm:flex-col-reverse shadow-lg max-w-6xl sm:h-[60vh] hover:shadow-2xl transition-all p-0 border-transparent container relative ">
+              <div className="flex w-[60%] max-sm:flex-col max-sm:w-full flex-row items-center justify-center bg-white max-sm:pb-4">
+                <div className="absolute max-sm:hidden  bg-green-300 bottom-5 lg:-left-30 w-82 h-22 rounded-full  hover:scale-120 transition-all " />
+                <div className="sm:w-96 flex flex-col max-sm:space-y-2 space-y-4 sm:mx-12 mx-4 max-sm:mt-4 items-center justify-center">
+                  <h2 className="text-4xl max-sm:text-2xl text-wrap">
                     Vous ne savez pas quel kit choisir ?
                   </h2>
 
-                  <p className="text-md mt-4 text-accent">
+                  <p className="text-md sm:mt-4 max-sm:mb-4 text-accent max-sm:text-sm">
                     Comparer nos solutions pour choisir celle adaptée à vos
                     besoins énergétiques.
                   </p>
                 </div>
 
                 <div>
-                  <Link href={`/store/category/solar/kit/compare`}>
                   <Button
                     size={'lg'}
                     className="text-white px-4 py-2 rounded-full hover:bg-accent/90 transition"
                   >
-                    {' '}
-                    Comparer{' '}
+                    <Link href={`/store/category/solar/kit/compare`}>
+                      {' '}
+                      Comparer{' '}
+                    </Link>
                   </Button>
-                  </Link>  
                 </div>
               </div>
 
-              <div className="relative w-[40%]">
+              <div className="relative w-[40%] max-sm:w-full">
                 <Image
                   src={chooseKitPicture}
                   alt=""
@@ -122,7 +131,7 @@ export const bestProducts = [
   },
 
   {
-    title: 'Kit SolairePro',
+    title: 'Kit Solaire Pro',
     description:
       "Découvrez nos solutions complètes pour une gestion énergétique industrielle fiable et performante.",
     imageUrl: electricAmor,

@@ -20,6 +20,7 @@ import {
   Check,
 } from 'lucide-react';
 import { formatPrice } from '@/lib/formatPrice';
+import Link from 'next/link';
 
 // --- MAPPING POUR LA TRADUCTION DES CLÉS EN FRANÇAIS ---
 const COMPONENT_NAMES_FR: Record<string, string> = {
@@ -143,8 +144,9 @@ function page() {
               {/* Card Footer (Action and Warranty) */}
               <CardFooter className="flex flex-col p-4 pt-0">
                 <CardAction className="w-full">
+                  {/**Gerer dynamaique la category */}
                   <Button className="text-white px-4 py-2 rounded-full hover:bg-secondary/90 transition w-full" size={"lg"}>
-                    Commander ce kit
+                   <Link href={`/store/category/solar/kit/${item.name.split(' ').join('_').toLowerCase()}`}>Commander ce kit </Link> 
                   </Button>
                 </CardAction>
 
@@ -166,7 +168,7 @@ const data = {
   solar_kits: [
     {
       id: 1,
-      name: 'Kit Start',
+      name: 'Kit solaire Mini',
       price: 220000,
       currency: 'FCFA',
       components: {
@@ -181,7 +183,7 @@ const data = {
     },
     {
       id: 2,
-      name: 'Kit Confort',
+      name: 'Kit solaire pro',
       price: 300000,
       currency: 'FCFA',
       components: {
@@ -197,7 +199,7 @@ const data = {
     },
     {
       id: 3,
-      name: 'Kit Premium Canal+',
+      name: 'Kit solaire pro max',
       price: 435000,
       currency: 'FCFA',
       components: {
@@ -214,7 +216,7 @@ const data = {
     },
     {
       id: 4,
-      name: 'Kit Grand Luxe Canal+',
+      name: 'Kit solair ultra',
       price: 650000,
       currency: 'FCFA',
       components: {

@@ -4,7 +4,7 @@
 import { useState } from 'react';
 import Image, { StaticImageData } from 'next/image';
 import { categories } from '@/data/categories';
- 
+import Link from 'next/link';
 function ProductsCategories() {
   const [currentCard, setCurrentCard] = useState<string | null>(null);
 
@@ -32,7 +32,8 @@ export const CatgeoriesList = ({ categories, iconSize }: { categories: { name: s
   return (
     <div className="container  2xl:px-12 max-sm:px-4 mx-auto flex flex-row flex-wrap max-sm:justify-center  gap-8 md:space-x-16 ">
       {categories.map((category, idx) => (
-        <div
+        <Link
+          href={`/store/category/${category.name.split(' ').join('_')}`}
           key={idx}
           className="flex flex-col  items-center justify-center space-y-4 cursor-pointer active:bg-accent/40 p-2 active:border-transparent rounded-lg"
         >
@@ -51,7 +52,7 @@ export const CatgeoriesList = ({ categories, iconSize }: { categories: { name: s
           <h3 className="text-lg max-sm:text-xs text-blue-500">
             {category.name}
           </h3>
-        </div>
+        </Link>
       ))}
     </div>
   );
