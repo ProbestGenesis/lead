@@ -96,7 +96,7 @@ export default function LandingPage() {
                   },
                 }}
                 exit={{ opacity: 0, transition: { duration: 0.3 } }}
-                className="flex flex-col space-y-4.5"
+                className="flex flex-col space-y-6"
               >
                 {/*  <h2 className="text-white  font-bold -tracking-wider leading-12 sm:leading-16 antialiased text-4xl sm:text-7xl">
                 Énergie{' '}

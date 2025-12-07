@@ -16,7 +16,7 @@ function ProductsCategories() {
             Tout les outils et accessoires dont vous avez besoin
           </h2>
           <div className="h-1 w-20 bg-secondary rounded-full" />
-          <p className="text-gray-600 max-w-2xl text-lg mt-4">
+          <p className="text-gray-600 max-w-2xl text-lg">
             Vous trouvez chezs nous les outils pour:
           </p>
         </div>

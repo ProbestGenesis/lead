@@ -22,9 +22,13 @@ function BestProducts() {
     <section className="relative py-24">
       <div className="absolute inset-0  bg-linear-to-t from-blue-400/60 to-blue-400/10" />
       <div className="container 2xl:px-12 mx-auto px-4 md:px-6 relative z-10">
-        <div className="flex flex-col gap-8">
+        <div className="flex flex-col gap-4">
           <div className="flex flex-col gap-4">
-            <motion.h3 initial={{ opacity: 0, x: -10 }} whileInView={{ opacity: 1, x: 0 }}  className="text-3xl font-bold tracking-tight sm:text-4xl text-gray-900 border-4 border-yellow-300 w-fit p-2">
+            <motion.h3
+              initial={{ opacity: 0, x: -10 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              className="text-3xl font-bold tracking-tight sm:text-4xl text-gray-900 border-4 border-yellow-300 w-fit p-2"
+            >
               Demain est solaire
             </motion.h3>
             <div className="h-1 w-20 bg-secondary rounded-full" />
@@ -39,7 +43,7 @@ function BestProducts() {
           <div className="flex flex-row gap-4 flex-wrap  w-full items-center  ">
             {bestProducts.map((item, idx) => (
               <Card
-                className="shadow-lg max-sm:w-full md:w-2xs md:h-[500px]  p-0 pb-8 rounded-none hover:shadow-2xl hover:scale-110 transition-all  border-transparent"
+                className="shadow-lg max-sm:w-full md:w-2xs md:h-[500px]  p-0 pb-8 rounded-none hover:shadow-2xl hover:scale-110 hover:z-10 transition-all  border-transparent"
                 key={idx}
               >
                 <CardHeader className="flex flex-col p-0 rounded-none">
@@ -77,9 +81,17 @@ function BestProducts() {
           </div>
 
           <div className="flex items-center justify-center  mt-8">
-            <div className="flex flex-row max-sm:flex-col-reverse shadow-lg max-w-6xl sm:h-[60vh] hover:shadow-2xl transition-all p-0 border-transparent container relative ">
-              <div className="flex w-[60%] max-sm:flex-col max-sm:w-full flex-row items-center justify-center bg-white max-sm:pb-4">
-                <motion.div initial={{ opacity: 0, x:-100 }} whileInView={{ opacity: 1, x: 0, transition: { duration: 0.1, ease: "easeIn" } }}  className="absolute max-sm:hidden  bg-green-300 bottom-5 lg:-left-30 w-82 h-22 rounded-full  hover:scale-120 transition-all " />
+            <div className="flex flex-row max-sm:flex-col-reverse shadow-lg max-w-6xl min-h-[60vh]   hover:shadow-2xl transition-all p-0 border-transparent container relative ">
+              <div className="flex w-[60%] max-md:h-[80vh] max-sm:flex-col max-sm:w-full flex-row items-center justify-center bg-white max-sm:pb-4">
+                <motion.div
+                  initial={{ opacity: 0, x: -100 }}
+                  whileInView={{
+                    opacity: 1,
+                    x: 0,
+                    transition: { duration: 0.1, ease: 'easeIn' },
+                  }}
+                  className="absolute max-sm:hidden  bg-green-300 bottom-5 lg:-left-30 w-82 h-22 rounded-full  hover:scale-120 transition-all "
+                />
                 <div className="sm:w-96 flex flex-col max-sm:space-y-2 space-y-4 sm:mx-12 mx-4 max-sm:mt-4 items-center justify-center">
                   <h2 className="text-4xl max-sm:text-2xl text-wrap">
                     Vous ne savez pas quel kit choisir ?

@@ -23,36 +23,37 @@ import {
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
+import leadConsulting from "@/assets/leadConsulting.jpg"
+import leadConsultingBanner from "@/assets/leadConsultingBanner.jpg"
 
 export default function AboutPage() {
   return (
     <div className="flex min-h-screen flex-col">
       <main className="flex-1">
         {/* Hero Section */}
-        <section className="relative py-24 md:py-32 lg:py-40 overflow-hidden bg-gray-900">
-          <div className="absolute inset-0 z-0">
+        <section className="relative py-24 md:py-32 lg:py-40 overflow-hidden bg-gray-900 min-h-screen">
+          <div className="absolute inset-0 z-10">
             <Image
-              src="/professional-electrician-team-working-together.jpg"
+              src={leadConsultingBanner}
               alt="Équipe d'électriciens professionnels"
               fill
-              className="object-cover opacity-30"
+              className="object-cover opacity-30 "
               priority
             />
           </div>
-          <div className="absolute inset-0 z-0 bg-gradient-to-r bg-yellow-400 to-blue-900/40" />
+          <div className="absolute inset-0 z-0 bg-gradient-to-r bg-yellow-400/10 to-black/40" />
 
           <div className="container relative z-10 mx-auto px-4 md:px-6">
             <div className="flex flex-col items-start gap-6 max-w-3xl  animate-in fade-in slide-in-from-bottom-4 duration-1000">
               <div className="inline-flex items-center rounded-full border bg-yellow-400/10 px-4 py-1.5 text-sm font-semibold text-white backdrop-blur-sm shadow-[0_0_15px_rgba(255,215,0,0.3)]">
-                <Award className="mr-2 h-4 w-4" />
-                15 ans d'excellence
+                <Award className="mr-2 h-4 w-4" />5 ans d'excellence
               </div>
-              <h1 className="text-4xl font-extrabold tracking-tight sm:text-5xl md:text-6xl">
-                Qui est <span className="block mt-2">LEAD CONSULTING?</span>
+              <h1 className="text-white  font-bold -tracking-wider leading-12 sm:leading-16 antialiased text-4xl sm:text-7xl">
+              LEAD CONSULTING
               </h1>
-              <p className="text-lg text-gray-800 md:text-xl max-w-[650px] leading-relaxed">
+              <p className="text-lg text-white md:text-xl max-w-[650px] leading-relaxed">
                 L'expert électrique de confiance pour les particuliers et
-                professionnels Passion pour le métier, engagement envers la
+                professionnels. Passion pour le métier, engagement envers la
                 qualité.
               </p>
             </div>
@@ -68,8 +69,8 @@ export default function AboutPage() {
                 <div className="absolute -bottom-4 -right-4 w-24 h-24 bg-blue-600/20 rounded-br-3xl -z-10" />
                 <div className="relative h-[500px] rounded-2xl overflow-hidden shadow-2xl">
                   <Image
-                    src=""
-                    alt="Fondateurs d'ÉLECPRO"
+                    src={leadConsulting}
+                    alt="Fondateurs de Lead Consulting"
                     fill
                     className="object-cover"
                   />
@@ -77,7 +78,7 @@ export default function AboutPage() {
                   <div className="absolute bottom-0 left-0 right-0 p-8 text-white">
                     <div className="flex items-center gap-4">
                       <div className="text-5xl font-bold text-yellow-400">
-                        15
+                        5
                       </div>
                       <div className="text-sm font-medium uppercase tracking-wider border-l-2 border-white/30 pl-4">
                         Années d'histoire
@@ -97,19 +98,25 @@ export default function AboutPage() {
                   Fondée sur la confiance et l'expertise
                 </h2>
                 <p className="text-gray-600 mb-6 leading-relaxed text-lg">
-                  <strong>LEAD CONSULTING</strong> a été créée en 2010 par deux électriciens passionnés
-                  ayant plus de 40 ans d'expérience combinée. Partant du constat
-                  que l'électricité était souvent négligée par manque de temps
-                  ou de connaissance et par la non présence de l'électricité dans les zones reculées, ils ont décidé de créer une entreprise
-                  dédiée à la sécurité et au confort des familles et des
-                  entreprises.
+                  <strong>LEAD CONSULTING</strong> a été créée en 2020 par deux
+                  électriciens passionnés ayant plus de 10 ans d'expérience
+                  combinée. Partant du constat que l'électricité ainsi que les
+                  resources d'énergie renouveable était souvent négligée par
+                  manque de temps ou de connaissance et par la non présence de
+                  l'électricité dans les zones reculées, ils ont décidé de créer
+                  une entreprise dédiée à la sécurité et au confort des familles
+                  et des entreprises.
                 </p>
                 <p className="text-gray-600 mb-8 leading-relaxed text-lg">
-                  Aujourd'hui, avec une équipe de plus de 10 techniciens certifiés et
-                  les nouvelles technologies des outils dont on dispose, <strong>LEAD CONSULTING</strong> intervient chaque
+                  Aujourd'hui, avec une équipe de plus de 10 techniciens
+                  certifiés et les nouvelles technologies des outils dont on
+                  dispose, <strong>LEAD CONSULTING</strong> intervient chaque
                   jour pour améliorer la qualité de vie avec plus de 500 clients
-                  satisfaits. Notre croissance repose sur un principe simple : 
-                   <strong> écouter, comprendre et dépasser les attentes.</strong>
+                  satisfaits. Notre croissance repose sur un principe simple :
+                  <strong>
+                    {' '}
+                    écouter, comprendre et dépasser les attentes.
+                  </strong>
                 </p>
 
                 <div className="grid sm:grid-cols-2 gap-6 mb-8">
@@ -356,26 +363,6 @@ export default function AboutPage() {
                   role: 'Électricienne Installations',
                   exp: '12 ans',
                 },
-                {
-                  name: 'Thomas Leclerc',
-                  role: 'Électricien Dépannage',
-                  exp: '6 ans',
-                },
-                {
-                  name: 'Nathalie Fournier',
-                  role: 'Gérant Commercial',
-                  exp: '10 ans',
-                },
-                {
-                  name: 'David Moreau',
-                  role: 'Électricien Professionnel',
-                  exp: '7 ans',
-                },
-                {
-                  name: 'Emma Laurent',
-                  role: 'Électricienne Confirmée',
-                  exp: '5 ans',
-                },
               ].map((member, index) => (
                 <div
                   key={index}
@@ -412,7 +399,7 @@ export default function AboutPage() {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
               <div className="text-center p-6">
                 <div className="text-5xl font-extrabold text-blue-600 mb-2">
-                  15
+                  5
                 </div>
                 <p className="text-gray-600 font-medium">Années d'expérience</p>
                 <p className="text-sm text-gray-500 mt-2">Depuis 2010</p>
@@ -451,12 +438,11 @@ export default function AboutPage() {
         </section>
 
         {/* Why Choose Us */}
-        <section className="py-24 relative">
-          <div className="absolute inset-0  bg-linear-to-t from-blue-300/60 to-blue-300/10" />
+        <section className="py-24 relative bg-blue-200">
           <div className="container mx-auto px-4 md:px-6">
             <div className="text-center mb-16 space-y-4">
               <h2 className="text-3xl font-bold tracking-tight sm:text-4xl text-gray-900">
-                Pourquoi Choisir ÉLECPRO ?
+                Pourquoi Choisir Lead Consulting ?
               </h2>
               <div className="h-1 w-20 bg-blue-600 mx-auto rounded-full" />
             </div>
@@ -511,7 +497,7 @@ export default function AboutPage() {
                     <h3 className="font-bold text-gray-900 text-lg mb-2">
                       {item.title}
                     </h3>
-                    <p className="text-gray-600 text-sm leading-relaxed">
+                    <p className="text-accent text-sm leading-relaxed">
                       {item.description}
                     </p>
                   </div>
