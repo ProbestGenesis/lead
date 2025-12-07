@@ -79,7 +79,7 @@ function BestProducts() {
           <div className="flex items-center justify-center  mt-8">
             <div className="flex flex-row max-sm:flex-col-reverse shadow-lg max-w-6xl sm:h-[60vh] hover:shadow-2xl transition-all p-0 border-transparent container relative ">
               <div className="flex w-[60%] max-sm:flex-col max-sm:w-full flex-row items-center justify-center bg-white max-sm:pb-4">
-                <motion.div initial={{ opacity: 0, x:-25 }} whileInView={{ opacity: 1, x: 0 }}  className="absolute max-sm:hidden  bg-green-300 bottom-5 lg:-left-30 w-82 h-22 rounded-full  hover:scale-120 transition-all " />
+                <motion.div initial={{ opacity: 0, x:-100 }} whileInView={{ opacity: 1, x: 0, transition: { duration: 0.1, ease: "easeIn" } }}  className="absolute max-sm:hidden  bg-green-300 bottom-5 lg:-left-30 w-82 h-22 rounded-full  hover:scale-120 transition-all " />
                 <div className="sm:w-96 flex flex-col max-sm:space-y-2 space-y-4 sm:mx-12 mx-4 max-sm:mt-4 items-center justify-center">
                   <h2 className="text-4xl max-sm:text-2xl text-wrap">
                     Vous ne savez pas quel kit choisir ?
