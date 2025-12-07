@@ -82,7 +82,7 @@ function BestProducts() {
 
           <div className="flex items-center justify-center  mt-8">
             <div className="flex flex-row max-sm:flex-col-reverse shadow-lg max-w-6xl min-h-[60vh]   hover:shadow-2xl transition-all p-0 border-transparent container relative ">
-              <div className="flex w-[60%] max-md:h-[80vh] max-sm:flex-col max-sm:w-full flex-row items-center justify-center bg-white max-sm:pb-4">
+              <div className="flex w-[60%] max-sm:h-[60vh] max-md:h-[80vh] max-sm:flex-col max-sm:w-full flex-row items-center justify-center bg-white max-sm:pb-4">
                 <motion.div
                   initial={{ opacity: 0, x: -100 }}
                   whileInView={{

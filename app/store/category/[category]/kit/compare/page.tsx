@@ -75,7 +75,7 @@ const getComponentIcon = (key:string) => {
 function page() {
   return (
     <section className="py-24 bg-gray-50 relative">
-      <div className="container mx-auto 2xl:px-12 mx-4">
+      <div className="container mx-auto 2xl:px-12 max-sm:px-4">
         {/* Section Header */}
         <div className="mb-16 space-y-4">
           <h2 className="text-3xl font-bold tracking-tight sm:text-4xl text-gray-900">
