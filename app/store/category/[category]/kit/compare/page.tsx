@@ -1,3 +1,5 @@
+"use client"
+
 import { Button } from '@/components/ui/button';
 import {
   Card,
@@ -21,9 +23,11 @@ import {
 } from 'lucide-react';
 import { formatPrice } from '@/lib/formatPrice';
 import Link from 'next/link';
+import { useParams } from 'next/navigation';
+import clsx from 'clsx';
 
 // --- MAPPING POUR LA TRADUCTION DES CLÉS EN FRANÇAIS ---
-const COMPONENT_NAMES_FR: Record<string, string> = {
+ const COMPONENT_NAMES_FR: Record<string, string> = {
   panel: 'Panneau Solaire',
   panels: 'Panneaux Solaires',
   battery: 'Batterie',
@@ -39,14 +43,18 @@ const COMPONENT_NAMES_FR: Record<string, string> = {
 };
 
 // Fonction pour récupérer le nom français ou la clé par défaut
-const getComponentName = (key: string) => {
+export const getComponentName = (key: string) => {
   return COMPONENT_NAMES_FR[key] || key.charAt(0).toUpperCase() + key.slice(1);
 };
 // --------------------------------------------------------
 
 // Fonction pour déterminer une icône basée sur le nom du composant
-const getComponentIcon = (key:string) => {
-  switch (key) {
+export const getComponentIcon = (key:string) => {
+
+
+  const { kitId } = useParams()
+  if(kitId === undefined){
+    switch (key) {
     case 'panel':
     case 'panels':
       return <Zap className="w-4 h-4 text-secondary-foreground" />;
@@ -70,11 +78,39 @@ const getComponentIcon = (key:string) => {
     default:
       return <Package className="w-4 h-4 text-secondary-foreground" />;
   }
+  }
+  switch (key) {
+    case 'panel':
+    case 'panels':
+      return <Zap className="w-24 h-24 text-secondary-foreground" />;
+    case 'battery':
+    case 'batteries':
+      return <Battery className="w-24 h-24 text-secondary-foreground" />;
+    case 'regulator':
+      return <Globe className="w-24 h-24 text-secondary-foreground" />;
+    case 'inverter':
+      return <Zap className="w-24 h-24 text-secondary-foreground" />;
+    case 'bulbs':
+      return <Lightbulb className="w-24 h-24 text-secondary-foreground" />;
+    case 'television':
+      return <Tv className="w-24 h-24 text-secondary-foreground" />;
+    case 'fan':
+    case 'fans':
+      return <Wind className="w-24 h-24 text-secondary-foreground" />;
+    case 'decoder':
+    case 'bonus':
+      return <Check className="w-24 h-24 text-secondary-foreground" />;
+    default:
+      return <Package className="w-24 h-24 text-secondary-foreground" />;
+  }
 };
 
 function page() {
+  
+  const { kitId }  : {kitId : string}= useParams()
+  const id = parseInt(kitId)
   return (
-    <section className="py-24 bg-gray-50 relative">
+    <section className="bg-gray-50 relative">
       <div className="container mx-auto 2xl:px-12 max-sm:px-4">
         {/* Section Header */}
         <div className="mb-16 space-y-4">
@@ -89,10 +125,10 @@ function page() {
         </div>
 
         {/* Kits Solar Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {data.solar_kits.map((item, idx) => (
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          {kitData.solar_kits.map((item, idx) => (
             <Card
-              className="rounded-xl py-0 overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300"
+              className="rounded-xl py-0 overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300 lg:w-3xs "
               key={idx.toString()}
             >
               {/* Card Header (Image Placeholder and Title) */}
@@ -108,7 +144,7 @@ function page() {
                     <span>{item.name}</span>
                   </CardTitle>
 
-                  <CardDescription className="text-3xl font-bold text-secondary">
+                  <CardDescription className="text-2xl font-bold text-secondary">
                     <span className="flex items-center">
                       <DollarSign className="w-6 h-6 mr-1" />
                       {formatPrice(item.price)}
@@ -122,23 +158,10 @@ function page() {
                 <h3 className="text-lg font-semibold mb-3 text-gray-700">
                   Composants Inclus :
                 </h3>
-                <ul className="space-y-2">
-                  {Object.entries(item.components).map(([key, value]) => (
-                    <li
-                      key={key}
-                      className="flex items-start text-sm text-gray-600"
-                    >
-                      <span className="flex-shrink-0 mr-2 mt-1">
-                        {getComponentIcon(key)}
-                      </span>
-                      {/* --- Ligne Modifiée pour afficher la clé en Français --- */}
-                      <strong className="capitalize text-gray-900 mr-1">
-                        {getComponentName(key)}:
-                      </strong>
-                      <span>{value}</span>
-                    </li>
-                  ))}
-                </ul>
+                
+                <div className='flex flex-row'>
+                  <ComposantComponent  item={item} kitId={id as number | undefined} />
+                  </div> 
               </CardContent>
 
               {/* Card Footer (Action and Warranty) */}
@@ -146,7 +169,7 @@ function page() {
                 <CardAction className="w-full">
                   {/**Gerer dynamaique la category */}
                   <Button className="text-white px-4 py-2 rounded-full hover:bg-secondary/90 transition w-full" size={"lg"}>
-                   <Link href={`/store/category/solar/kit/${item.name.split(' ').join('_').toLowerCase()}`}>Commander ce kit </Link> 
+                   <Link href={`/store/category/solar/kit/${item.id}`}>Commander ce kit </Link> 
                   </Button>
                 </CardAction>
 
@@ -164,13 +187,14 @@ function page() {
   );
 }
 
-const data = {
+export const kitData = {
   solar_kits: [
     {
       id: 1,
       name: 'Kit solaire Mini',
       price: 220000,
       currency: 'FCFA',
+      images: [],
       components: {
         panel: '01',
         battery: '01',
@@ -186,6 +210,7 @@ const data = {
       name: 'Kit solaire pro',
       price: 300000,
       currency: 'FCFA',
+      images: [],
       components: {
         panel: '01',
         battery: '01',
@@ -202,6 +227,7 @@ const data = {
       name: 'Kit solaire pro max',
       price: 435000,
       currency: 'FCFA',
+      images: [],
       components: {
         panels: '02',
         battery: '01',
@@ -219,6 +245,7 @@ const data = {
       name: 'Kit solair ultra',
       price: 650000,
       currency: 'FCFA',
+      images: [],
       components: {
         panels: '04',
         batteries: '02',
@@ -234,4 +261,29 @@ const data = {
   ],
   warranty: 'Une garantie totale sur tous nos produits',
 };
+
+export const ComposantComponent = ({item, kitId}: {item: any, kitId: number | undefined}) => {
+  console.log(kitId)
+  return (
+    <ul className="space-y-2">
+                  {Object.entries(item.components).map(([key, value]) => (
+                    <li
+                      key={key}
+                      className={clsx("flex items-start text-sm text-gray-600", {
+                        "flex-col gap-4" : Number.isNaN(kitId)
+                      })}
+                    >
+                      <span className="flex-shrink-0 mr-2 mt-1">
+                        {getComponentIcon(key)}
+                      </span>
+                      {/* --- Ligne Modifiée pour afficher la clé en Français --- */}
+                      <strong className="capitalize text-gray-900 mr-1">
+                        {getComponentName(key)}:
+                      </strong>
+                      <span>{value}</span>
+                    </li>
+                  ))}
+                </ul>
+  )
+}
 export default page;

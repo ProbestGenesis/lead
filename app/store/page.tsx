@@ -54,7 +54,7 @@ function Page() {
               return (
                 <Card
                   key={idx.toString()}
-                  className="w-sm md:w-xs lg:w-2xl rounded-none relative max-sm:w-full px-2  border hover:scale-105 hover:shadow-sm transition-all max-sm:px-0.5  max-sm:py-2"
+                  className="w-sm md:w-xs lg:w-[600px] rounded-none relative max-sm:w-full px-2  border hover:scale-105 hover:shadow-sm transition-all max-sm:px-0.5  max-sm:py-2"
                 >
                   {' '}
                   <div className="h-42">
@@ -123,7 +123,7 @@ function Page() {
             return (
               <Card
                 key={idx.toString()}
-                className="w-sm md:w-xs lg:w-sm rounded-none relative max-sm:w-full px-2  border hover:scale-105 hover:shadow-sm transition-all max-sm:px-0.5  max-sm:py-2"
+                className="w-sm md:w-xs lg:w-2xs rounded-none relative max-sm:w-full px-2  border hover:scale-105 hover:shadow-sm transition-all max-sm:px-0.5  max-sm:py-2"
               >
                 {' '}
                 <div className="h-42">

@@ -1,12 +1,12 @@
-'use client';
-import Image from 'next/image';
-import { Button } from '../ui/button';
-import Link from 'next/link';
-import techncienImage from '@/assets/technicien.jpg';
-import whatsappIcon from '@/assets/whatsapp.png';
-import { zodResolver } from '@hookform/resolvers/zod';
-import { useForm } from 'react-hook-form';
-import { z } from 'zod';
+"use client";
+import Image from "next/image";
+import { Button } from "../ui/button";
+import Link from "next/link";
+import techncienImage from "@/assets/technicien.jpg";
+import whatsappIcon from "@/assets/whatsapp.png";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useForm } from "react-hook-form";
+import { z } from "zod";
 import {
   Form,
   FormControl,
@@ -15,27 +15,27 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-} from '@/components/ui/form';
-import { Input } from '../ui/input';
-import { Textarea } from '../ui/textarea';
+} from "@/components/ui/form";
+import { Input } from "../ui/input";
+import { Textarea } from "../ui/textarea";
 
 const formSchema = z.object({
   lastname: z
     .string()
-    .min(2, { message: 'Votre nom doit contenir au moins deux caractères' }),
+    .min(2, { message: "Votre nom doit contenir au moins deux caractères" }),
   firstname: z.string().min(2, {
-    message: 'Votre prénom doit contenir au moins deux caractères',
+    message: "Votre prénom doit contenir au moins deux caractères",
   }),
   email: z.string().nonempty({
-    message: 'Username must be at least 2 characters.',
+    message: "Username must be at least 2 characters.",
   }),
   message: z.string().min(60, {
-    message: 'Le message doit contenir au moins 60 caractères',
+    message: "Le message doit contenir au moins 60 caractères",
   }),
 });
 function ContactTechnicien() {
   return (
-    <section className="flex-col" id="contact">
+    <section className="flex-col min-h-screen" id="contact">
       <div
         id="technicien"
         className="bg-yellow-300 py-8 max-sm:px-4 md:px-6 lg:px-8"
@@ -77,10 +77,10 @@ export const ContactComponent = () => {
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      email: '',
-      lastname: '',
-      firstname: '',
-      message: '',
+      email: "",
+      lastname: "",
+      firstname: "",
+      message: "",
     },
   });
 
@@ -91,7 +91,7 @@ export const ContactComponent = () => {
     console.log(values);
   }
   return (
-    <div className="grid grid-cols-4 gap-0 max-md:flex flex-col">
+    <div className="grid grid-cols-4 gap-0 max-md:flex flex-col max-lg:min-h-screen">
       <div className="col-span-2">
         <Image
           src={techncienImage}
@@ -99,18 +99,18 @@ export const ContactComponent = () => {
           width={1333}
           height={2000}
           placeholder="blur"
-          style={{ objectFit: 'cover' }}
+          style={{ objectFit: "cover" }}
           quality={60}
-          className="h-[80vh]"
+          className="h-[80vh] lg:h-screen"
         />
       </div>
-      <div className="col-span-2 h-[80vh] flex flex-col space-y-8 items-center justify-center px-8 text-left bg-white">
+      <div className="col-span-2  flex flex-col space-y-8 items-center justify-center px-8 text-left bg-white">
         <h3 className="text-3xl font-bold tracking-tight sm:text-4xl text-gray-900">
           Nous contacter
         </h3>
         <span className="flex items-center justify-center space-x-4 mx-auto">
           <Link
-            href={'https://wa.me/1234567890'}
+            href={"https://wa.me/1234567890"}
             target="_blank"
             className="flex flex-col items-center"
           >
@@ -124,7 +124,7 @@ export const ContactComponent = () => {
           </Link>
 
           <Link
-            href={'https://wa.me/1234567890'}
+            href={"https://wa.me/1234567890"}
             target="_blank"
             className="flex flex-col items-center"
           >
@@ -145,7 +145,7 @@ export const ContactComponent = () => {
         </div>
         <div>
           <Form {...form}>
-            <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
+            <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-3.5">
               <div className="flex flex-row space-x-2">
                 <FormField
                   control={form.control}
