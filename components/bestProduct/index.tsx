@@ -40,7 +40,7 @@ function BestProducts() {
         </div>
 
         <div className="flex flex-col gap-4 lg:gap-6 py-12 mx-auto">
-          <div className="flex flex-row gap-4 flex-wrap  w-full items-center lg:grid grid-rows-2 lg:grid-cols-3 lg:row-span-1 ">
+          <div className="flex flex-row gap-4 flex-wrap  w-full items-center lg:grid grid-rows-2 lg:grid-cols-3 lg:row-span-1  xl:flex">
             {bestProducts.map((item, idx) => (
               <Card
                 className="shadow-lg max-sm:w-full md:w-2xs md:h-[500px] lg:col-span-1 p-0 pb-8 rounded-none hover:shadow-2xl hover:scale-110 hover:z-10 transition-all  border-transparent"
@@ -66,10 +66,7 @@ function BestProducts() {
                     <Button className="text-white px-4 py-2 rounded-full hover:bg-secondary/90 transition">
                       {' '}
                       <Link
-                        href={`/store/category/${bestProductCategory}/kit/${item.title
-                          .split(' ')
-                          .join('_')
-                          .toLowerCase()}`}
+                        href={`/store/category/${bestProductCategory}/kit/${item?.id}`}
                       >
                         En savoir plus{' '}
                       </Link>
@@ -81,7 +78,7 @@ function BestProducts() {
 
             <div className='max-lg:hidden col-span-2 h-full'  >
                <div className="flex items-center justify-center">
-            <div className="flex flex-row max-sm:flex-col-reverse shadow-lg max-w-6xl  max-xl:h-[500px] min-h-[60vh]   hover:shadow-2xl transition-all p-0 border-transparent container relative ">
+            <div className="flex flex-row max-sm:flex-col-reverse shadow-lg max-w-6xl xl:hidden  max-xl:h-[500px] min-h-[60vh]   hover:shadow-2xl transition-all p-0 border-transparent container relative ">
               <div className="flex w-[60%] lg:flex-col space-y-8 lg:ps-8 mx-auto  max-sm:h-auto max-md:h-[80vh] max-sm:flex-col max-sm:w-full flex-row items-center justify-center bg-white  max-sm:pb-4">
                 <motion.div
                   initial={{ opacity: 0, x: -100 }}
@@ -131,7 +128,7 @@ function BestProducts() {
             </div>
           </div>
 
-          <div className="flex items-center justify-center  mt-8 lg:hidden">
+          <div className="flex items-center justify-center  mt-8 lg:hidden xl:flex">
             <div className="flex flex-row max-sm:flex-col-reverse shadow-lg max-w-6xl min-h-[60vh]   hover:shadow-2xl transition-all p-0 border-transparent container relative ">
               <div className="flex w-[60%]  max-sm:h-auto max-md:h-[80vh] max-sm:flex-col max-sm:w-full flex-row items-center justify-center bg-white max-sm:pb-4">
                 <motion.div
@@ -187,6 +184,7 @@ function BestProducts() {
 
 export const bestProducts = [
   {
+    id: 1,
     title: 'kit solaire Mini',
     description:
       "Obtenez une indépendance énergétique avec notre mini kit solaire tout-en-un, compact et efficace.",
@@ -194,6 +192,7 @@ export const bestProducts = [
   },
 
   {
+    id: 2,
     title: 'Kit Solaire Pro',
     description:
       "Découvrez nos solutions complètes pour une gestion énergétique industrielle fiable et performante.",
@@ -201,6 +200,7 @@ export const bestProducts = [
   },
 
   {
+    id: 3,
     title: 'Kit solaire Pro max',
     description:
       "Maximisez votre autonomie énergétique grâce à notre kit solaire ultime, puissant et polyvalent.",
@@ -208,6 +208,7 @@ export const bestProducts = [
   },
 
   {
+    id: 4,
     title: 'Kit solaire Ultra ',
     description:
       "Profitez d'une autonomie énergétique optimale avec notre kit solaire ultra performant et durable.",

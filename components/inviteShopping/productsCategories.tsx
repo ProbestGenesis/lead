@@ -35,7 +35,7 @@ export const CatgeoriesList = ({ categories, iconSize }: { categories: { name: s
         <Link
           href={`/store/category/${category.name.split(' ').join('_')}`}
           key={idx}
-          className="flex flex-col  items-center justify-center space-y-4 cursor-pointer active:bg-accent/40 p-2 active:border-transparent rounded-lg"
+          className="flex flex-col  items-center justify-center space-y-4 cursor-pointer hover:bg-accent/40 active:bg-accent/40 hover:border-transparent p-2 active:border-transparent rounded-lg"
         >
           <div
             className={`relative ${

@@ -25,6 +25,8 @@ import { formatPrice } from '@/lib/formatPrice';
 import Link from 'next/link';
 import { useParams } from 'next/navigation';
 import clsx from 'clsx';
+import { kitData } from '@/data/kitdata';
+import { SolarKit } from '@/data/kitdata';
 
 // --- MAPPING POUR LA TRADUCTION DES CLÉS EN FRANÇAIS ---
  const COMPONENT_NAMES_FR: Record<string, string> = {
@@ -43,13 +45,13 @@ import clsx from 'clsx';
 };
 
 // Fonction pour récupérer le nom français ou la clé par défaut
-export const getComponentName = (key: string) => {
+export const GetComponentName = (key: string) => {
   return COMPONENT_NAMES_FR[key] || key.charAt(0).toUpperCase() + key.slice(1);
 };
 // --------------------------------------------------------
 
 // Fonction pour déterminer une icône basée sur le nom du composant
-export const getComponentIcon = (key:string) => {
+export const GetComponentIcon = (key:string) => {
 
 
   const { kitId } = useParams()
@@ -57,32 +59,37 @@ export const getComponentIcon = (key:string) => {
     switch (key) {
     case 'panel':
     case 'panels':
-      return <Zap className="w-4 h-4 text-secondary-foreground" />;
+      return <Zap   className="w-4 h-4 text-secondary-foreground" />;
     case 'battery':
     case 'batteries':
-      return <Battery className="w-4 h-4 text-secondary-foreground" />;
+      return <Battery  className="w-4 h-4 text-secondary-foreground" />;
     case 'regulator':
-      return <Globe className="w-4 h-4 text-secondary-foreground" />;
+      return <Globe  className="w-4 h-4 text-secondary-foreground" />;
     case 'inverter':
-      return <Zap className="w-4 h-4 text-secondary-foreground" />;
+      return <Zap  className="w-4 h-4 text-secondary-foreground" />;
     case 'bulbs':
-      return <Lightbulb className="w-4 h-4 text-secondary-foreground" />;
+      return <Lightbulb  className="w-4 h-4 text-secondary-foreground" />;
     case 'television':
-      return <Tv className="w-4 h-4 text-secondary-foreground" />;
+      return <Tv  className="w-4 h-4 text-secondary-foreground" />;
     case 'fan':
     case 'fans':
-      return <Wind className="w-4 h-4 text-secondary-foreground" />;
+      return <Wind  className="w-4 h-4 text-secondary-foreground" />;
     case 'decoder':
     case 'bonus':
-      return <Check className="w-4 h-4 text-secondary-foreground" />;
+      return <Check  className="w-4 h-4 text-secondary-foreground" />;
     default:
-      return <Package className="w-4 h-4 text-secondary-foreground" />;
+      return <Package  className="w-4 h-4 text-secondary-foreground" />;
   }
   }
   switch (key) {
     case 'panel':
     case 'panels':
-      return <Zap className="w-24 h-24 text-secondary-foreground" />;
+      return (
+        <Zap
+         
+          className="w-24 h-24 text-secondary-foreground"
+        />
+      );
     case 'battery':
     case 'batteries':
       return <Battery className="w-24 h-24 text-secondary-foreground" />;
@@ -96,19 +103,24 @@ export const getComponentIcon = (key:string) => {
       return <Tv className="w-24 h-24 text-secondary-foreground" />;
     case 'fan':
     case 'fans':
-      return <Wind className="w-24 h-24 text-secondary-foreground" />;
+      return <Wind stroke={"yellow"} className="w-24 h-24 text-secondary-foreground" />;
     case 'decoder':
     case 'bonus':
       return <Check className="w-24 h-24 text-secondary-foreground" />;
     default:
-      return <Package className="w-24 h-24 text-secondary-foreground" />;
+      return (
+        <Package
+          stroke={'yellow'}
+          className="w-24 h-24 text-secondary-foreground"
+        />
+      );
   }
 };
 
-function page() {
+function Page() {
   
-  const { kitId }  : {kitId : string}= useParams()
-  const id = parseInt(kitId)
+  const { kitId } : {kitId : string}= useParams()
+
   return (
     <section className="bg-gray-50 relative">
       <div className="container mx-auto 2xl:px-12 max-sm:px-4">
@@ -160,7 +172,7 @@ function page() {
                 </h3>
                 
                 <div className='flex flex-row'>
-                  <ComposantComponent  item={item} kitId={id as number | undefined} />
+                  <ComposantComponent  item={item}  />
                   </div> 
               </CardContent>
 
@@ -187,103 +199,33 @@ function page() {
   );
 }
 
-export const kitData = {
-  solar_kits: [
-    {
-      id: 1,
-      name: 'Kit solaire Mini',
-      price: 220000,
-      currency: 'FCFA',
-      images: [],
-      components: {
-        panel: '01',
-        battery: '01',
-        regulator: '01',
-        inverter: '01',
-        bulbs: '06',
-        television: '01 (17 pouces)',
-        decoder: '01 Kit Décodeur simple',
-      },
-    },
-    {
-      id: 2,
-      name: 'Kit solaire pro',
-      price: 300000,
-      currency: 'FCFA',
-      images: [],
-      components: {
-        panel: '01',
-        battery: '01',
-        regulator: '01',
-        inverter: '01',
-        bulbs: '10',
-        television: '01 (19 pouces)',
-        fan: '01',
-        decoder: '01 Kit Décodeur simple',
-      },
-    },
-    {
-      id: 3,
-      name: 'Kit solaire pro max',
-      price: 435000,
-      currency: 'FCFA',
-      images: [],
-      components: {
-        panels: '02',
-        battery: '01',
-        regulator: '01',
-        inverter: '01',
-        bulbs: '12',
-        television: '01 (24 pouces)',
-        fan: '01',
-        decoder: '01 Kit Décodeur canal+',
-        bonus: "3 mois d'abonnement inclus",
-      },
-    },
-    {
-      id: 4,
-      name: 'Kit solair ultra',
-      price: 650000,
-      currency: 'FCFA',
-      images: [],
-      components: {
-        panels: '04',
-        batteries: '02',
-        regulator: '01',
-        inverter: '01',
-        bulbs: '20',
-        television: '01 (32 pouces)',
-        fans: '02',
-        decoder: '01 Kit Décodeur canal+',
-        bonus: "3 mois d'abonnement inclus",
-      },
-    },
-  ],
-  warranty: 'Une garantie totale sur tous nos produits',
-};
 
-export const ComposantComponent = ({item, kitId}: {item: any, kitId: number | undefined}) => {
-  console.log(kitId)
+export const ComposantComponent = ({ item }: { item: SolarKit }) => {
+  const { kitId }: { kitId: string } = useParams();
+  console.log(kitId);
+  const id = parseInt(kitId);
   return (
-    <ul className="space-y-2">
-                  {Object.entries(item.components).map(([key, value]) => (
-                    <li
-                      key={key}
-                      className={clsx("flex items-start text-sm text-gray-600", {
-                        "flex-col gap-4" : Number.isNaN(kitId)
-                      })}
-                    >
-                      <span className="flex-shrink-0 mr-2 mt-1">
-                        {getComponentIcon(key)}
-                      </span>
-                      {/* --- Ligne Modifiée pour afficher la clé en Français --- */}
-                      <strong className="capitalize text-gray-900 mr-1">
-                        {getComponentName(key)}:
-                      </strong>
-                      <span>{value}</span>
-                    </li>
-                  ))}
-                </ul>
-  )
-}
-export default page;
+    <ul className={clsx("gap-2", {
+      "flex flex-row gap-4 mx-auto flex-wrap": kitId
+    })}>
+      {Object.entries(item.components).map(([key, value]) => (
+        <li
+          key={key}
+          className={clsx('flex items-start text-sm text-gray-600', {
+            'flex-col gap-4 border p-4 ': kitId,
+          })}
+        >
+          <span className="flex-shrink-0 mr-2 mt-1">
+            {GetComponentIcon(key)}
+          </span>
+          {/* --- Ligne Modifiée pour afficher la clé en Français --- */}
+          <strong className="capitalize text-gray-900 mr-1">
+            {GetComponentName(key)}:
+          </strong>
+          <span>{value}</span>
+        </li>
+      ))}
+    </ul>
+  );
+};
+export default Page;
