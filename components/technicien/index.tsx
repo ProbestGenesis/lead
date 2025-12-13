@@ -133,7 +133,7 @@ export const ContactForm = () => {
           <p>Whatsapp</p>
         </Link>
 
-        <Link
+      {/*  <Link
           href={'https://wa.me/99796474'}
           target="_blank"
           className="flex flex-col items-center"
@@ -145,7 +145,7 @@ export const ContactForm = () => {
           />
 
           <p>Whatsapp</p>
-        </Link>
+        </Link>*/}
       </span>
 
       <div className="my-4 flex items-center justify-center space-x-3.5 ">

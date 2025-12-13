@@ -123,7 +123,7 @@ function Page() {
 
   return (
     <section className="bg-gray-50 relative">
-      <div className="container mx-auto 2xl:px-12 max-sm:px-4">
+      <div className="container mx-auto 2xl:px-12 max-sm:px-4 py-12">
         {/* Section Header */}
         <div className="mb-16 space-y-4">
           <h2 className="text-3xl font-bold tracking-tight sm:text-4xl text-gray-900">
@@ -140,7 +140,7 @@ function Page() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {kitData.solar_kits.map((item, idx) => (
             <Card
-              className="rounded-xl py-0 overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300 lg:w-3xs "
+              className="rounded-xl py-0 overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300 lg:w-3xs xl:w-xs 2xl:w-sm "
               key={idx.toString()}
             >
               {/* Card Header (Image Placeholder and Title) */}

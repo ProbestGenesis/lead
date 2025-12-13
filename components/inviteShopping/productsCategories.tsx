@@ -39,7 +39,7 @@ export const CatgeoriesList = ({ categories, iconSize }: { categories: { name: s
         >
           <div
             className={`relative ${
-              iconSize === 'small' ? 'w-12 h-12' : ' w-30 h-30'
+              iconSize === 'small' ? 'w-20 h-20' : ' w-30 h-30'
             }`}
           >
             <Image
@@ -49,7 +49,7 @@ export const CatgeoriesList = ({ categories, iconSize }: { categories: { name: s
               objectFit="cover"
             />
           </div>
-          <h3 className="text-lg max-sm:text-xs text-blue-500">
+          <h3 className="text-lg max-sm:text-sm text-blue-500">
             {category.name}
           </h3>
         </Link>

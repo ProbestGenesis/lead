@@ -43,7 +43,7 @@ function Page() {
     type: '',
   });
   return (
-    <section className="min-h-screen flex flex-col  space-y-24">
+    <section className="min-h-screen flex flex-col bg-white py-12">
       <div className="container 2xl:px-12 flex flex-col space-y-4 mx-auto h-full max-sm:px-4">
         <h3 className="font-bold text-gray-900  tracking-tighter text-3xl">
           Tout nos produits
@@ -191,13 +191,11 @@ function Page() {
           })}
         </div>
       </div>
-
-      <BestProducts />
     </section>
   );
 }
 
-const storeData = [
+export const storeData = [
   {
     id: 3,
     name: 'LED Light Bulb 12W',
@@ -223,7 +221,7 @@ const storeData = [
     description:
       'Complete solar panel kit with 100W panel, charge controller, and cables.',
     price: 199.99,
-    category: 'Solar Kits',
+    category: 'Energie solaire',
     image: '/images/solar-panel-kit.jpg',
     type: 'kit',
   },

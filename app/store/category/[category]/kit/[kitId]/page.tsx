@@ -9,20 +9,21 @@ import { GetComponentIcon } from '../compare/page';
 import { GetComponentName } from '../compare/page';
 import { Button } from '@/components/ui/button';
 import { ContactForm } from '@/components/technicien';
+import { ScrollArea, ScrollBar } from '@/components/ui/scroll-area';
 function Page() {
   const { kitId }: { kitId: string } = useParams();
   console.log(kitId);
   const id = parseInt(kitId);
   return (
     <section className="">
-      <div className="bg-yellow-400 min-h-[82vh] max-sm:min-h-[90vh] ">
-        <div className="flex space-x-12 flex-row sm:items-center w-full h-full sm:justify-center max-sm:flex-col-reverse max-sm:gap-12">
-          <div className="flex flex-col space-y-4 max-w-sm px-4 flex-1">
-            <h3 className="text-3xl font-bold tracking-tight sm:text-7xl text-gray-900">
+      <div className="bg-yellow-400 h-[82vh] max-sm:min-h-[90vh] ">
+        <div className="flex space-x-12 flex-row sm:items-center w-full h-full sm:justify-between container mx-auto max-sm:flex-col-reverse max-sm:gap-12">
+          <div className="flex flex-col space-y-4 max-w-lg px-4 flex-1">
+            <h3 className="text-3xl font-bold tracking-tight sm:text-7xl text-gray-900 text-wrap">
               {kitData.solar_kits[id]?.name}
             </h3>
 
-            <p className="text-accent">
+            <p className="text-accent text-wrao">
               Kit solaire complet, facile à installer, idéal pour alimenter vos
               appareils essentiels en toute autonomie.
             </p>
@@ -43,12 +44,43 @@ function Page() {
         </div>
       </div>
 
-      <div className="bg-gray-200 py-12 min-h-24">
-        <div></div>
+      <div className="bg-gray-200 py-4 min-h-24">
+        <ScrollArea>
+          <ul className="flex flex-row w-full justify-between items-center  container sm:mx-auto  ">
+            <li className="flex flex-col space-y-4 text-center items-center  max-sm text-sm">
+              <Badge />
+
+              <p>Qualité supérieur</p>
+            </li>
+
+            <li className="flex flex-col space-y-4 text-center items-center  max-sm text-sm">
+              <Badge />
+
+              <p>Sûre</p>
+            </li>
+
+            <li className="flex flex-col space-y-4 text-center items-center  max-sm text-sm">
+              <Badge />
+
+              <p>Garantie</p>
+            </li>
+
+            <li className="flex flex-col space-y-4 text-center items-center  max-sm text-sm">
+              <Badge />
+
+              <p>Economique</p>
+            </li>
+          </ul>
+
+          <ScrollBar orientation="horizontal" className="py-0.5" />
+        </ScrollArea>
       </div>
 
-      <div className='flex flex-col space-y-12 bg-white'>
-        <div className="container mx-auto max-sm:px-4 flex flex-col space-y-12 py-12" id="details">
+      <div className="flex flex-col space-y-12 bg-white">
+        <div
+          className="container mx-auto max-sm:px-4 flex flex-col space-y-12 py-12"
+          id="details"
+        >
           <div className="space-y-4">
             <h2 className="text-4xl font-extrabold tracking-tight text-gray-900 flex items-center gap-3">
               Toute une liste complète
@@ -65,10 +97,8 @@ function Page() {
           </div>
         </div>
 
-        <div id="contact" className="">
-          <div className="">
-            <ContactForm />
-          </div>
+        <div id="contact" className="relative">
+          <ContactForm />
         </div>
 
         <div className="bg-green-400 min-h-64 text-white font-bold  p-8">
