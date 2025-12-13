@@ -31,7 +31,7 @@ export default function LandingPage() {
     {
       title: 'Controller et Innover avec nous',
       description:
-        'Investissez dans une solution énergétique fiable et profitez d’un retour sur investissement rapide grâce aux économies réalisées.',
+        'Investissez dans une solution énergétique fiable et faites des éconnomies',
       image: landingIllu3,
     },
   ];
@@ -52,7 +52,7 @@ export default function LandingPage() {
       {/**Landing */}
       <div className="flex flex-col-reverse sm:items-center sm:justify-center relative max-h-[90vh]">
         <Image
-          src={landingData[landingIdx-1].image}
+          src={landingData[landingIdx - 1].image}
           alt=""
           width={4256}
           height={2832}
@@ -63,7 +63,7 @@ export default function LandingPage() {
         <div className="flex h-[90vh] flex-col sm:justify-center container max-x-7xl">
           <div className="w-full h-[30%] relative sm:hidden">
             <Image
-              src={m_illu1}
+              src={landingData[landingIdx - 1].image}
               alt="mobile first illustration for landing"
               fill
               objectFit="cover"
@@ -71,10 +71,10 @@ export default function LandingPage() {
             />
           </div>
 
-          <div className="max-sm:h-[70%] flex flex-col w-full sm:w-2xl max-sm:py-24 py-8 p-4 justify-between sm:space-y-4 relative max-sm:bg-black ">
+          <div className="max-sm:h-[70%] flex flex-col w-full sm:w-2xl max-sm:py-12 py-8 p-4 justify-center  sm:space-y-4 relative max-sm:bg-black ">
             <motion.div
               initial={{ opacity: 0 }}
-              animate={{ opacity: 1, transition: { duration: 0.7 } }}
+              animate={{ opacity: 1, transition: { duration: 0.2 } }}
               className="absolute inset-0 z-0 sm:hidden"
               style={{
                 backgroundImage: `
@@ -117,23 +117,61 @@ export default function LandingPage() {
             </AnimatePresence>
 
             {/*CTA and landing control*/}
-            <div className="flex flex-col justify-between space-y-4  mt-8">
+            <div className="flex flex-col justify-between space-y-4  mt-8 max-sm:mt-4">
               {/**CTA */}
-              <div className="flex flex-row items-center space-x-4 justify-center z-10">
-                <Button
-                  variant={'secondary'}
-                  size={'lg'}
-                  className="rounded-full font-bold"
-                >
-                  Acheter
-                </Button>
-                <Button
-                  size={'lg'}
-                  className="text-white font-bold rounded-full"
-                >
-                  Decouvrir
-                </Button>
-              </div>
+              {landingIdx === 1 && (
+                <div className="flex flex-row max-sm:flex-col max-sm:justify-start max-sm:items-start space-y-4 items-center  space-x-4 justify-center z-10">
+                  <Button
+                    variant={'secondary'}
+                    size={'lg'}
+                    className="rounded-full font-bold"
+                  >
+                    Acheter
+                  </Button>
+                  <Button
+                    size={'lg'}
+                    className="text-white font-bold rounded-full"
+                  >
+                    Decouvrir
+                  </Button>
+                </div>
+              )}
+
+              {landingIdx === 2 && (
+                <div className="flex flex-row max-sm:flex-col max-sm:justify-start max-sm:items-start space-y-4 items-center space-x-4 justify-center z-10">
+                  <Button
+                    variant={'secondary'}
+                    size={'lg'}
+                    className="rounded-full font-bold"
+                  >
+                    Nous contacter
+                  </Button>
+                  <Button
+                    size={'lg'}
+                    className="text-white font-bold rounded-full"
+                  >
+                    Faire une installation
+                  </Button>
+                </div>
+              )}
+
+              {landingIdx === 3 && (
+                <div className="flex flex-row max-sm:flex-col max-sm:justify-start max-sm:items-start space-y-4 items-center space-x-4 justify-center z-10">
+                  <Button
+                    variant={'secondary'}
+                    size={'lg'}
+                    className="rounded-full font-bold"
+                  >
+                    Nous contacter
+                  </Button>
+                  <Button
+                    size={'lg'}
+                    className="text-white font-bold rounded-full"
+                  >
+                    Faire une installation
+                  </Button>
+                </div>
+              )}
 
               {/**Landing control */}
               <div className="flex flew-row space-x-1 items-center justify-center z-10">

@@ -21,7 +21,10 @@ function StoreLayout({children}: {children: React.ReactNode}) {
         <PublicityBanner />
       </div>
 
-      <div className="mx-auto  w-full">
+      <div className="mx-auto  w-full flex flex-col space-y-2">
+        <h3 className="font-bold text-3xl ms:text-4xl tracking-tight px-4 text-gray-900">
+          Categories
+        </h3>
         <CatgeoriesList categories={categories} iconSize="small" />
       </div>
 

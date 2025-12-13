@@ -11,12 +11,12 @@ export const categories = [
       icon: solarPanel,
     },
     {
-      name: 'Electricité batiment',
+      name: 'Electricite batiment',
       icon: electricBuilding,
     },
 
     {
-      name: "Electricité industrielle",
+      name: "Electricite industrielle",
       icon: industry
     }
     ,

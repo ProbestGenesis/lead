@@ -5,30 +5,39 @@ import Logo from '../ui/logo';
 import { ShoppingCart, Tally4 } from 'lucide-react';
 import { usePathname, useParams } from 'next/navigation';
 import { useEffect, useState } from 'react';
-import { Drawer, DrawerContent, DrawerDescription, DrawerClose, DrawerHeader, DrawerFooter, DrawerTitle, DrawerTrigger } from '../ui/drawer';
+import {
+  Drawer,
+  DrawerContent,
+  DrawerDescription,
+  DrawerClose,
+  DrawerHeader,
+  DrawerFooter,
+  DrawerTitle,
+  DrawerTrigger,
+} from '../ui/drawer';
 import { Button } from '../ui/button';
 import clsx from 'clsx';
-const link = ['Accueil', 'A propos', 'Contact'];
- 
+const link = ['Accueil', 'A propos', 'Contact', 'Carrière', 'Boutique'];
+
 function NavBar() {
-  const pathname = usePathname()
+  const pathname = usePathname();
   const { category } = useParams();
-  console.log('category', category)
-  
-  if (pathname?.includes("store")){
+  console.log('category', category);
+
+  if (pathname?.includes('store')) {
     return (
       <nav className="sticky top-0 z-50 flex  w-full items-center justify-center  py-4 px-2 bg-white/95 backdrop-blur supports-[backdrop-filter]:bg-white/40 ">
         <div className="flex w-full justify-between items-center  max-w-6xl container">
-          <div className="flex items-center justify-start space-x-6.5">
+          <div className="flex items-center justify-start space-x-6.5 max-sm:space-x-2">
             <Logo />
 
-            <div className="flex items-center space-x-4.5">
+            <div className="flex items-center space-x-4.5 max-sm:space-x-1.5">
               <Link href="/store" className="px-2 border-r-2 ">
                 <p className="font-medium mx-4 uppercase ">boutique</p>
               </Link>
 
               <ul className="flex items-center space-x-2 cursor-pointer">
-                <Link href="">{category}</Link>
+                <Link href="">{category?.slice(0, 15).toLocaleString()}</Link>
               </ul>
             </div>
           </div>
@@ -36,16 +45,19 @@ function NavBar() {
           <LeftLinks />
 
           <div className="sm:hidden">
-          <Drawer direction="top" >
-            <DrawerTrigger>
-              <Button variant={'ghost'} size={'icon-lg'} className='sm:hidden'>
-                <Tally4 strokeWidth={2.5} color="black" />
-              </Button>
-            </DrawerTrigger>
+            <Drawer direction="top">
+              <DrawerTrigger>
+                <Tally4
+                  strokeWidth={2.5}
+                  color="black"
+                  size={32}
+                  className="sm:hidden"
+                />
+              </DrawerTrigger>
 
-            <DrawerContent></DrawerContent>
-          </Drawer>
-          </div> 
+              <DrawerContent></DrawerContent>
+            </Drawer>
+          </div>
         </div>
       </nav>
     );
@@ -62,11 +74,11 @@ function NavBar() {
       case 'Contact':
         return '/contact';
         break;
-      case 'Career':
-        return '/carrière'
+      case 'Carrière':
+        return '/store';
         break;
-      case 'Store':
-        return '/boutique'
+      case 'Boutique':
+        return '/Store';
         break;
       default:
         return '/';
@@ -76,36 +88,44 @@ function NavBar() {
   return (
     <nav className=" sticky top-0 z-50 flex  w-full items-center justify-center  py-4 px-2 bg-white/95 backdrop-blur supports-[backdrop-filter]:bg-white/40 ">
       <div className="flex w-full justify-between items-center  max-w-6xl container">
-        <div className="flex items-center justify-start space-x-6.5">
+        <div className="flex items-center justify-start space-x-6.5 max-sm:space-x-2">
           <Logo />
 
-          <ul className="max-sm:hidden flex items-center space-x-3">
-            {link.map((item, idx) => (
-              <Link href={href[idx]} key={idx.toString()}>
-                {' '}
-                <li
-                  className={clsx(
-                    'transition-all decoration-2 hover:underline hover:font-bold hover:underline-offset-4 decoration-blue-700 cursor-pointer',
-                    {
-                      'underline underline-offset-8': pathname === href[idx],
-                    }
-                  )}
-                >
-                  {item}
-                </li>
-              </Link>
-            ))}
+          <ul className="max-sm:hidden flex items-center space-x-3 max-sm:space-x-1.5">
+            {link.map((item, idx) => {
+              if (idx <= 2) {
+                return (
+                  <Link href={href[idx]} key={idx.toString()}>
+                    {' '}
+                    <li
+                      className={clsx(
+                        'transition-all decoration-2 hover:underline hover:font-bold hover:underline-offset-4 decoration-blue-700 cursor-pointer',
+                        {
+                          'underline underline-offset-8':
+                            pathname === href[idx],
+                        }
+                      )}
+                    >
+                      {item}
+                    </li>
+                  </Link>
+                );
+              }
+            })}
           </ul>
         </div>
 
         <LeftLinks />
 
-        <div className='sm:hidden'>
+        <div className="sm:hidden">
           <Drawer direction="top">
-            <DrawerTrigger asChild>
-              <Button variant={'ghost'} size={'lg'} className="sm:hidden">
-                <Tally4 strokeWidth={2.5} color="black" size={48} />
-              </Button>
+            <DrawerTrigger>
+              <Tally4
+                strokeWidth={2.5}
+                color="black"
+                size={32}
+                className="sm:hidden"
+              />
             </DrawerTrigger>
 
             <DrawerContent className="rounded-none">
@@ -117,7 +137,7 @@ function NavBar() {
                 <ul className="flex flex-col space-y-4 p-2">
                   {link.map((item, idx) => (
                     <Link href={href[idx]} key={idx.toString()}>
-                      {item}
+                      <DrawerClose>{item}</DrawerClose>
                     </Link>
                   ))}{' '}
                 </ul>
@@ -148,18 +168,14 @@ const LeftLinks = () => {
     <div>
       <ul className="max-sm:hidden flex items-center space-x-3">
         <li className="mx-4 transition-all decoration-2 hover:underline hover:font-bold hover:underline-offset-4 decoration-blue-700 cursor-pointer">
-        <Link href="career">
-        Carrière
-          </Link> 
+          <Link href="career">Carrière</Link>
         </li>
 
         <li className="mx-4 transition-all decoration-2 hover:underline hover:font-bold hover:underline-offset-4 decoration-blue-700 cursor-pointer">
-          <Link href="store">
-           Boutique
-          </Link>
+          <Link href="store">Boutique</Link>
         </li>
       </ul>
     </div>
   );
-}
+};
 export default NavBar;

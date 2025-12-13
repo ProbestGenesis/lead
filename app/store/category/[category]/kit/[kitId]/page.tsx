@@ -14,9 +14,9 @@ function Page() {
   const id = parseInt(kitId);
   return (
     <section className="bg-gray-50">
-      <div className="bg-yellow-400 h-screen">
-        <div className="flex space-x-12 flex-row items-center w-full h-full justify-center max-sm:flex-col-reverse">
-          <div className="flex flex-col space-y-4 max-w-sm">
+      <div className="bg-yellow-400 h-[90vh]">
+        <div className="flex  space-x-12 flex-row items-center w-full h-full sm:justify-center max-sm:flex-col-reverse max-sm:space-y-12">
+          <div className="flex flex-col space-y-4 max-w-sm px-4 flex-1">
             <h3 className="text-3xl font-bold tracking-tight sm:text-7xl text-gray-900">
               {kitData.solar_kits[id]?.name}
             </h3>
