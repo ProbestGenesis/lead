@@ -212,7 +212,7 @@ export const ComposantComponent = ({ item }: { item: SolarKit }) => {
         <li
           key={key}
           className={clsx('flex items-start text-sm text-gray-600', {
-            'flex-col gap-4 border p-4 ': kitId,
+            'flex-col gap-4 border p-4 hover:scale-105 active:scale-105 transition-all': kitId,
           })}
         >
           <span className="flex-shrink-0 mr-2 mt-1">

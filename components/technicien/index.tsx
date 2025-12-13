@@ -1,12 +1,12 @@
-"use client";
-import Image from "next/image";
-import { Button } from "../ui/button";
-import Link from "next/link";
-import techncienImage from "@/assets/technicien.jpg";
-import whatsappIcon from "@/assets/whatsapp.png";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { useForm } from "react-hook-form";
-import { z } from "zod";
+'use client';
+import Image from 'next/image';
+import { Button } from '../ui/button';
+import Link from 'next/link';
+import techncienImage from '@/assets/technicien.jpg';
+import whatsappIcon from '@/assets/whatsapp.png';
+import { zodResolver } from '@hookform/resolvers/zod';
+import { useForm } from 'react-hook-form';
+import { z } from 'zod';
 import {
   Form,
   FormControl,
@@ -15,22 +15,22 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-} from "@/components/ui/form";
-import { Input } from "../ui/input";
-import { Textarea } from "../ui/textarea";
+} from '@/components/ui/form';
+import { Input } from '../ui/input';
+import { Textarea } from '../ui/textarea';
 
 const formSchema = z.object({
   lastname: z
     .string()
-    .min(2, { message: "Votre nom doit contenir au moins deux caractères" }),
+    .min(2, { message: 'Votre nom doit contenir au moins deux caractères' }),
   firstname: z.string().min(2, {
-    message: "Votre prénom doit contenir au moins deux caractères",
+    message: 'Votre prénom doit contenir au moins deux caractères',
   }),
   email: z.string().nonempty({
-    message: "Username must be at least 2 characters.",
+    message: 'Veuillez saisir votre email',
   }),
   message: z.string().min(60, {
-    message: "Le message doit contenir au moins 60 caractères",
+    message: 'Le message doit contenir au moins 60 caractères',
   }),
 });
 function ContactTechnicien() {
@@ -74,13 +74,36 @@ function ContactTechnicien() {
 }
 
 export const ContactComponent = () => {
+  return (
+    <div className="grid grid-cols-4 gap-0 max-md:flex flex-col max-lg:min-h-screen">
+      <div className="col-span-2">
+        <Image
+          src={techncienImage}
+          alt=""
+          width={1333}
+          height={2000}
+          placeholder="blur"
+          style={{ objectFit: 'cover' }}
+          quality={60}
+          className="h-[80vh] lg:h-screen"
+        />
+      </div>
+
+      <div className="col-span-2 ">
+        <ContactForm />
+      </div>
+    </div>
+  );
+};
+
+export const ContactForm = () => {
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      email: "",
-      lastname: "",
-      firstname: "",
-      message: "",
+      email: '',
+      lastname: '',
+      firstname: '',
+      message: '',
     },
   });
 
@@ -91,136 +114,121 @@ export const ContactComponent = () => {
     console.log(values);
   }
   return (
-    <div className="grid grid-cols-4 gap-0 max-md:flex flex-col max-lg:min-h-screen">
-      <div className="col-span-2">
-        <Image
-          src={techncienImage}
-          alt=""
-          width={1333}
-          height={2000}
-          placeholder="blur"
-          style={{ objectFit: "cover" }}
-          quality={60}
-          className="h-[80vh] lg:h-screen"
-        />
+    <div className="flex w-full h-full flex-col space-y-8 items-center justify-center px-8 text-left bg-white">
+      <h3 className="text-3xl font-bold tracking-tight sm:text-4xl text-gray-900">
+        Nous contacter
+      </h3>
+      <span className="flex items-center justify-center space-x-4 mx-auto">
+        <Link
+          href={'https://wa.me/99796474'}
+          target="_blank"
+          className="flex flex-col items-center"
+        >
+          <Image
+            src={whatsappIcon}
+            alt="whatsapp icon"
+            className="w-12 h-12 mx-auto"
+          />
+
+          <p>Whatsapp</p>
+        </Link>
+
+        <Link
+          href={'https://wa.me/99796474'}
+          target="_blank"
+          className="flex flex-col items-center"
+        >
+          <Image
+            src={whatsappIcon}
+            alt="whatsapp icon"
+            className="w-12 h-12 mx-auto"
+          />
+
+          <p>Whatsapp</p>
+        </Link>
+      </span>
+
+      <div className="my-4 flex items-center justify-center space-x-3.5 ">
+        <span className="flex-1 bg-gray-700 h-1.5  w-32 rounded-full" />
+        <p className="font-bold text-gray-400">OU</p>
+        <span className="flex-1 bg-gray-700 h-1.5  w-32 rounded-full" />
       </div>
-      <div className="col-span-2  flex flex-col space-y-8 items-center justify-center px-8 text-left bg-white">
-        <h3 className="text-3xl font-bold tracking-tight sm:text-4xl text-gray-900">
-          Nous contacter
-        </h3>
-        <span className="flex items-center justify-center space-x-4 mx-auto">
-          <Link
-            href={"https://wa.me/1234567890"}
-            target="_blank"
-            className="flex flex-col items-center"
-          >
-            <Image
-              src={whatsappIcon}
-              alt="whatsapp icon"
-              className="w-12 h-12 mx-auto"
+
+      <Form {...form}>
+        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-3.5">
+          <div className="flex flex-row space-x-2">
+            <FormField
+              control={form.control}
+              name="lastname"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Votre nom </FormLabel>
+                  <FormControl>
+                    <Input {...field} />
+                  </FormControl>
+
+                  <FormMessage className="max-w-[200px] text-xs" />
+                </FormItem>
+              )}
             />
 
-            <p>Whatsapp</p>
-          </Link>
-
-          <Link
-            href={"https://wa.me/1234567890"}
-            target="_blank"
-            className="flex flex-col items-center"
-          >
-            <Image
-              src={whatsappIcon}
-              alt="whatsapp icon"
-              className="w-12 h-12 mx-auto"
+            <FormField
+              control={form.control}
+              name="firstname"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Votre prénom</FormLabel>
+                  <FormControl>
+                    <Input {...field} />
+                  </FormControl>
+                  <FormMessage className="max-w-[200px] text-xs" />
+                </FormItem>
+              )}
             />
+          </div>
 
-            <p>Whatsapp</p>
-          </Link>
-        </span>
+          <FormField
+            control={form.control}
+            name="email"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>Votre email</FormLabel>
+                <FormControl>
+                  <Input
+                    placeholder="...@gmail.col"
+                    {...field}
+                    className="w-full"
+                  />
+                </FormControl>
+                <FormMessage className="max-w-3xs" />
+              </FormItem>
+            )}
+          />
 
-        <div className="my-4 flex items-center justify-center space-x-3.5 ">
-          <span className="flex-1 bg-gray-700 h-1.5  w-32 rounded-full" />
-          <p className="font-bold text-gray-400">OU</p>
-          <span className="flex-1 bg-gray-700 h-1.5  w-32 rounded-full" />
-        </div>
-        <div>
-          <Form {...form}>
-            <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-3.5">
-              <div className="flex flex-row space-x-2">
-                <FormField
-                  control={form.control}
-                  name="lastname"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel>Votre nom </FormLabel>
-                      <FormControl>
-                        <Input {...field} />
-                      </FormControl>
-
-                      <FormMessage className="max-w-[100px] text-xs" />
-                    </FormItem>
-                  )}
-                />
-
-                <FormField
-                  control={form.control}
-                  name="firstname"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel>Votre prénom</FormLabel>
-                      <FormControl>
-                        <Input {...field} />
-                      </FormControl>
-                      <FormMessage className="max-w-[100px] text-xs" />
-                    </FormItem>
-                  )}
-                />
-              </div>
-
-              <FormField
-                control={form.control}
-                name="email"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>Votre email</FormLabel>
-                    <FormControl>
-                      <Input
-                        placeholder="...@gmail.col"
-                        {...field}
-                        className="w-full"
-                      />
-                    </FormControl>
-                    <FormMessage className="max-w-3xs" />
-                  </FormItem>
-                )}
-              />
-
-              <FormField
-                control={form.control}
-                name="message"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>Votre email</FormLabel>
-                    <FormControl>
-                      <Textarea
-                        placeholder="Entrez votre message ici..."
-                        {...field}
-                        className="w-full max-h-32"
-                      />
-                    </FormControl>
-                    <FormMessage className="max-w-3xs" />
-                  </FormItem>
-                )}
-              />
-              <span className="flex justify-end w-full">
-                <Button type="submit" className="rounded-full">
-                  Submit
-                </Button>
-              </span>
-            </form>
-          </Form>
-        </div>
-      </div>
+          <FormField
+            control={form.control}
+            name="message"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>Votre email</FormLabel>
+                <FormControl>
+                  <Textarea
+                    placeholder="Entrez votre message ici..."
+                    {...field}
+                    className="w-full max-h-32"
+                  />
+                </FormControl>
+                <FormMessage className="max-w-3xs" />
+              </FormItem>
+            )}
+          />
+          <span className="flex justify-end w-full">
+            <Button type="submit" className="rounded-full">
+              Envoyer
+            </Button>
+          </span>
+        </form>
+      </Form>
     </div>
   );
 };
