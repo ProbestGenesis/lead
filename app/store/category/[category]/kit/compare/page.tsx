@@ -200,7 +200,7 @@ function Page() {
 }
 
 
-export const ComposantComponent = ({ item }: { item: SolarKit }) => {
+export const ComposantComponent = ({ item }: { item: SolarKit | undefined }) => {
   const { kitId }: { kitId: string } = useParams();
   console.log(kitId);
   const id = parseInt(kitId);

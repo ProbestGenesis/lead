@@ -50,7 +50,7 @@ function Page() {
         </h3>
         <div className=" max-sm:grid grid-cols-2 flex flex-wrap max-md:justify-center lg:mx-auto gap-2 flex-row lg:gap-8 md:gap-8">
           {storeData.map((item, idx) => {
-            if (idx !== 0 && idx !== 2 && idx % 2 === 0) {
+            if (idx !== 0 && idx === 4) {
               return (
                 <Card
                   key={idx.toString()}
@@ -198,52 +198,68 @@ function Page() {
 export const storeData = [
   {
     id: 3,
-    name: 'LED Light Bulb 12W',
-    description: 'Energy-efficient LED light bulb with 12W power consumption.',
+    name: 'Ampoule LED 12W',
+    description: 'Ampoule LED basse consommation de 12W.',
     price: 5.99,
-    category: 'Lighting',
+    category: 'Éclairage',
     image: '/images/led-light-bulb.jpg',
-    type: 'nomarl',
+    type: 'normal',
   },
-
   {
     id: 4,
-    name: 'Electric Heater 1500W',
-    description: 'High-performance electric heater with adjustable thermostat.',
+    name: 'Chauffage électrique 1500W',
+    description: 'Chauffage électrique performant avec thermostat réglable.',
     price: 49.99,
-    category: 'Heating',
+    category: 'Chauffage',
     image: '/images/electric-heater.jpg',
-    type: 'nomarl',
+    type: 'normal',
   },
   {
     id: 1,
-    name: 'Solar Panel Kit 100W',
+    name: 'Kit panneau solaire 100W',
     description:
-      'Complete solar panel kit with 100W panel, charge controller, and cables.',
+      'Kit complet avec panneau solaire 100W, régulateur de charge et câbles.',
     price: 199.99,
-    category: 'Energie solaire',
+    category: 'Énergie solaire',
     image: '/images/solar-panel-kit.jpg',
     type: 'kit',
   },
   {
     id: 2,
-    name: 'Portable Power Station 500Wh',
+    name: 'Station d\'énergie portable 500Wh',
     description:
-      'Compact and portable power station for outdoor and emergency use.',
+      'Station d\'énergie compacte et portable pour extérieur et urgence.',
     price: 299.99,
-    category: 'Power Stations',
+    category: 'Stations d\'énergie',
     image: '/images/power-station.jpg',
     type: 'kit',
   },
-
   {
     id: 5,
-    name: 'Rechargeable Fan',
-    description: 'Portable rechargeable fan with multiple speed settings.',
+    name: 'Ventilateur rechargeable',
+    description: 'Ventilateur portable rechargeable avec plusieurs vitesses.',
     price: 29.99,
-    category: 'Cooling',
+    category: 'Ventilation',
     image: '/images/rechargeable-fan.jpg',
-    type: 'nomarl',
+    type: 'normal',
+  },
+  {
+    id: 6,
+    name: 'Ventilateur rechargeable',
+    description: 'Ventilateur portable rechargeable avec plusieurs vitesses.',
+    price: 29.99,
+    category: 'Ventilation',
+    image: '/images/rechargeable-fan.jpg',
+    type: 'normal',
+  },
+  {
+    id: 7,
+    name: 'Ventilateur rechargeable',
+    description: 'Ventilateur portable rechargeable avec plusieurs vitesses.',
+    price: 29.99,
+    category: 'Ventilation',
+    image: '/images/rechargeable-fan.jpg',
+    type: 'normal',
   },
 ];
 export default Page;

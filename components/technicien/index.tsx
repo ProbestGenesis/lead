@@ -18,6 +18,7 @@ import {
 } from '@/components/ui/form';
 import { Input } from '../ui/input';
 import { Textarea } from '../ui/textarea';
+import { motion } from "motion/react"
 
 const formSchema = z.object({
   lastname: z
@@ -114,7 +115,7 @@ export const ContactForm = () => {
     console.log(values);
   }
   return (
-    <div className="flex w-full h-full flex-col space-y-8 items-center justify-center px-8 text-left bg-white">
+    <motion.div initial={{ opacity: 0, y:10 }} whileInView={{ opacity: 1, y: 0 }} animate={{ transition: {duration: 0.2} }} className="flex w-full h-full flex-col space-y-8 items-center justify-center px-8 text-left bg-white">
       <h3 className="text-3xl font-bold tracking-tight sm:text-4xl text-gray-900">
         Nous contacter
       </h3>
@@ -229,7 +230,7 @@ export const ContactForm = () => {
           </span>
         </form>
       </Form>
-    </div>
+    </motion.div>
   );
 };
 export default ContactTechnicien;
