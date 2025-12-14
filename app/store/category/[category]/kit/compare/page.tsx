@@ -208,7 +208,7 @@ export const ComposantComponent = ({ item }: { item: SolarKit | undefined }) => 
     <ul className={clsx("gap-2", {
       "flex flex-row gap-4 mx-auto flex-wrap": kitId
     })}>
-      {Object.entries(item.components).map(([key, value]) => (
+      {item && Object.entries(item?.components).map(([key, value]) => (
         <li
           key={key}
           className={clsx('flex items-start text-sm text-gray-600', {
