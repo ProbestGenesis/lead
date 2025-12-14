@@ -10,12 +10,15 @@ import { GetComponentName } from '../compare/page';
 import { Button } from '@/components/ui/button';
 import { ContactForm } from '@/components/technicien';
 import { ScrollArea, ScrollBar } from '@/components/ui/scroll-area';
+import Image from 'next/image';
+import canal from "@/assets/canal.png"
+
 function Page() {
   const { kitId }: { kitId: string } = useParams();
   console.log(kitId);
   const id = parseInt(kitId);
 
-  const data = kitData.solar_kits.find(item => item.id === id);
+  const data = kitData.solar_kits.find((item) => item.id === id);
   return (
     <section className="">
       <div className="bg-yellow-400 h-[82vh] max-sm:min-h-[90vh] ">
@@ -40,8 +43,13 @@ function Page() {
               </Button>
             </div>
           </div>
-          <div className="border border-white min-w-[500px] max-sm:w-full min-h-96">
-            ee
+          <div className=" w-[500px] max-sm:w-full h-96 relative">
+            <Image
+              src={data?.images?.[0] ?? ""}
+              alt=""
+              fill
+              className="object-cover  z-10"
+            />
           </div>
         </div>
       </div>
@@ -80,22 +88,41 @@ function Page() {
 
       <div className="flex flex-col space-y-12 bg-white">
         <div
-          className="container mx-auto max-sm:px-4 flex flex-col space-y-12 py-12"
+          className="container mx-auto max-sm:px-4 grid grid-cols-2 max-sm:flex max-sm:flex-col space-y-12 py-12"
           id="details"
         >
-          <div className="space-y-4">
-            <h2 className="text-4xl font-extrabold tracking-tight text-gray-900 flex items-center gap-3">
-              Toute une liste complète
-            </h2>
+          <div className="container mx-auto max-sm:px-4 flex flex-col space-y-12">
+            <div className="space-y-4">
+              <h2 className="text-4xl font-extrabold tracking-tight text-gray-900 flex items-center gap-3">
+                Toute une liste complète
+              </h2>
 
-            <div className="h-1 w-20 bg-secondary  rounded-full" />
-            <p className="text-gray-600 max-w-2xl text-left text-lg">
-              Découvrez les appareils compatibles avec nos kits solaires pour
-              répondre à tous vos besoins quotidiens.
-            </p>
+              <div className="h-1 w-20 bg-secondary  rounded-full" />
+              <p className="text-gray-600 max-w-2xl text-left text-lg">
+                Découvrez les appareils compatibles avec nos kits solaires pour
+                répondre à tous vos besoins quotidiens.
+              </p>
+            </div>
+            <div className="container  ">
+              <ComposantComponent item={data} />
+            </div>
           </div>
-          <div className="container  ">
-            <ComposantComponent item={data} />
+
+          <div className="">
+            <div className='flex flex-col space-y-4'>
+              <h3 className="text-4xl font-extrabold tracking-tight text-gray-900 flex items-center gap-3 border-4 w-fit  p-2 border-green-500">
+                kit Canal+ offert
+              </h3>
+
+              <div className=" w-[500px] max-sm:w-full max-sm:w-full h-96 relative">
+                <Image
+                  src={canal}
+                  alt=""
+                  fill
+                  className="object-cover  z-10"
+                />
+              </div>
+            </div>
           </div>
         </div>
 

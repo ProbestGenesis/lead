@@ -1,3 +1,5 @@
+import kitsolar from '@/assets/kitSolar.png';
+import { StaticImageData } from 'next/image';
 export type KitComponentKey =
   | 'panel'
   | 'panels'
@@ -19,7 +21,7 @@ export interface SolarKit {
   name: string;
   price: number;
   currency: string;
-  images: string[];
+  images: StaticImageData[];
   components: KitComponents;
 }
 
@@ -35,7 +37,7 @@ export const kitData: KitData = {
       name: 'Kit solaire Mini',
       price: 220000,
       currency: 'FCFA',
-      images: [],
+      images: [kitsolar],
       components: {
         panel: '01',
         battery: '01',
@@ -51,7 +53,7 @@ export const kitData: KitData = {
       name: 'Kit solaire pro',
       price: 300000,
       currency: 'FCFA',
-      images: [],
+      images: [kitsolar],
       components: {
         panel: '01',
         battery: '01',
@@ -68,7 +70,7 @@ export const kitData: KitData = {
       name: 'Kit solaire pro max',
       price: 435000,
       currency: 'FCFA',
-      images: [],
+      images: [kitsolar],
       components: {
         panels: '02',
         battery: '01',
@@ -86,7 +88,7 @@ export const kitData: KitData = {
       name: 'Kit solair ultra',
       price: 650000,
       currency: 'FCFA',
-      images: [],
+      images: [kitsolar],
       components: {
         panels: '04',
         batteries: '02',

@@ -13,10 +13,7 @@ function About() {
             <div className="h-1 w-20 bg-secondary rounded-full" />
 
             <p className="text-gray-600 max-w-3xl text-lg">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet,
-              sunt voluptatem. Consectetur voluptatibus itaque nesciunt,
-              excepturi porro sed soluta. Iure quam molestiae necessitatibus, ut
-              animi blanditiis sed eum cumque odio?
+              Nous sommes une entreprise électrique innovante, spécialisée dans l'installation de panneaux solaires et de solutions électriques sur mesure. Notre équipe d'experts accompagne particuliers et professionnels dans la transition énergétique, en proposant des systèmes performants, durables et respectueux de l'environnement.
             </p>
           </div>
 

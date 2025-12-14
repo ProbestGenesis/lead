@@ -23,8 +23,8 @@ import {
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
-import leadConsulting from "@/assets/leadConsulting.jpg"
-import leadConsultingBanner from "@/assets/leadConsultingBanner.jpg"
+import leadConsulting from '@/assets/leadConsulting.jpg';
+import leadConsultingBanner from '@/assets/leadConsultingBanner.jpg';
 
 export default function AboutPage() {
   return (
@@ -49,7 +49,7 @@ export default function AboutPage() {
                 <Award className="mr-2 h-4 w-4" />5 ans d'excellence
               </div>
               <h1 className="text-white  font-bold -tracking-wider leading-12 sm:leading-16 antialiased text-4xl sm:text-7xl">
-              LEAD CONSULTING
+                LEAD CONSULTING
               </h1>
               <p className="text-lg text-white md:text-xl max-w-[650px] leading-relaxed">
                 L'expert électrique de confiance pour les particuliers et
@@ -525,7 +525,7 @@ export default function AboutPage() {
                     size="lg"
                     className="font-bold text-white hover:bg-blue-700 shadow-lg shadow-blue-500/20"
                   >
-                    <Link href="/#contact" className="flex items-center gap-2">
+                    <Link href="/contact" className="flex items-center gap-2">
                       Demander un devis
                       <ArrowRight className="h-5 w-5" />
                     </Link>
@@ -586,9 +586,7 @@ export default function AboutPage() {
                       </div>
                       <div>
                         <p className="text-sm text-gray-600 mb-1">Adresse</p>
-                        <p className="font-bold text-gray-900">
-                         Lomé-TOGO
-                        </p>
+                        <p className="font-bold text-gray-900">Lomé-TOGO</p>
                       </div>
                     </div>
                   </div>

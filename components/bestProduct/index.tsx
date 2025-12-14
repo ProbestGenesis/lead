@@ -187,7 +187,7 @@ export const bestProducts = [
     id: 1,
     title: 'kit solaire Mini',
     description:
-      "Obtenez une indépendance énergétique avec notre mini kit solaire tout-en-un, compact et efficace.",
+      'Obtenez une indépendance énergétique avec notre mini kit solaire tout-en-un, compact et efficace.',
     imageUrl: kitsolar,
   },
 
@@ -195,16 +195,16 @@ export const bestProducts = [
     id: 2,
     title: 'Kit Solaire Pro',
     description:
-      "Découvrez nos solutions complètes pour une gestion énergétique industrielle fiable et performante.",
-    imageUrl: electricAmor,
+      'Découvrez nos solutions complètes pour une gestion énergétique industrielle fiable et performante.',
+    imageUrl: kitsolar,
   },
 
   {
     id: 3,
     title: 'Kit solaire Pro max',
     description:
-      "Maximisez votre autonomie énergétique grâce à notre kit solaire ultime, puissant et polyvalent.",
-    imageUrl: bati,
+      'Maximisez votre autonomie énergétique grâce à notre kit solaire ultime, puissant et polyvalent.',
+    imageUrl: kitsolar,
   },
 
   {
@@ -212,7 +212,7 @@ export const bestProducts = [
     title: 'Kit solaire Ultra ',
     description:
       "Profitez d'une autonomie énergétique optimale avec notre kit solaire ultra performant et durable.",
-    imageUrl: bati,
+    imageUrl: kitsolar,
   },
 ];
 export default BestProducts;
