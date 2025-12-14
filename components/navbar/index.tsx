@@ -75,10 +75,10 @@ function NavBar() {
         return '/contact';
         break;
       case 'Carrière':
-        return '/store';
+        return '/career';
         break;
       case 'Boutique':
-        return '/Store';
+        return '/store';
         break;
       default:
         return '/';

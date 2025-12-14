@@ -156,11 +156,11 @@ export default function AboutPage() {
         <section className="py-24 bg-green-300">
           <div className="container mx-auto px-4 md:px-6">
             <div className="text-center mb-16 space-y-4">
-              <h2 className="text-3xl font-bold tracking-tight sm:text-4xl text-gray-900">
+              <h2 className="text-3xl font-bold tracking-tight sm:text-4xl text-gray-900 text-left">
                 Nos Valeurs Fondamentales
               </h2>
-              <div className="h-1 w-20 bg-blue-600 mx-auto rounded-full" />
-              <p className="text-gray-600 max-w-2xl mx-auto text-lg">
+              <div className="h-1 w-20 bg-blue-600  rounded-full" />
+              <p className="text-gray-600 max-w-2xl text-left text-lg">
                 Ce qui nous guide au quotidien dans chaque intervention
               </p>
             </div>
@@ -224,13 +224,13 @@ export default function AboutPage() {
 
         {/* Certifications & Expertise */}
         <section className="py-24 bg-white">
-          <div className="container mx-auto px-4 md:px-6">
+          <div className="container mx-auto  px-4 md:px-6">
             <div className="text-center mb-16 space-y-4">
-              <h2 className="text-3xl font-bold tracking-tight sm:text-4xl text-gray-900">
+              <h2 className="text-3xl font-bold tracking-tight  text-left sm:text-4xl text-gray-900">
                 Certifications & Expertise
               </h2>
-              <div className="h-1 w-20 bg-blue-600 mx-auto rounded-full" />
-              <p className="text-gray-600 max-w-2xl mx-auto text-lg">
+              <div className="h-1 w-20 bg-blue-600  rounded-full" />
+              <p className="text-gray-600 max-w-2xl text-left  text-lg">
                 Des qualifications reconnues qui garantissent votre tranquillité
                 d'esprit
               </p>
@@ -332,11 +332,11 @@ export default function AboutPage() {
           <div className="absolute inset-0 bg-linear-to-t from-pink-300/60 to-pink-300/10" />
           <div className="container mx-auto px-4 md:px-6">
             <div className="text-center mb-16 space-y-4">
-              <h2 className="text-3xl font-bold tracking-tight sm:text-4xl text-gray-900">
+              <h2 className="text-3xl font-bold tracking-tight text-left sm:text-4xl text-gray-900">
                 Notre Équipe
               </h2>
-              <div className="h-1 w-20 bg-blue-600 mx-auto rounded-full" />
-              <p className="text-gray-600 max-w-2xl mx-auto text-lg">
+              <div className="h-1 w-20 bg-blue-600 text-left rounded-full" />
+              <p className="text-gray-600 max-w-2xl text-left text-lg">
                 12 électriciens et techniciens passionnés prêts à vous servir
               </p>
             </div>
@@ -560,7 +560,7 @@ export default function AboutPage() {
                           href="tel:0123456789"
                           className="font-bold text-gray-900 hover:text-blue-600"
                         >
-                          01 23 45 67 89
+                          00228 99796474
                         </a>
                       </div>
                     </div>
@@ -573,10 +573,10 @@ export default function AboutPage() {
                           Écrivez-nous
                         </p>
                         <a
-                          href="mailto:contact@elecpro.fr"
+                          href="mailto:contact@leadConsulting.fr"
                           className="font-bold text-gray-900 hover:text-blue-600"
                         >
-                          contact@elecpro.fr
+                          contact@leadConsulting.fr
                         </a>
                       </div>
                     </div>
@@ -587,9 +587,7 @@ export default function AboutPage() {
                       <div>
                         <p className="text-sm text-gray-600 mb-1">Adresse</p>
                         <p className="font-bold text-gray-900">
-                          123 Avenue des Champs
-                          <br />
-                          75008 Paris
+                         Lomé-TOGO
                         </p>
                       </div>
                     </div>

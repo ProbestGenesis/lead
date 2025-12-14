@@ -14,13 +14,15 @@ function Page() {
   const { kitId }: { kitId: string } = useParams();
   console.log(kitId);
   const id = parseInt(kitId);
+
+  const data = kitData.solar_kits.find(item => item.id === id);
   return (
     <section className="">
       <div className="bg-yellow-400 h-[82vh] max-sm:min-h-[90vh] ">
         <div className="flex space-x-12 flex-row sm:items-center w-full h-full sm:justify-between container mx-auto max-sm:flex-col-reverse max-sm:gap-12">
           <div className="flex flex-col space-y-4 max-w-lg px-4 flex-1">
             <h3 className="text-3xl font-bold tracking-tight sm:text-7xl text-gray-900 text-wrap">
-              {kitData.solar_kits[id]?.name}
+              {data?.name}
             </h3>
 
             <p className="text-accent text-wrao">
@@ -93,7 +95,7 @@ function Page() {
             </p>
           </div>
           <div className="container  ">
-            <ComposantComponent item={kitData.solar_kits[id]} />
+            <ComposantComponent item={data} />
           </div>
         </div>
 

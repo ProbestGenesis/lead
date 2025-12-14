@@ -120,7 +120,7 @@ export default function LandingPage() {
             <div className="flex flex-col justify-between space-y-4  mt-8 max-sm:mt-4">
               {/**CTA */}
               {landingIdx === 1 && (
-                <div className="flex flex-row max-sm:flex-col max-sm:justify-start max-sm:items-start space-y-4 items-center  space-x-4 justify-center z-10">
+                <div className="flex flex-row  items-center  space-x-4 justify-center z-10">
                   <Button
                     variant={'secondary'}
                     size={'lg'}
@@ -138,14 +138,8 @@ export default function LandingPage() {
               )}
 
               {landingIdx === 2 && (
-                <div className="flex flex-row max-sm:flex-col max-sm:justify-start max-sm:items-start space-y-4 items-center space-x-4 justify-center z-10">
-                  <Button
-                    variant={'secondary'}
-                    size={'lg'}
-                    className="rounded-full font-bold"
-                  >
-                    Nous contacter
-                  </Button>
+                <div className="flex flex-row    space-y-4 items-center space-x-4 justify-center z-10">
+                 
                   <Button
                     size={'lg'}
                     className="text-white font-bold rounded-full"
@@ -156,19 +150,12 @@ export default function LandingPage() {
               )}
 
               {landingIdx === 3 && (
-                <div className="flex flex-row max-sm:flex-col max-sm:justify-start max-sm:items-start space-y-4 items-center space-x-4 justify-center z-10">
-                  <Button
-                    variant={'secondary'}
-                    size={'lg'}
-                    className="rounded-full font-bold"
-                  >
-                    Nous contacter
-                  </Button>
+                <div className="flex flex-row   space-y-4 items-center space-x-4 justify-center z-10">
                   <Button
                     size={'lg'}
                     className="text-white font-bold rounded-full"
                   >
-                    Faire une installation
+                    Nous contacter
                   </Button>
                 </div>
               )}

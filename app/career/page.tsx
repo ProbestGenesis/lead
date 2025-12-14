@@ -74,7 +74,7 @@ const JobCard: React.FC<JobCardProps> = ({
 
     <div className="mt-6 pt-6 border-t border-gray-100 flex justify-end">
       <Link
-        href={offerLink}
+        href={"/contact"}
         className=""
       >
         <Button size={"lg"} className="flex flex-row space-w-4 text-white hover:bg-blue-600">
@@ -127,7 +127,7 @@ const InternshipCard: React.FC<InternshipCardProps> = ({
     </p>
 
     <div className="mt-6 pt-6 border-t border-gray-100 flex justify-end">
-      <Link href={offerLink}>
+      <Link href={"/contact"}>
         <Button
           size={'lg'}
           className="flex flex-row space-w-4 text-white hover:bg-green-600"
