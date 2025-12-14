@@ -30,7 +30,7 @@ function ProductsCategories() {
 
 export const CatgeoriesList = ({ categories, iconSize }: { categories: { name: string; icon: StaticImageData }[] , iconSize: "normal" | "small"}) => {
   return (
-    <div className="container  2xl:px-12 max-sm:px-4 mx-auto flex flex-row flex-wrap max-sm:justify-center  gap-8 md:space-x-16 ">
+    <div className="container  2xl:px-12 max-sm:px-2.5 mx-auto flex flex-row flex-wrap max-sm:justify-center  gap-8 md:space-x-16 ">
       {categories.map((category, idx) => (
         <Link
           href={`/store/category/${category.name.split(' ').join('_')}`}
@@ -39,7 +39,7 @@ export const CatgeoriesList = ({ categories, iconSize }: { categories: { name: s
         >
           <div
             className={`relative ${
-              iconSize === 'small' ? 'w-20 h-20' : ' w-30 h-30'
+              iconSize === 'small' ? 'w-18 h-18' : ' w-28 h-28'
             }`}
           >
             <Image
