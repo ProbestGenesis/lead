@@ -90,7 +90,7 @@ export const ContactComponent = () => {
         />
       </div>
 
-      <div className="col-span-2 ">
+      <div className="col-span-2  max-sm:flex">
         <ContactForm />
       </div>
     </div>
@@ -115,7 +115,7 @@ export const ContactForm = () => {
     console.log(values);
   }
   return (
-    <motion.div initial={{ opacity: 0, y:10 }} whileInView={{ opacity: 1, y: 0 }} animate={{ transition: {duration: 0.2} }} className="flex w-full h-full flex-col space-y-8 items-center justify-center px-8 text-left bg-white">
+    <motion.div initial={{ opacity: 0, y:10 }} whileInView={{ opacity: 1, y: 0 }} animate={{ transition: {duration: 0.2} }} className="flex w-full h-full max-sm:h-screen flex-col space-y-8 items-center justify-center px-8 text-left bg-white">
       <h3 className="text-3xl font-bold tracking-tight sm:text-4xl text-gray-900">
         Nous contacter
       </h3>

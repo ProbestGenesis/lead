@@ -4,8 +4,7 @@ import linkedin from '@/assets/linkedin.png';
 import Image  from 'next/image';
 import Link from 'next/link';
 
-type Props = {};
-function Following({}: Props) {
+function Following() {
   return (
     <div className="flex flex-col space-y-4  items-center justify-center py-8">
       <h3>Nous suivres sur les différentes platforme</h3>
@@ -28,10 +27,18 @@ function Following({}: Props) {
         </li>
 
         <li>
-          <Link href="https://facebook.com" className="flex flex-col space-y-4">
+          <Link
+            href="https://tiktok.com"
+          
+            className="flex flex-col space-y-3.5 rounded-full w-[46px] h-[46px] "
+          >
             {' '}
-            <Image className="mx-auto" src={facebook} alt="logo facebook" />
-            Facebook
+            <Image
+              className="mx-auto rounded-[100%] w-[46px] h-[46px] "
+              src={tiktok}
+              alt="logo facebook"
+            />
+            Tiktok
           </Link>
         </li>
       </ul>
