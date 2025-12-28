@@ -1,15 +1,14 @@
 'use client';
 
+import landingIllu from '@/assets/illu.jpg';
+import landingIllu2 from '@/assets/landing2.jpg';
+import landingIllu3 from '@/assets/landing3.jpg';
+import clsx from 'clsx';
+import { ArrowLeft, ArrowRight, Pause, Play } from 'lucide-react';
+import { AnimatePresence, motion } from 'motion/react';
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
-import m_illu1 from '@/assets/m_illu1.png';
 import { Button } from '../ui/button';
-import clsx from 'clsx';
-import { motion, AnimatePresence } from 'motion/react';
-import { ArrowLeft, ArrowRight, Pause, Play } from 'lucide-react';
-import landingIllu from '@/assets/illu.jpg';
-import landingIllu2 from "@/assets/landing2.jpg"
-import landingIllu3 from '@/assets/landing3.jpg';
 export default function LandingPage() {
   const [landingIdx, setLandingIdx] = useState(1);
   const [pause, setPause] = useState(false);
@@ -68,6 +67,7 @@ export default function LandingPage() {
               fill
               objectFit="cover"
               quality={60}
+              placeholder="blur"
             />
           </div>
 
@@ -93,21 +93,13 @@ export default function LandingPage() {
                   opacity: 1,
                   transition: {
                     duration: 0.1,
+                    ease: "easeInOut"
                   },
                 }}
                 exit={{ opacity: 0, transition: { duration: 0.3 } }}
                 className="flex flex-col space-y-6"
               >
-                {/*  <h2 className="text-white  font-bold -tracking-wider leading-12 sm:leading-16 antialiased text-4xl sm:text-7xl">
-                Énergie{' '}
-                <strong className="border relative p-2 me-1 border-transparent font-extrabold  transition-all hover:scale-105 cursor-pointer text-wrap z-10">
-                  <span className="inset-0 z-0 absolute bg-linear-to-tr to-blue-950 sm:from-black/25 sm:hidden" />
-                  Solaire{' '}
-                </strong>
-                pour tous
-              </h2>
-*/}{' '}
-                <motion.h2 className="text-white  font-bold -tracking-wider leading-12 sm:leading-16 antialiased text-4xl sm:text-7xl">
+                <motion.h2 className="text-white font-bold -tracking-wider leading-12 sm:leading-16 antialiased text-4xl sm:text-7xl">
                   {landingData[landingIdx - 1].title}
                 </motion.h2>
                 <motion.p className="text-gray-600 text-left sm:text-white max-w-2xl text-lg">
@@ -139,7 +131,6 @@ export default function LandingPage() {
 
               {landingIdx === 2 && (
                 <div className="flex flex-row    space-y-4 items-center space-x-4 justify-center z-10">
-                 
                   <Button
                     size={'lg'}
                     className="text-white font-bold rounded-full"

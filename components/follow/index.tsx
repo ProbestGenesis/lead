@@ -1,5 +1,5 @@
 import facebook from '@/assets/facebook.png';
-import tiktok from '@/assets/tiktok.png';
+import tiktok from '@/assets/tik.png';
 import linkedin from '@/assets/linkedin.png';
 import Image  from 'next/image';
 import Link from 'next/link';
@@ -30,11 +30,11 @@ function Following() {
           <Link
             href="https://tiktok.com"
           
-            className="flex flex-col space-y-3.5 rounded-full w-[46px] h-[46px] "
+            className="flex flex-col space-y-3.5 rounded-full w-12 h-12 "
           >
             {' '}
             <Image
-              className="mx-auto rounded-[100%] w-[46px] h-[46px] "
+              className="mx-auto rounded-[100%] w-12 h-12 "
               src={tiktok}
               alt="logo facebook"
             />

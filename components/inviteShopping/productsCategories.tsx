@@ -5,6 +5,7 @@ import { useState } from 'react';
 import Image, { StaticImageData } from 'next/image';
 import { categories } from '@/data/categories';
 import Link from 'next/link';
+import { motion } from "motion/react"
 function ProductsCategories() {
   const [currentCard, setCurrentCard] = useState<string | null>(null);
 
@@ -32,27 +33,33 @@ export const CatgeoriesList = ({ categories, iconSize }: { categories: { name: s
   return (
     <div className="container  2xl:px-12 max-sm:px-2.5 mx-auto flex flex-row flex-wrap max-sm:justify-center  gap-8 md:space-x-16 ">
       {categories.map((category, idx) => (
-        <Link
-          href={`/store/category/${category.name.split(' ').join('_')}`}
+        <motion.div
           key={idx}
-          className="flex flex-col  items-center justify-center space-y-4 cursor-pointer hover:bg-accent/40 active:bg-accent/40 hover:border-transparent p-2 active:border-transparent rounded-lg"
+          initial={{ opacity: 0, x: -10 * idx }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ delay: idx * 0.1, duration: 0.5 }}
         >
-          <div
-            className={`relative ${
-              iconSize === 'small' ? 'w-18 h-18' : ' w-28 h-28'
-            }`}
+          <Link
+            href={`/store/category/${category.name.split(' ').join('_')}`}
+            className="flex flex-col  items-center justify-center space-y-4 cursor-pointer hover:bg-accent/40 active:bg-accent/40 hover:border-transparent p-2 active:border-transparent rounded-lg"
           >
-            <Image
-              src={category.icon}
-              alt={`${category.name} icon`}
-              fill
-              objectFit="cover"
-            />
-          </div>
-          <h3 className="text-lg max-sm:text-sm text-blue-500">
-            {category.name}
-          </h3>
-        </Link>
+            <div
+              className={`relative ${
+                iconSize === 'small' ? 'w-18 h-18' : ' w-28 h-28'
+              }`}
+            >
+              <Image
+                src={category.icon}
+                alt={`${category.name} icon`}
+                fill
+                objectFit="cover"
+              />
+            </div>
+            <h3 className="text-lg max-sm:text-sm text-blue-500">
+              {category.name}
+            </h3>
+          </Link>
+        </motion.div>
       ))}
     </div>
   );

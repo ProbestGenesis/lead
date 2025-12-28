@@ -1,16 +1,4 @@
-"use client"
-import {
-  CheckCircle2,
-  Zap,
-  Lightbulb,
-  ShieldCheck,
-  Home,
-  Phone,
-  Mail,
-  MapPin,
-  Menu,
-  Clock,
-} from 'lucide-react';
+'use client';
 import {
   Card,
   CardContent,
@@ -18,8 +6,41 @@ import {
   CardHeader,
   CardTitle,
 } from '@/components/ui/card';
+import { Home, Lightbulb, ShieldCheck, Zap } from 'lucide-react';
+import { motion } from 'motion/react';
 import Link from 'next/link';
 function Services() {
+  const services = [
+    {
+      icon: <Lightbulb className="h-8 w-8 mx-auto text-white" />,
+      title: 'Installation',
+      description:
+        'Installation électrique complète pour neuf et rénovation. Pose de tableaux, prises, et éclairages LED basse consommation.',
+      highlight: false,
+    },
+    {
+      icon: <Zap className="h-8 w-8 mx-auto text-white fill-current" />,
+      title: 'Dépannage',
+      description:
+        "Intervention d'urgence pour pannes de courant, courts-circuits et dysfonctionnements. Diagnostic précis et réparation rapide.",
+      highlight: true,
+    },
+    {
+      icon: <ShieldCheck className="h-8 w-8 mx-auto text-white" />,
+      title: 'Mise aux normes',
+      description:
+        'Mise en sécurité de votre installation selon la norme NF C 15-100. Diagnostic complet et remplacement de tableaux.',
+      highlight: false,
+    },
+    {
+      icon: <Home className="h-8 w-8 mx-auto text-white" />,
+      title: 'Domotique',
+      description:
+        "Maison connectée : pilotage à distance du chauffage, des volets et de l'éclairage pour plus de confort et d'économies.",
+      highlight: false,
+    },
+  ];
+
   return (
     <section id="services" className="py-24 bg-white relative">
       {/* Decorative elements */}
@@ -37,51 +58,42 @@ function Services() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 mx-auto md:grid-cols-2 lg:grid-cols-4 gap-8">
-          <ServiceCard
-            icon={<Lightbulb className="h-8 w-8 mx-auto text-white" />}
-            title="Installation"
-            description="Installation électrique complète pour neuf et rénovation. Pose de tableaux, prises, et éclairages LED basse consommation."
-            delay={0}
-          />
-          <ServiceCard
-            icon={<Zap className="h-8 w-8 mx-auto text-white fill-current" />}
-            title="Dépannage"
-            description="Intervention d'urgence pour pannes de courant, courts-circuits et dysfonctionnements. Diagnostic précis et réparation rapide."
-            delay={100}
-            highlight
-          />
-          <ServiceCard
-            icon={<ShieldCheck className="h-8 w-8 mx-auto text-white" />}
-            title="Mise aux normes"
-            description="Mise en sécurité de votre installation selon la norme NF C 15-100. Diagnostic complet et remplacement de tableaux."
-            delay={200}
-          />
-          <ServiceCard
-            icon={<Home className="h-8 w-8 mx-auto text-white" />}
-            title="Domotique"
-            description="Maison connectée : pilotage à distance du chauffage, des volets et de l'éclairage pour plus de confort et d'économies."
-            delay={300}
-          />
+        <div className="sm:grid flex flex-col items-center justify-center mx-auto md:grid-cols-2 lg:grid-cols-4 gap-8">
+          {services.map((service, index) => (<div key={index} className='w-full'> 
+            <motion.div className='max-sm:hidden' initial={{ opacity: 0, x: -10 * index }} whileInView={{ opacity: 1, x: 0 }} transition={{ delay: index * 0.1, duration: 0.5 }}>
+              <ServiceCard
+                icon={service.icon}
+                title={service.title}
+                description={service.description}
+                highlight={service.highlight}
+              />
+            </motion.div>
+
+            <motion.div className='sm:hidden mx-auto w-full' key={index} initial={{ opacity: 0, y: -10 * index }} whileInView={{ opacity: 1, y: 0 }} transition={{ delay: index * 0.1, duration: 0.5 }}>
+              <ServiceCard
+                icon={service.icon}
+                title={service.title}
+                description={service.description}
+                highlight={service.highlight}
+              />
+            </motion.div>
+          </div>))}
         </div>
       </div>
     </section>
   );
 }
 
-
 function ServiceCard({
   icon,
   title,
   description,
   highlight = false,
-  delay = 0,
 }: {
   icon: React.ReactNode;
   title: string;
   description: string;
   highlight?: boolean;
-  delay?: number;
 }) {
   return (
     <Link href="#contact">
@@ -128,4 +140,4 @@ function ServiceCard({
   );
 }
 
-export default Services
+export default Services;
