@@ -30,10 +30,10 @@ function NavBar() {
 
   if (pathname?.includes('store')) {
     return (
-      <nav className="sticky top-0 z-50 flex  w-full items-center justify-center  py-4 px-2 bg-white/95 backdrop-blur supports-[backdrop-filter]:bg-white/40 ">
+      <nav className="sticky top-0 z-50 flex  w-full items-center justify-center  py-4  max-sm:py-2.5 px-2 bg-white/95 backdrop-blur supports-[backdrop-filter]:bg-white/40 ">
         <div className="flex w-full justify-between items-center  max-w-6xl container">
           <div className="flex items-center justify-start space-x-6.5 max-sm:space-x-2">
-            <Image alt="logo"  src={logo1} className='w-18 aspect-square' />
+            <Image alt="logo"  src={logo1} className='w-18  max-sm:w-12  aspect-square' />
 
             <div className="flex items-center space-x-4.5 max-sm:space-x-1.5">
               <Link href="/store" className="px-2 border-r-2 ">
@@ -90,10 +90,14 @@ function NavBar() {
     }
   });
   return (
-    <nav className=" sticky top-0 z-50 flex  w-full items-center justify-center  py-4 px-2 bg-white/95 backdrop-blur supports-[backdrop-filter]:bg-white/40 ">
+    <nav className=" sticky top-0 z-50 flex  w-full items-center justify-center  py-4 max-sm:py-2.5  px-2 bg-white/95 backdrop-blur supports-[backdrop-filter]:bg-white/40 ">
       <div className="flex w-full justify-between items-center  max-w-6xl container">
         <div className="flex items-center justify-start space-x-6.5 max-sm:space-x-2">
-          <Image alt="logo" src={logo1} className="w-18 aspect-square" />
+          <Image
+            alt="logo"
+            src={logo1}
+            className="w-18 max-sm:w-12 aspect-square"
+          />
 
           <ul className="max-sm:hidden flex items-center space-x-3 max-sm:space-x-1.5">
             {link.map((item, idx) => {

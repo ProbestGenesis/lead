@@ -23,7 +23,7 @@ export default function Home() {
         <Image
           alt="logo"
           src={logo1}
-          className="w-92 max-[372px]:w-82 aspect-square"
+          className="w-92 max-sm:w-54 aspect-square"
         />
       </div>
     );
