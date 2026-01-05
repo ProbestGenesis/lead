@@ -43,13 +43,13 @@ function BestProducts() {
           <div className="flex flex-row gap-4 flex-wrap  w-full items-center md:grid md:grid-cols-2   lg:grid-cols-1  xl:flex">
             {bestProducts.map((item, idx) => (
               <motion.div
-                className="shadow-lg max-sm:w-full md:w-full md:h-[500px] md:col-span-1 lg:w-2xs p-0 pb-8 rounded-none hover:shadow-2xl hover:scale-110 hover:z-10 transition-all  border-transparent hover:bg-green-500"
+                className="shadow-lg max-sm:w-full md:w-full md:h-[500px] md:col-span-1 lg:w-2xs p-0 sm:pb-8 rounded-none hover:shadow-2xl hover:scale-110 hover:z-10 transition-all  border-transparent hover:bg-green-500"
                 key={idx}
-                initial={{ opacity: 0, x: -10 * idx }}
+                initial={{ opacity: 0, }}
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ delay: idx * 0.1, duration: 0.5 }}
               >
-                <Card className="w-full h-full p-0 rounded-none">
+                <Card className="w-full h-full p-0 rounded-none max-sm:pb-4">
                   <CardHeader className="flex flex-col p-0 rounded-none">
                     <div className="relative flex-1 h-56 w-full">
                       <Image

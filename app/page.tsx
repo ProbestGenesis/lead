@@ -1,28 +1,32 @@
-"use client"
+'use client';
+import logo1 from '@/assets/LeadLogo1.svg';
 import About from '@/components/about';
-import LandingPage from '@/components/landing';
-import Services from '@/components/service';
-import Image from 'next/image';
-import Newly from '@/components/newly';
-import Following from '@/components/follow';
 import BestProducts from '@/components/bestProduct';
-import InviteShopping from '@/components/inviteShopping';
-import NewsLetters from '@/components/newsletter';
+import Following from '@/components/follow';
 import ProductsCategories from '@/components/inviteShopping/productsCategories';
+import LandingPage from '@/components/landing';
+import Newly from '@/components/newly';
+import NewsLetters from '@/components/newsletter';
+import Services from '@/components/service';
 import ContactTechnicien from '@/components/technicien';
-import { useState, useEffect } from 'react';
-
+import Image from 'next/image';
+import { useEffect, useState } from 'react';
 export default function Home() {
-
-  const [isReady, setIsReady] = useState(false)
+  const [isReady, setIsReady] = useState(false);
 
   useEffect(() => {
-    setIsReady(true)
-  }, [])
-  if(!isReady){
-    return <div className="flex w-full h-screen items-center justify-center bg-white">
-        <h2 className='font-bold text-xl animate-bounce'>Lead Consulting</h2>
-    </div>
+    setIsReady(true);
+  }, []);
+  if (!isReady) {
+    return (
+      <div className="flex w-full h-screen items-center justify-center bg-white">
+        <Image
+          alt="logo"
+          src={logo1}
+          className="w-92 max-[372px]:w-82 aspect-square"
+        />
+      </div>
+    );
   }
   return (
     <div className="flex flex-col w-full">
@@ -35,15 +39,11 @@ export default function Home() {
       <ProductsCategories />
       <BestProducts />
 
-      
-
       <ContactTechnicien />
-     <Newly />
-
+      <Newly />
 
       <NewsLetters />
-  
-  
+
       <Following />
     </div>
   );

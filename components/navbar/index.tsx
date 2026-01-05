@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 import Logo from '../ui/logo';
 import { ShoppingCart, Tally4 } from 'lucide-react';
 import { usePathname, useParams } from 'next/navigation';
@@ -17,6 +18,9 @@ import {
 } from '../ui/drawer';
 import { Button } from '../ui/button';
 import clsx from 'clsx';
+import logo1 from "@/assets/LeadLogo1.svg"
+
+
 const link = ['Accueil', 'A propos', 'Contact', 'Carrière', 'Boutique'];
 
 function NavBar() {
@@ -29,7 +33,7 @@ function NavBar() {
       <nav className="sticky top-0 z-50 flex  w-full items-center justify-center  py-4 px-2 bg-white/95 backdrop-blur supports-[backdrop-filter]:bg-white/40 ">
         <div className="flex w-full justify-between items-center  max-w-6xl container">
           <div className="flex items-center justify-start space-x-6.5 max-sm:space-x-2">
-            <Logo />
+            <Image alt="logo"  src={logo1} className='w-18 aspect-square' />
 
             <div className="flex items-center space-x-4.5 max-sm:space-x-1.5">
               <Link href="/store" className="px-2 border-r-2 ">
@@ -89,7 +93,7 @@ function NavBar() {
     <nav className=" sticky top-0 z-50 flex  w-full items-center justify-center  py-4 px-2 bg-white/95 backdrop-blur supports-[backdrop-filter]:bg-white/40 ">
       <div className="flex w-full justify-between items-center  max-w-6xl container">
         <div className="flex items-center justify-start space-x-6.5 max-sm:space-x-2">
-          <Logo />
+          <Image alt="logo" src={logo1} className="w-18 aspect-square" />
 
           <ul className="max-sm:hidden flex items-center space-x-3 max-sm:space-x-1.5">
             {link.map((item, idx) => {
